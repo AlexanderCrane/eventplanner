@@ -35,6 +35,8 @@
             System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange5 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
             this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
             this.monthView2 = new System.Windows.Forms.Calendar.MonthView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // calendar1
@@ -61,11 +63,11 @@
         calendarHighlightRange3,
         calendarHighlightRange4,
         calendarHighlightRange5};
-            this.calendar1.Location = new System.Drawing.Point(621, 28);
+            this.calendar1.Location = new System.Drawing.Point(645, 1);
             this.calendar1.Name = "calendar1";
             this.calendar1.Size = new System.Drawing.Size(541, 500);
             this.calendar1.TabIndex = 0;
-            this.calendar1.Text = "calendar1";
+            this.calendar1.Text = " ";
             this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
             // 
             // monthView2
@@ -90,11 +92,31 @@
             this.monthView2.TodayBorderColor = System.Drawing.Color.Maroon;
             this.monthView2.SelectionChanged += new System.EventHandler(this.monthView2_SelectionChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1053, 518);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1134, 518);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // UserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1221, 553);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.monthView2);
             this.Controls.Add(this.calendar1);
             this.Name = "UserWindow";
@@ -107,5 +129,7 @@
 
         private System.Windows.Forms.Calendar.Calendar calendar1;
         private System.Windows.Forms.Calendar.MonthView monthView2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

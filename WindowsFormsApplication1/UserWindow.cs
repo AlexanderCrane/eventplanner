@@ -26,6 +26,8 @@ namespace WindowsFormsApplication1
             calendar1.Items.Add(item);
         }
 
+        
+
         private void monthView2_SelectionChanged(object sender, EventArgs e)
         {
             calendar1.SelectionStart = monthView2.SelectionStart;
