@@ -20,7 +20,14 @@ namespace WindowsFormsApplication1
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < 48; i++) {
+                TextBox text = new TextBox();
+                text.ReadOnly = true;
+                text.MaximumSize = new Size(200, 300);
+                text.Size = new Size(200, 300);
+                text.Text = i.ToString();
+                flowLayoutPanel1.Controls.Add(text);
+            }
         }
 
         private void addEventButton_Click(object sender, EventArgs e)

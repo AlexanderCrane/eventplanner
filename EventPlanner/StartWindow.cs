@@ -15,6 +15,8 @@ namespace WindowsFormsApplication1
         public StartWindow()
         {
             InitializeComponent();
+            //lock size
+            this.MaximumSize = this.Size;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace WindowsFormsApplication1
             else
             {
                 AdminWindow admin = new AdminWindow();
-                admin.Show();
+                admin.ShowDialog();
             }
         }
 
@@ -41,7 +43,7 @@ namespace WindowsFormsApplication1
             {
                 //todo - pop up error if no username entered
                 UserWindow user = new UserWindow();
-                user.Show();
+                user.ShowDialog();
             }
         }
     }
