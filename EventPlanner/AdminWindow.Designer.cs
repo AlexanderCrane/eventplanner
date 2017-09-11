@@ -57,12 +57,16 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(699, 33);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(515, 452);
             this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel1_ControlAdded);
             // 
             // currentDateLabel
             // 
@@ -96,7 +100,7 @@
             this.Controls.Add(this.monthCalendar1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminWindow";
-            this.Text = "AdminWindow";
+            this.Text = "Add Events";
             this.Load += new System.EventHandler(this.AdminWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

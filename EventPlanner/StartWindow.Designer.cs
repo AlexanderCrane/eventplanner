@@ -30,7 +30,7 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.usernameBox = new System.Windows.Forms.TextBox();
+            this.usernameBox = new CueTextBox();
             this.SuspendLayout();
             // 
             // button2
@@ -57,12 +57,11 @@
             // 
             // usernameBox
             // 
-            this.usernameBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.usernameBox.Location = new System.Drawing.Point(94, 24);
+            this.usernameBox.Cue = "Enter your name...";
+            this.usernameBox.Location = new System.Drawing.Point(97, 28);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(100, 20);
-            this.usernameBox.TabIndex = 2;
-            this.usernameBox.Text = "Enter your name...";
+            this.usernameBox.TabIndex = 3;
             // 
             // StartWindow
             // 
@@ -73,7 +72,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "StartWindow";
-            this.Text = "Form1";
+            this.Text = "Event Planner";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,7 +81,7 @@
         #endregion
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox usernameBox;
+        private CueTextBox usernameBox;
     }
 }
 

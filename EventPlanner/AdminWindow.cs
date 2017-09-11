@@ -20,19 +20,25 @@ namespace WindowsFormsApplication1
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
-            TextBox[] TextBoxArray= new TextBox[48];
-
+            DateTime currentTime = DateTime.Today;
+            TextBox[] TextBoxArray = new TextBox[48];
+            
             for (int i = 0; i < 48; i++)
-            {
+            { 
                 TextBox text = new TextBox();
+                Label timeLabel = new Label();
+                timeLabel.Anchor = (AnchorStyles.Right);
+                timeLabel.Text = "              " + currentTime.ToShortTimeString();
                 text.ReadOnly = true;
+                text.Multiline = true;
 
                 TextBoxArray[i] = text;
                 text.Name = "text" + i.ToString();
                 text.MaximumSize = new Size(200, 300);
-                text.Size = new Size(200, 300);
-                text.Text = i.ToString();
+                text.Size = new Size(300, 50);
+                flowLayoutPanel1.Controls.Add(timeLabel);
                 flowLayoutPanel1.Controls.Add(text);
+                currentTime = currentTime.AddMinutes(30);
             }
 
             TextBoxArray[3].Text = "test";
@@ -55,6 +61,13 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void flowLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (flowLayoutPanel1.Controls.Count % 4 == 0)
+                flowLayoutPanel1.SetFlowBreak(e.Control as Control, true);
+
         }
     }
 }

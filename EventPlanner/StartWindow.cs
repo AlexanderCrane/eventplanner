@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //todo - pop up error if no username entered
+
             if (!usernameBox.Modified || usernameBox.TextLength == 0)
             {
                 MessageBox.Show("Enter a username!");
