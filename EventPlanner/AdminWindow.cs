@@ -42,5 +42,10 @@ namespace WindowsFormsApplication1
         {
             currentDateLabel.Text = e.Start.ToShortDateString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
