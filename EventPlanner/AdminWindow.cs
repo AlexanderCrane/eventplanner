@@ -27,9 +27,8 @@ namespace WindowsFormsApplication1
                 TextBox text = new TextBox();
                 text.ReadOnly = true;
 
-                //text.Name = "text" + i.ToString();
                 TextBoxArray[i] = text;
-
+                text.Name = "text" + i.ToString();
                 text.MaximumSize = new Size(200, 300);
                 text.Size = new Size(200, 300);
                 text.Text = i.ToString();

@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             //todo - pop up error if no username entered
-            if (!usernameBox.Modified)
+            if (!usernameBox.Modified || usernameBox.TextLength == 0)
             {
                 MessageBox.Show("Enter a username!");
             }
@@ -35,13 +35,12 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!usernameBox.Modified)
+            if (!usernameBox.Modified || usernameBox.TextLength == 0)
             {
                 MessageBox.Show("Enter a username!");
             }
             else
             {
-                //todo - pop up error if no username entered
                 UserWindow user = new UserWindow();
                 user.ShowDialog();
             }
