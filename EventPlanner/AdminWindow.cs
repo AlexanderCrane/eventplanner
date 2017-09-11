@@ -28,13 +28,19 @@ namespace WindowsFormsApplication1
                 text.Text = i.ToString();
                 flowLayoutPanel1.Controls.Add(text);
             }
+            currentDateLabel.Text = DateTime.Today.ToShortDateString();
         }
 
         private void addEventButton_Click(object sender, EventArgs e)
         {
             //open 'add event dialog'
-            RegisterEventWindow registerPopup = new RegisterEventWindow();
+            RegisterEventWindow registerPopup = new RegisterEventWindow(monthCalendar1.SelectionStart);
             registerPopup.ShowDialog();
+        }
+
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            currentDateLabel.Text = e.Start.ToShortDateString();
         }
     }
 }

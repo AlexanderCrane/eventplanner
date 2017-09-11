@@ -24,10 +24,11 @@ namespace WindowsFormsApplication1
         //we can reference them against the original list of datetimes for actual logic
         List<DateTime> halfHourDateTimes = new List<DateTime>();
         List<String> halfHourStrings = new List<String>();
-        public RegisterEventWindow()
+        public RegisterEventWindow(DateTime selectedDate)
         {
             InitializeComponent();
-            DateTime currentTime = DateTime.Today;
+            dateLabel.Text = "Adding event for: " + selectedDate.ToShortDateString();
+            DateTime currentTime = selectedDate.Date;
             for (int i = 0; i < 48; i++)
             {
                 halfHourDateTimes.Add(currentTime);

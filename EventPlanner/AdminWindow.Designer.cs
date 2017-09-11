@@ -31,17 +31,20 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.addEventButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.currentDateLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(42, 91);
+            this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // addEventButton
             // 
-            this.addEventButton.Location = new System.Drawing.Point(129, 332);
+            this.addEventButton.Location = new System.Drawing.Point(114, 311);
             this.addEventButton.Name = "addEventButton";
             this.addEventButton.Size = new System.Drawing.Size(75, 23);
             this.addEventButton.TabIndex = 1;
@@ -57,11 +60,21 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(386, 367);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
+            // currentDateLabel
+            // 
+            this.currentDateLabel.AutoSize = true;
+            this.currentDateLabel.Location = new System.Drawing.Point(135, 262);
+            this.currentDateLabel.Name = "currentDateLabel";
+            this.currentDateLabel.Size = new System.Drawing.Size(35, 13);
+            this.currentDateLabel.TabIndex = 3;
+            this.currentDateLabel.Text = "label1";
+            // 
             // AdminWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 426);
+            this.Controls.Add(this.currentDateLabel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.addEventButton);
             this.Controls.Add(this.monthCalendar1);
@@ -69,6 +82,7 @@
             this.Text = "AdminWindow";
             this.Load += new System.EventHandler(this.AdminWindow_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -77,5 +91,6 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button addEventButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label currentDateLabel;
     }
 }
