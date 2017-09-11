@@ -58,6 +58,9 @@
     <Compile Include="AdminWindow.Designer.cs">
       <DependentUpon>AdminWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="CueTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RegisterEventWindow.cs">
       <SubType>Form</SubType>
     </Compile>

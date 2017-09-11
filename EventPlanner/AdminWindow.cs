@@ -20,13 +20,20 @@ namespace WindowsFormsApplication1
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
+            DateTime currentTime = DateTime.Today;
+  
             for (int i = 0; i < 48; i++) {
                 TextBox text = new TextBox();
+                Label timeLabel = new Label();
+                timeLabel.Anchor = (AnchorStyles.Right);
+                timeLabel.Text = "              " + currentTime.ToShortTimeString();
                 text.ReadOnly = true;
+                text.Multiline = true;
                 text.MaximumSize = new Size(200, 300);
-                text.Size = new Size(200, 300);
-                text.Text = i.ToString();
+                text.Size = new Size(300, 50);
+                flowLayoutPanel1.Controls.Add(timeLabel);
                 flowLayoutPanel1.Controls.Add(text);
+                currentTime = currentTime.AddMinutes(30);
             }
         }
 
@@ -43,6 +50,13 @@ namespace WindowsFormsApplication1
             //instead, open our own add event dialog so we can create non-contiguous events
             e.Cancel = true;
             Console.Out.WriteLine("creating");
+        }
+
+        private void flowLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (flowLayoutPanel1.Controls.Count % 4 == 0)
+                flowLayoutPanel1.SetFlowBreak(e.Control as Control, true);
+
         }
     }
 }
