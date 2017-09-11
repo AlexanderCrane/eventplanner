@@ -44,7 +44,6 @@ namespace WindowsFormsApplication1
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            startTimes[0].SelectedItem
             //Write event specified by user to file
             this.Close();
         }
