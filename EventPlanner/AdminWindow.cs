@@ -20,36 +20,56 @@ namespace WindowsFormsApplication1
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             DateTime currentTime = DateTime.Today;
   
             for (int i = 0; i < 48; i++) {
+=======
+            TextBox[] TextBoxArray= new TextBox[48];
+
+            for (int i = 0; i < 48; i++)
+            {
+>>>>>>> 26c1929f8eec9b9cbc7e45f2769483d0aa2dbf8a
                 TextBox text = new TextBox();
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
                 timeLabel.Text = "              " + currentTime.ToShortTimeString();
                 text.ReadOnly = true;
+<<<<<<< HEAD
                 text.Multiline = true;
+=======
+
+                //text.Name = "text" + i.ToString();
+                TextBoxArray[i] = text;
+
+>>>>>>> 26c1929f8eec9b9cbc7e45f2769483d0aa2dbf8a
                 text.MaximumSize = new Size(200, 300);
                 text.Size = new Size(300, 50);
                 flowLayoutPanel1.Controls.Add(timeLabel);
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);
             }
+
+            TextBoxArray[3].Text = "test";
+
+            currentDateLabel.Text = DateTime.Today.ToShortDateString();
         }
 
         private void addEventButton_Click(object sender, EventArgs e)
         {
             //open 'add event dialog'
-            RegisterEventWindow registerPopup = new RegisterEventWindow();
+            RegisterEventWindow registerPopup = new RegisterEventWindow(monthCalendar1.SelectionStart);
             registerPopup.ShowDialog();
         }
 
-        private void calendar1_ItemCreating(object sender, CalendarItemCancelEventArgs e)
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
-            //when the user clicks on the calendar, cancel the calendar library's default event creation
-            //instead, open our own add event dialog so we can create non-contiguous events
-            e.Cancel = true;
-            Console.Out.WriteLine("creating");
+            currentDateLabel.Text = e.Start.ToShortDateString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void flowLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
