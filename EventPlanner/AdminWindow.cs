@@ -20,14 +20,24 @@ namespace WindowsFormsApplication1
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 48; i++) {
+            TextBox[] TextBoxArray= new TextBox[48];
+
+            for (int i = 0; i < 48; i++)
+            {
                 TextBox text = new TextBox();
                 text.ReadOnly = true;
+
+                //text.Name = "text" + i.ToString();
+                TextBoxArray[i] = text;
+
                 text.MaximumSize = new Size(200, 300);
                 text.Size = new Size(200, 300);
                 text.Text = i.ToString();
                 flowLayoutPanel1.Controls.Add(text);
             }
+
+            TextBoxArray[3].Text = "test";
+
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
         }
 
