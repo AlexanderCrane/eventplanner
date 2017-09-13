@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class StartWindow : Form
+    public partial class MainWindow : Form
     {
-
-        public StartWindow()
+        private string userName;
+        public MainWindow()
         {
             InitializeComponent();
             //lock size
@@ -22,30 +22,15 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (usernameBox.TextLength == 0)
-            {
-                MessageBox.Show("Enter a username!");
-            }
-            else
-            {
                 DateTime placeHolder = mainCalendar.SelectionStart;
                 RegisterEventWindow registerPopup = new RegisterEventWindow(placeHolder);
                 registerPopup.ShowDialog();
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (usernameBox.TextLength == 0)
-            {
-                MessageBox.Show("Enter a username!");
-            }
-            else
-            {
                 UserWindow user = new UserWindow();
                 user.ShowDialog();
-            }
         }
 
         private void mainCalendar_DateChanged(object sender, DateRangeEventArgs e)
@@ -56,11 +41,17 @@ namespace WindowsFormsApplication1
         private void StartWindow_Load(object sender, EventArgs e)
         {
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
+            LoginPopup login = new LoginPopup();
+            login.ShowDialog();
+            this.userName = login.userName;
+            label1.Text = "Logged in as " + userName;
         }
 
         private void currentDateLabel_Click(object sender, EventArgs e)
         {
             
         }
+
+      
     }
 }

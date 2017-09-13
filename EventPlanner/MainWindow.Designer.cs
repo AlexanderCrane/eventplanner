@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class StartWindow
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             this.addEventsButton = new System.Windows.Forms.Button();
             this.mainCalendar = new System.Windows.Forms.MonthCalendar();
             this.currentDateLabel = new System.Windows.Forms.Label();
-            this.usernameBox = new CueTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addAvailabilityButton
@@ -75,25 +75,26 @@
             this.currentDateLabel.Text = "date";
             this.currentDateLabel.Click += new System.EventHandler(this.currentDateLabel_Click);
             // 
-            // usernameBox
+            // label1
             // 
-            this.usernameBox.Cue = "Enter your name...";
-            this.usernameBox.Location = new System.Drawing.Point(97, 28);
-            this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(100, 20);
-            this.usernameBox.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(94, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
             // 
-            // StartWindow
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 283);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.currentDateLabel);
             this.Controls.Add(this.mainCalendar);
-            this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.addAvailabilityButton);
             this.Controls.Add(this.addEventsButton);
-            this.Name = "StartWindow";
+            this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Planner";
             this.Load += new System.EventHandler(this.StartWindow_Load);
@@ -105,9 +106,9 @@
         #endregion
         private System.Windows.Forms.Button addAvailabilityButton;
         private System.Windows.Forms.Button addEventsButton;
-        private CueTextBox usernameBox;
         public System.Windows.Forms.MonthCalendar mainCalendar;
         private System.Windows.Forms.Label currentDateLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
 

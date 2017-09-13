@@ -55,17 +55,23 @@
     <Compile Include="CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="LoginPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginPopup.Designer.cs">
+      <DependentUpon>LoginPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterEventWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegisterEventWindow.Designer.cs">
       <DependentUpon>RegisterEventWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="StartWindow.cs">
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartWindow.Designer.cs">
-      <DependentUpon>StartWindow.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,11 +84,14 @@
     <EmbeddedResource Include="AddAvailabilityWindow.resx">
       <DependentUpon>AddAvailabilityWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginPopup.resx">
+      <DependentUpon>LoginPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterEventWindow.resx">
       <DependentUpon>RegisterEventWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StartWindow.resx">
-      <DependentUpon>StartWindow.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
