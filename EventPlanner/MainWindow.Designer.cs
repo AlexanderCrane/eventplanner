@@ -38,7 +38,7 @@
             // addAvailabilityButton
             // 
             this.addAvailabilityButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAvailabilityButton.Location = new System.Drawing.Point(281, 201);
+            this.addAvailabilityButton.Location = new System.Drawing.Point(281, 145);
             this.addAvailabilityButton.Name = "addAvailabilityButton";
             this.addAvailabilityButton.Size = new System.Drawing.Size(142, 85);
             this.addAvailabilityButton.TabIndex = 1;
@@ -78,7 +78,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 43);
+            this.label1.Location = new System.Drawing.Point(94, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 6;

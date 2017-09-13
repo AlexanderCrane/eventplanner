@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
 
         //user can add new time slots to an event 
         //maintain a list of the boxes for entering these so we can reference them when they save
-        List<ComboBox> startTimes = new List<ComboBox>();
+        List<Tuple<ComboBox, ComboBox>> timeBoxes = new List<Tuple<ComboBox, ComboBox>>();
         List<ComboBox> endTimes = new List<ComboBox>();
 
 
@@ -36,17 +36,32 @@ namespace WindowsFormsApplication1
                 currentTime = currentTime.AddMinutes(30);
             }
             startTimeBox.DataSource = halfHourStrings;
-            startTimes.Add(startTimeBox);
 
             endTimeBox.BindingContext = new BindingContext();
             endTimeBox.DataSource = halfHourStrings;
-            endTimes.Add(endTimeBox);
+            timeBoxes.Add(new Tuple<ComboBox, ComboBox>(startTimeBox, endTimeBox));
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //Write event specified by user to file
-            this.Close();
+            foreach(Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
+            {
+                String endTimeString = (String)currentBoxes.Item2.SelectedItem;
+                String startTimeString = (String)currentBoxes.Item1.SelectedItem;
+                DateTime startTime = DateTime.Parse(startTimeString);
+                DateTime endTime = DateTime.Parse(endTimeString);
+
+                if (endTime <= startTime)
+                {
+                    MessageBox.Show("One of the time slots is impossible.");
+                }
+                else
+                {
+                    //Write event specified by user to file
+                    this.Close();
+                }
+            }
+
         }
 
         private void addSlotButton_Click(object sender, EventArgs e)
@@ -56,14 +71,15 @@ namespace WindowsFormsApplication1
             newStartBox.Text = "Start Time";
             newStartBox.BindingContext = new BindingContext();
             newStartBox.DataSource = halfHourStrings;
+            newStartBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             ComboBox newEndBox = new ComboBox();
             newEndBox.Text = "End Time";
             newEndBox.BindingContext = new BindingContext();
             newEndBox.DataSource = halfHourStrings;
+            newEndBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            startTimes.Add(newStartBox);
-            endTimes.Add(newEndBox);
+            timeBoxes.Add(new Tuple<ComboBox, ComboBox>(newStartBox, newEndBox));
             flowLayoutPanel1.Controls.Add(newStartBox);
             flowLayoutPanel1.Controls.Add(newEndBox);
             //add another row of combo boxes for the user to add another, non-contiguous timeslot
@@ -71,12 +87,11 @@ namespace WindowsFormsApplication1
 
         private void removeTimeSlotButton_Click(object sender, EventArgs e)
         {
-            if (startTimes.Count > 1 && endTimes.Count > 1)
+            if (timeBoxes.Count > 1)
             {
-                flowLayoutPanel1.Controls.Remove(startTimes.Last());
-                flowLayoutPanel1.Controls.Remove(endTimes.Last());
-                startTimes.Remove(startTimes.Last());
-                endTimes.Remove(endTimes.Last());
+                flowLayoutPanel1.Controls.Remove(timeBoxes.Last().Item1);
+                flowLayoutPanel1.Controls.Remove(timeBoxes.Last().Item2);
+                timeBoxes.Remove(timeBoxes.Last());
             }
         }
     }

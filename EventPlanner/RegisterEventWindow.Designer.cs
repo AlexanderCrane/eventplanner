@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.eventNameBox = new System.Windows.Forms.TextBox();
             this.startTimeBox = new System.Windows.Forms.ComboBox();
             this.endTimeBox = new System.Windows.Forms.ComboBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -38,34 +37,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new CueTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // eventNameBox
-            // 
-            this.eventNameBox.Location = new System.Drawing.Point(64, 62);
-            this.eventNameBox.Name = "eventNameBox";
-            this.eventNameBox.Size = new System.Drawing.Size(152, 20);
-            this.eventNameBox.TabIndex = 0;
-            this.eventNameBox.Text = "Event Name";
-            // 
             // startTimeBox
             // 
+            this.startTimeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startTimeBox.FormattingEnabled = true;
             this.startTimeBox.Location = new System.Drawing.Point(3, 3);
             this.startTimeBox.Name = "startTimeBox";
             this.startTimeBox.Size = new System.Drawing.Size(121, 21);
             this.startTimeBox.TabIndex = 1;
-            this.startTimeBox.Text = "Start Time";
             // 
             // endTimeBox
             // 
+            this.endTimeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.endTimeBox.FormattingEnabled = true;
             this.endTimeBox.Location = new System.Drawing.Point(130, 3);
             this.endTimeBox.Name = "endTimeBox";
             this.endTimeBox.Size = new System.Drawing.Size(121, 21);
             this.endTimeBox.TabIndex = 2;
-            this.endTimeBox.Text = "End Time";
             // 
             // saveButton
             // 
@@ -135,11 +127,20 @@
             this.dateLabel.TabIndex = 9;
             this.dateLabel.Text = "label3";
             // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Cue = "Event Name";
+            this.nameTextBox.Location = new System.Drawing.Point(87, 53);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nameTextBox.TabIndex = 10;
+            // 
             // RegisterEventWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 307);
+            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -147,7 +148,6 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.addSlotButton);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.eventNameBox);
             this.Name = "RegisterEventWindow";
             this.Text = "Create Event";
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -157,8 +157,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox eventNameBox;
         private System.Windows.Forms.ComboBox startTimeBox;
         private System.Windows.Forms.ComboBox endTimeBox;
         private System.Windows.Forms.Button saveButton;
@@ -168,5 +166,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label dateLabel;
+        private CueTextBox nameTextBox;
     }
 }
