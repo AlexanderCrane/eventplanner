@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
 {
     public partial class StartWindow : Form
     {
+
         public StartWindow()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (!usernameBox.Modified || usernameBox.TextLength == 0)
+            if (usernameBox.TextLength == 0)
             {
                 MessageBox.Show("Enter a username!");
             }
@@ -35,7 +36,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!usernameBox.Modified || usernameBox.TextLength == 0)
+            if (usernameBox.TextLength == 0)
             {
                 MessageBox.Show("Enter a username!");
             }
