@@ -52,12 +52,6 @@
     <Compile Include="AddAvailabilityWindow.Designer.cs">
       <DependentUpon>AddAvailabilityWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminWindow.Designer.cs">
-      <DependentUpon>AdminWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -83,9 +77,6 @@
     </Compile>
     <EmbeddedResource Include="AddAvailabilityWindow.resx">
       <DependentUpon>AddAvailabilityWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminWindow.resx">
-      <DependentUpon>AdminWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterEventWindow.resx">
       <DependentUpon>RegisterEventWindow.cs</DependentUpon>

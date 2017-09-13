@@ -29,8 +29,9 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                AdminWindow admin = new AdminWindow();
-                admin.ShowDialog();
+                DateTime placeHolder = mainCalendar.SelectionStart;
+                RegisterEventWindow registerPopup = new RegisterEventWindow(placeHolder);
+                registerPopup.ShowDialog();
             }
         }
 
@@ -45,6 +46,21 @@ namespace WindowsFormsApplication1
                 UserWindow user = new UserWindow();
                 user.ShowDialog();
             }
+        }
+
+        private void mainCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            currentDateLabel.Text = e.Start.ToShortDateString();
+        }
+
+        private void StartWindow_Load(object sender, EventArgs e)
+        {
+            currentDateLabel.Text = DateTime.Today.ToShortDateString();
+        }
+
+        private void currentDateLabel_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

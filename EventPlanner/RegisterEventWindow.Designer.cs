@@ -149,7 +149,7 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.eventNameBox);
             this.Name = "RegisterEventWindow";
-            this.Text = "RegisterEventWindow";
+            this.Text = "Create Event";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
