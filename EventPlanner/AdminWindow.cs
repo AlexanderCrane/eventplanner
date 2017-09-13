@@ -28,6 +28,8 @@ namespace WindowsFormsApplication1
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
+            //NO POINT TO THIS IN ADMIN
+            //TODO - discuss design with team
             TextBox[] TextBoxArray = new TextBox[48];
             DateTime currentTime = DateTime.Today;
             
@@ -37,7 +39,9 @@ namespace WindowsFormsApplication1
                 text.GotFocus += hideTextBoxCursor;
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
+
                 timeLabel.Text = "              " + currentTime.ToShortTimeString();
+
                 Console.Out.WriteLine(timeLabel.Width.ToString());
                 text.ReadOnly = true;
                 text.Multiline = true;
@@ -50,8 +54,7 @@ namespace WindowsFormsApplication1
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);
             }
-
-            TextBoxArray[3].Text = "test";
+                
 
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
         }
@@ -67,6 +70,12 @@ namespace WindowsFormsApplication1
             //open 'add event dialog'
             RegisterEventWindow registerPopup = new RegisterEventWindow(monthCalendar1.SelectionStart);
             registerPopup.ShowDialog();
+        }
+
+        private void changeHourButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("I work, but I don't do my job :D");
+
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)

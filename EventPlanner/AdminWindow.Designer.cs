@@ -30,6 +30,7 @@
         {
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.addEventButton = new System.Windows.Forms.Button();
+            this.changeHourButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.currentDateLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,6 +54,17 @@
             this.addEventButton.Text = "Add Event";
             this.addEventButton.UseVisualStyleBackColor = true;
             this.addEventButton.Click += new System.EventHandler(this.addEventButton_Click);
+            // 
+            // changeHourButton
+            // 
+            this.changeHourButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.changeHourButton.Location = new System.Drawing.Point(749, 568);
+            this.changeHourButton.Name = "changeHourButton";
+            this.changeHourButton.Size = new System.Drawing.Size(75, 23);
+            this.changeHourButton.TabIndex = 1;
+            this.changeHourButton.Text = "24/12 hour";
+            this.changeHourButton.UseVisualStyleBackColor = true;
+            this.changeHourButton.Click += new System.EventHandler(this.changeHourButton_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -93,6 +105,7 @@
             this.Controls.Add(this.currentDateLabel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.addEventButton);
+            this.Controls.Add(this.changeHourButton);
             this.Controls.Add(this.monthCalendar1);
             this.MaximumSize = new System.Drawing.Size(1039, 641);
             this.Name = "AdminWindow";
@@ -107,6 +120,7 @@
 
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button addEventButton;
+        private System.Windows.Forms.Button changeHourButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label currentDateLabel;
         private System.Windows.Forms.Button button1;
