@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Calendar;
+using System.Runtime.InteropServices;
 
 namespace WindowsFormsApplication1
 {
     public partial class AdminWindow : Form
     {
-        TextBox[] TextBoxArray = new TextBox[48];
         Size currentSize;
+        //this is a weird trick to prevent the text position caret from showing up when we click on our read-only calendar text boxes?
+        //its ugly but it works
+
+        [DllImport("user32.dll")]
+        static extern bool HideCaret(IntPtr hWnd);
         public AdminWindow()
         {
             currentSize = this.Size;
@@ -23,11 +28,13 @@ namespace WindowsFormsApplication1
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
+            TextBox[] TextBoxArray = new TextBox[48];
             DateTime currentTime = DateTime.Today;
             
             for (int i = 0; i < 48; i++)
             { 
                 TextBox text = new TextBox();
+                text.GotFocus += hideTextBoxCursor;
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
                 timeLabel.Text = "              " + currentTime.ToShortTimeString();
@@ -47,6 +54,12 @@ namespace WindowsFormsApplication1
             TextBoxArray[3].Text = "test";
 
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
+        }
+
+        private void hideTextBoxCursor(object sender, EventArgs args)
+        {
+            TextBox box = sender as TextBox;
+            HideCaret(box.Handle);
         }
 
         private void addEventButton_Click(object sender, EventArgs e)
