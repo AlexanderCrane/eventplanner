@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPopup));
             this.loginButton = new System.Windows.Forms.Button();
             this.usernameBox = new CueTextBox();
             this.SuspendLayout();
@@ -52,11 +53,13 @@
             // 
             // LoginPopup
             // 
+            this.AcceptButton = this.loginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(230, 133);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.usernameBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginPopup";
             this.Text = "LoginPopup";
             this.ResumeLayout(false);

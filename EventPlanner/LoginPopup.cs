@@ -18,8 +18,6 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-
-
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (usernameBox.TextLength != 0 && usernameBox.Modified)

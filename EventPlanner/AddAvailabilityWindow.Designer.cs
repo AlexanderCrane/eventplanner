@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAvailabilityWindow));
             this.saveAvailabilityButton = new System.Windows.Forms.Button();
             this.timeSlotComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.saveAvailabilityButton);
             this.Controls.Add(this.timeSlotComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAvailabilityWindow";
             this.Text = "AddAvailabilityWindow";
             this.ResumeLayout(false);

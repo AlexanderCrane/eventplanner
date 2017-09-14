@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.addAvailabilityButton = new System.Windows.Forms.Button();
             this.addEventsButton = new System.Windows.Forms.Button();
             this.mainCalendar = new System.Windows.Forms.MonthCalendar();
@@ -94,6 +95,7 @@
             this.Controls.Add(this.mainCalendar);
             this.Controls.Add(this.addAvailabilityButton);
             this.Controls.Add(this.addEventsButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Planner";

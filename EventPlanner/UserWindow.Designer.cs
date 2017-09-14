@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserWindow));
             this.doneButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -78,6 +79,7 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.doneButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1039, 641);
             this.MinimumSize = new System.Drawing.Size(1039, 641);
             this.Name = "UserWindow";

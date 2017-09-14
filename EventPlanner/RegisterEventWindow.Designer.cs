@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterEventWindow));
             this.startTimeBox = new System.Windows.Forms.ComboBox();
             this.endTimeBox = new System.Windows.Forms.ComboBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -148,6 +149,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.addSlotButton);
             this.Controls.Add(this.saveButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterEventWindow";
             this.Text = "Create Event";
             this.flowLayoutPanel1.ResumeLayout(false);
