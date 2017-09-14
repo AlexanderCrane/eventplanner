@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
         //we can reference them against the original list of datetimes for actual logic
         List<DateTime> halfHourDateTimes = new List<DateTime>();
         List<String> halfHourStrings = new List<String>();
-        public RegisterEventWindow(DateTime selectedDate)
+        public RegisterEventWindow(DateTime selectedDate, bool use24Hour)
         {
             InitializeComponent();
             dateLabel.Text = "Adding event for: " + selectedDate.ToShortDateString();
@@ -32,7 +32,15 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < 48; i++)
             {
                 halfHourDateTimes.Add(currentTime);
-                halfHourStrings.Add(currentTime.ToShortTimeString());
+                if (!use24Hour)
+                {
+                    halfHourStrings.Add(currentTime.ToShortTimeString());
+                }
+                else
+                {
+                    String twentyFourFormat = "HH:mm";
+                    halfHourStrings.Add(currentTime.ToString(twentyFourFormat));
+                }
                 currentTime = currentTime.AddMinutes(30);
             }
             startTimeBox.DataSource = halfHourStrings;

@@ -34,6 +34,7 @@
             this.mainCalendar = new System.Windows.Forms.MonthCalendar();
             this.currentDateLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.twentyFourCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // addAvailabilityButton
@@ -85,11 +86,23 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
             // 
+            // twentyFourCheckbox
+            // 
+            this.twentyFourCheckbox.AutoSize = true;
+            this.twentyFourCheckbox.Location = new System.Drawing.Point(281, 243);
+            this.twentyFourCheckbox.Name = "twentyFourCheckbox";
+            this.twentyFourCheckbox.Size = new System.Drawing.Size(123, 17);
+            this.twentyFourCheckbox.TabIndex = 7;
+            this.twentyFourCheckbox.Text = "Use 24 Hour Dates?";
+            this.twentyFourCheckbox.UseVisualStyleBackColor = true;
+            this.twentyFourCheckbox.CheckedChanged += new System.EventHandler(this.twentyFourCheckbox_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 283);
+            this.Controls.Add(this.twentyFourCheckbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.currentDateLabel);
             this.Controls.Add(this.mainCalendar);
@@ -111,6 +124,7 @@
         public System.Windows.Forms.MonthCalendar mainCalendar;
         private System.Windows.Forms.Label currentDateLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox twentyFourCheckbox;
     }
 }
 

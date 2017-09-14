@@ -19,9 +19,11 @@ namespace WindowsFormsApplication1
 
         [DllImport("user32.dll")]
         static extern bool HideCaret(IntPtr hWnd);
+        private bool use24Hour;
 
-        public UserWindow()
+        public UserWindow(bool use24Hour)
         {
+            this.use24Hour = use24Hour;
             InitializeComponent();
         }
 
@@ -48,8 +50,15 @@ namespace WindowsFormsApplication1
                 text.GotFocus += hideTextBoxCursor;
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
-                timeLabel.Text = "              " + currentTime.ToShortTimeString();
-                Console.Out.WriteLine(timeLabel.Width.ToString());
+                if (!use24Hour)
+                {
+                    timeLabel.Text = "              " + currentTime.ToShortTimeString();
+                }
+                else
+                {
+                    String twentyFourFormat = "HH:mm";
+                    timeLabel.Text = "              " + currentTime.ToString(twentyFourFormat);
+                }
                 text.ReadOnly = true;
                 text.Multiline = true;
 
