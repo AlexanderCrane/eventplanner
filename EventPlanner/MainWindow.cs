@@ -13,11 +13,12 @@ namespace WindowsFormsApplication1
     public partial class MainWindow : Form
     {
         private string userName;
-        public MainWindow()
+        public MainWindow(string userName)
         {
             InitializeComponent();
             //lock size
             this.MaximumSize = this.Size;
+            this.userName = userName;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,9 +42,6 @@ namespace WindowsFormsApplication1
         private void StartWindow_Load(object sender, EventArgs e)
         {
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
-            LoginPopup login = new LoginPopup();
-            login.ShowDialog();
-            this.userName = login.userName;
             label1.Text = "Logged in as " + userName;
         }
 

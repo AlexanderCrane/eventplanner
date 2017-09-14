@@ -25,7 +25,10 @@ namespace WindowsFormsApplication1
             if (usernameBox.TextLength != 0 && usernameBox.Modified)
             {
                 this.userName = usernameBox.Text;
-                this.Close();
+                this.Hide();
+                MainWindow main = new MainWindow(userName);
+                main.Closed += (s, args) => this.Close();
+                main.ShowDialog();
             }
             else
             {
