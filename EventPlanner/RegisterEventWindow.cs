@@ -59,14 +59,17 @@ namespace WindowsFormsApplication1
                 DateTime startTime = DateTime.Parse(startTimeString);
                 DateTime endTime = DateTime.Parse(endTimeString);
 
-                if (endTime <= startTime)
+                //if end time is 12:00 AM that is equivalent to 11:59:59 pm, not a repeat or smaller number.
+                if (endTime <= startTime && endTimeString != "12:00 AM")
                 {
-                    MessageBox.Show("One of the time slots is impossible.");
+                    MessageBox.Show("At least one of the time slots is impossible.");
+                    break;
                 }
                 else
                 {
                     //Write event specified by user to file
                     this.Close();
+                    MessageBox.Show("Event Created!");
                 }
             }
 
