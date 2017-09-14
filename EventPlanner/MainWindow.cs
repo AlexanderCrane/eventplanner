@@ -46,11 +46,6 @@ namespace WindowsFormsApplication1
             label1.Text = "Logged in as " + userName;
         }
 
-        private void currentDateLabel_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void twentyFourCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox box = sender as CheckBox;

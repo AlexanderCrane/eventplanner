@@ -75,7 +75,6 @@
             this.currentDateLabel.Size = new System.Drawing.Size(28, 13);
             this.currentDateLabel.TabIndex = 5;
             this.currentDateLabel.Text = "date";
-            this.currentDateLabel.Click += new System.EventHandler(this.currentDateLabel_Click);
             // 
             // label1
             // 
