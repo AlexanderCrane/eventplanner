@@ -93,7 +93,7 @@
             this.twentyFourCheckbox.Name = "twentyFourCheckbox";
             this.twentyFourCheckbox.Size = new System.Drawing.Size(123, 17);
             this.twentyFourCheckbox.TabIndex = 7;
-            this.twentyFourCheckbox.Text = "Use 24 Hour Dates?";
+            this.twentyFourCheckbox.Text = "Use 24 Hour Times?";
             this.twentyFourCheckbox.UseVisualStyleBackColor = true;
             this.twentyFourCheckbox.CheckedChanged += new System.EventHandler(this.twentyFourCheckbox_CheckedChanged);
             // 
