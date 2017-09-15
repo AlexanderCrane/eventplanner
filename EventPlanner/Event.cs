@@ -31,12 +31,12 @@ class Event
     #region Private Variables and Properties
     private int numberOfEvents = 0;
 
-    private string nameOfEvent = "";
-    private string host = "";
-    private string location = "";
-    private string brief = "";
-    string start = "";
-    string end = "";
+    public string nameOfEvent = "";
+    public string host = "";
+    public string location = "";
+    public string brief = "";
+    public string start = "";
+    public string end = "";
 
     //Tuple<DateTime,DateTime> contains 2 datetimes
     //first one is start time 

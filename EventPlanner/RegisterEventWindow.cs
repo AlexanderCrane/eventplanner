@@ -76,6 +76,7 @@ namespace WindowsFormsApplication1
                 DateTime endTime = DateTime.Parse(endTimeString);
                 //ensure the time slots are valid
                 //if end time is 12:00 AM that is equivalent to 11:59:59 pm, not a repeat or smaller number.
+                //if both times are 12:00AM we have to put the event into every text box!!!
                 if (endTime <= startTime && endTime.ToShortTimeString() != "12:00 AM")
                 {
                     MessageBox.Show("At least one of the time slots is impossible.");
@@ -89,18 +90,21 @@ namespace WindowsFormsApplication1
 
                     Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, startTime.ToString(), endTime.ToString(), locationText.Text, "1", capacityText.Text);
 
-                    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.json";
-                    string json = JsonConvert.SerializeObject(evt);
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+                    JsonSerializer serializer = new JsonSerializer();
 
                     System.IO.StreamWriter file;
                     if (numberOfEvents == 0)
                     {
                         // Write the string to a file.
-                        file = new System.IO.StreamWriter(json);
+                        file = new System.IO.StreamWriter(path);
+                        serializer.Serialize(file, evt);
                     }
                     else
                     {
-                        file = new System.IO.StreamWriter(json);
+                        file = new System.IO.StreamWriter(path);
+                        serializer.Serialize(file, evt);
+
                     }
                     numberOfEvents++;
 
