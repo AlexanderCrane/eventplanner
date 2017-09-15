@@ -35,6 +35,8 @@ class Event
     private string host = "";
     private string location = "";
     private string brief = "";
+    string start = "";
+    string end = "";
 
     //Tuple<DateTime,DateTime> contains 2 datetimes
     //first one is start time 
@@ -46,9 +48,18 @@ class Event
     private int numberOfAttendees = 0;
     #endregion
 
-    public Event(string hostName)
+    public Event(string eventName, string hostName, string description, string startTime, string endTime, string loc, int attending, int cap) 
     {
+        nameOfEvent = eventName;
         host = hostName;
+        location = loc;
+        brief = description;
+        start = startTime;
+        end = endTime;
+        numberOfAttendees = attending;
+        capacity = cap;
+
+        saveToFile(eventName, capacity, brief, start, end);
     }
 
     //SETTERS
@@ -112,24 +123,24 @@ class Event
     #endregion
 
     #region File Functionality
-    public void saveToFile(string eventName, string capacity, string briefMsg, string startTime, string endTime)
+    public void saveToFile(string eventName, int capacity, string briefMsg, string startTime, string endTime)
     {
         string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.txt";
         System.IO.StreamWriter file;
         if (numberOfEvents == 0)
         {
             // Write the string to a file.
-             file = new System.IO.StreamWriter(path);
+            file = new System.IO.StreamWriter(path);
         }
         else
         {
-             file = new System.IO.StreamWriter(path);
+            file = new System.IO.StreamWriter(path);
         }
         numberOfEvents++;
 
         //Traverses To A New Line
 
-        file.WriteLine(eventName, ",", capacity, ",", briefMsg, ",", startTime, ",", endTime);
+        file.WriteLine(eventName + capacity + briefMsg + startTime + endTime);
         file.Close();
     }
 
