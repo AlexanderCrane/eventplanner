@@ -38,7 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.nameTextBox = new CueTextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.briefMessageText = new System.Windows.Forms.TextBox();
             this.capacityText = new System.Windows.Forms.TextBox();
             this.capLabel = new System.Windows.Forms.Label();
@@ -135,7 +135,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Cue = "Event Name";
+            this.nameTextBox.Text = "Event Name";
             this.nameTextBox.Location = new System.Drawing.Point(14, 25);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -176,7 +176,7 @@
             // 
             // locationText
             // 
-            this.locationText.Cue = "Location";
+            this.locationText.Text = "Location";
             this.locationText.Location = new System.Drawing.Point(118, 25);
             this.locationText.Name = "locationText";
             this.locationText.Size = new System.Drawing.Size(100, 20);
@@ -219,7 +219,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label dateLabel;
-        private CueTextBox nameTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox briefMessageText;
         private System.Windows.Forms.TextBox capacityText;
         private System.Windows.Forms.Label capLabel;
