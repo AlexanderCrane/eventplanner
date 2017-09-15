@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
         //maintain a list of the boxes for entering these so we can reference them when they save
         List<Tuple<ComboBox, ComboBox>> timeBoxes = new List<Tuple<ComboBox, ComboBox>>();
         List<ComboBox> endTimes = new List<ComboBox>();
-
+        public int numberOfEvents = 0;
 
         //list of times that we use as the source for our dropdown has to be strings to be formatted properly
         //we can reference them against the original list of datetimes for actual logic
@@ -76,32 +76,22 @@ namespace WindowsFormsApplication1
                     this.Close();
                     MessageBox.Show("Event Created!");
 
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.json";
 
+                    System.IO.StreamWriter file;
+                    if (numberOfEvents == 0)
+                    {
+                        // Write the string to a file.
+                        file = new System.IO.StreamWriter(path);
+                    }
+                    else
+                    {
+                        file = new System.IO.StreamWriter(path);
+                    }
+                    numberOfEvents++;
 
-                    //string path = @"C:\Users\Alexander\Desktop\Example.txt";
-                    //string path = @".\test.txt";
-                    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.txt";
-
-                    //if (!File.Exists(path))
-                    //{
-                      //  File.Create(path);
-                        //TextWriter tw = new StreamWriter(path);
-                        // tw.WriteLine("The very first line!");
-                        //tw.Close();
-                    //}
-                    //else if (File.Exists(path))
-                    //{
-                    //    TextWriter tw = new StreamWriter(path);
-                    //    tw.WriteLine("The next line!");
-                    //    tw.Close();
-                    //}
-
-                    // Write the string to a file.
-                    System.IO.StreamWriter file = new System.IO.StreamWriter(path);
-                    file.WriteLine(startTime);
-                    file.WriteLine("\n");
-                    file.WriteLine(endTime);
-
+                    //JSON
+                    //file.WriteLine(eventName, ",", capacity, ",", briefMsg, ",", startTime, ",", endTime);
                     file.Close();
                 }
             }
