@@ -36,8 +36,7 @@ class Event
     private string location = "";
     private string brief = "";
 
-    private DateTime startTime;
-    private DateTime endTime;
+    private List<Tuple<DateTime, DateTime>> dateTimes;
 
     private int capacity = 0;
     private int numberOfAttendees = 0;
@@ -57,14 +56,6 @@ class Event
     public void setLocation(string loc)
     {
         location = loc;
-    }
-    public void setStart(DateTime start)
-    {
-        startTime = start;
-    }
-    public void setEnd(DateTime end)
-    {
-        endTime = end;
     }
     public void setBrief(string msg)
     {
@@ -101,14 +92,6 @@ class Event
     public string getLocation()
     {
         return (location);
-    }
-    public DateTime getStart()
-    {
-        return (startTime);
-    }
-    public DateTime getEnd()
-    {
-        return (endTime);
     }
     public string getBrief()
     {
