@@ -26,6 +26,7 @@ namespace WindowsFormsApplication1
         /// Constructor for the user window.
         /// </summary>
         /// <param name="use24Hour">Whether to use 24 hour times in the 'agenda' panel.</param>
+        /// <param name="selectedDate">The date selected previously on the main window calendar.</param>
         public UserWindow(bool use24Hour, DateTime selectedDate)
         {
             InitializeComponent();
@@ -46,6 +47,12 @@ namespace WindowsFormsApplication1
 
         }
 
+        /// <summary>
+        /// Click behavior for the done button.
+        /// Closes the window.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void doneButton_Click(object sender, EventArgs e)
         {
             this.Close();

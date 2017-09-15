@@ -66,6 +66,12 @@ namespace WindowsFormsApplication1
             timeBoxes.Add(new Tuple<ComboBox, ComboBox>(startTimeBox, endTimeBox));
         }
         //make a new event object with the user's chosen options, write it to file
+        /// <summary>
+        /// Click behavior for the save button.
+        /// Write the event specified by the user to a file as JSON.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void saveButton_Click(object sender, EventArgs e)
         {
             foreach(Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
@@ -115,7 +121,12 @@ namespace WindowsFormsApplication1
             }
 
         }
-        //dynamically add two more combo boxes to enter a new start time and end time for a new time window
+        /// <summary>
+        /// Click behavior for the add slot button.
+        /// Dynamically add two more combo boxes for the user to input a second, non-contiguous time slot.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addSlotButton_Click(object sender, EventArgs e)
         {
 
@@ -136,7 +147,13 @@ namespace WindowsFormsApplication1
             flowLayoutPanel1.Controls.Add(newEndBox);
             //add another row of combo boxes for the user to add another, non-contiguous timeslot
         }
-       //remove aditional time windows if you've added them
+        //remove aditional time windows if you've added them
+        /// <summary>
+        /// Click behavior for the remove time slot button.
+        /// Remove the last added time slot.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void removeTimeSlotButton_Click(object sender, EventArgs e)
         {
             if (timeBoxes.Count > 1)

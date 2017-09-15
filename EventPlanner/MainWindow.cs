@@ -32,8 +32,8 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Click behavior for the button to open the RegisterEventWindow.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void button1_Click(object sender, EventArgs e)
         {
                 DateTime placeHolder = mainCalendar.SelectionStart;
@@ -44,8 +44,8 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Click behavior for the button to open the UserWindow.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void button2_Click(object sender, EventArgs e)
         {
                 UserWindow user = new UserWindow(use24Hour, mainCalendar.SelectionStart);
@@ -55,8 +55,8 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Date Changed behavior for the calendar. Updates a label with the selected date.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void mainCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
             currentDateLabel.Text = e.Start.ToShortDateString();
@@ -65,8 +65,8 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Load behavior for the main window. Displays the user's name and updates a label to the current date.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void StartWindow_Load(object sender, EventArgs e)
         {
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
@@ -76,8 +76,8 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// CheckedChanged behavior for the 24 hour mode checkbox. Updates a boolean representing the selected mode.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void twentyFourCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox box = sender as CheckBox;
