@@ -36,6 +36,10 @@ class Event
     private string location = "";
     private string brief = "";
 
+    //Tuple<DateTime,DateTime> contains 2 datetimes
+    //first one is start time 
+    //second one is end time
+    //list because we can have multiple time blocks with independent start, end times
     private List<Tuple<DateTime, DateTime>> dateTimes;
 
     private int capacity = 0;

@@ -32,7 +32,9 @@ namespace WindowsFormsApplication1
             DateTime currentTime = selectedDate.Date;
             for (int i = 0; i < 48; i++)
             {
+                //start at midnight, add DateTimes in 30 minute increments until we have all 48
                 halfHourDateTimes.Add(currentTime);
+                //convert to string - military time string if it's enabled, regular otherwise
                 if (!use24Hour)
                 {
                     halfHourStrings.Add(currentTime.ToShortTimeString());
@@ -44,13 +46,15 @@ namespace WindowsFormsApplication1
                 }
                 currentTime = currentTime.AddMinutes(30);
             }
+            //use the list of times as the list of options for our time boxes
             startTimeBox.DataSource = halfHourStrings;
 
             endTimeBox.BindingContext = new BindingContext();
             endTimeBox.DataSource = halfHourStrings;
+            //put the time boxes in a tuple to associate them and put it in a list to keep track of it
             timeBoxes.Add(new Tuple<ComboBox, ComboBox>(startTimeBox, endTimeBox));
         }
-
+        //make a new event object with the user's chosen options, write it to file
         private void saveButton_Click(object sender, EventArgs e)
         {
             foreach(Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
@@ -59,7 +63,7 @@ namespace WindowsFormsApplication1
                 String startTimeString = (String)currentBoxes.Item1.SelectedItem;
                 DateTime startTime = DateTime.Parse(startTimeString);
                 DateTime endTime = DateTime.Parse(endTimeString);
-
+                //ensure the time slots are valid
                 //if end time is 12:00 AM that is equivalent to 11:59:59 pm, not a repeat or smaller number.
                 if (endTime <= startTime && endTime.ToShortTimeString() != "12:00 AM")
                 {
@@ -93,7 +97,7 @@ namespace WindowsFormsApplication1
             }
 
         }
-
+        //dynamically add two more combo boxes to enter a new start time and end time for a new time window
         private void addSlotButton_Click(object sender, EventArgs e)
         {
 
@@ -114,7 +118,7 @@ namespace WindowsFormsApplication1
             flowLayoutPanel1.Controls.Add(newEndBox);
             //add another row of combo boxes for the user to add another, non-contiguous timeslot
         }
-
+       //remove aditional time windows if you've added them
         private void removeTimeSlotButton_Click(object sender, EventArgs e)
         {
             if (timeBoxes.Count > 1)

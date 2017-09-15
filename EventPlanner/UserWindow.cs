@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-
+        //display the selected date
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             currentDateLabel.Text = e.Start.ToShortDateString();
@@ -39,6 +39,8 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
+        //add 48 textboxes to a panel, one for each time slot
+        //todo - load events from file to associate with these and displayt heir names
         private void UserWindow_Load(object sender, EventArgs e)
         {
             TextBox[] TextBoxArray = new TextBox[48];
