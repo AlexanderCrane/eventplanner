@@ -65,8 +65,7 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < 48; i++)
             {
                 
-                Event testEvent = new Event("jakob");
-                testEvent.setName("event");
+                Event testEvent = new Event("NarutoRunDownMass", "Austin", "asfajkaj", "19:00", "21:00", "Mass St", 50, 100);
 
                 AgendaTextBox text = new AgendaTextBox();
 
