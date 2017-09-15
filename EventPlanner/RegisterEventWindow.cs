@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace WindowsFormsApplication1
 {
@@ -19,12 +20,14 @@ namespace WindowsFormsApplication1
         //maintain a list of the boxes for entering these so we can reference them when they save
         List<Tuple<ComboBox, ComboBox>> timeBoxes = new List<Tuple<ComboBox, ComboBox>>();
         List<ComboBox> endTimes = new List<ComboBox>();
-        public int numberOfEvents = 0;
 
         //list of times that we use as the source for our dropdown has to be strings to be formatted properly
         //we can reference them against the original list of datetimes for actual logic
         List<DateTime> halfHourDateTimes = new List<DateTime>();
         List<String> halfHourStrings = new List<String>();
+
+        public int numberOfEvents = 0;
+
         public RegisterEventWindow(DateTime selectedDate, bool use24Hour)
         {
             InitializeComponent();
@@ -76,17 +79,20 @@ namespace WindowsFormsApplication1
                     this.Close();
                     MessageBox.Show("Event Created!");
 
+                    Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, startTime, endTime, locationText.Text, "1", capacityText.Text);
+
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.json";
+                    string json = JsonConvert.SerializeObject(evt);
 
                     System.IO.StreamWriter file;
                     if (numberOfEvents == 0)
                     {
                         // Write the string to a file.
-                        file = new System.IO.StreamWriter(path);
+                        file = new System.IO.StreamWriter(json);
                     }
                     else
                     {
-                        file = new System.IO.StreamWriter(path);
+                        file = new System.IO.StreamWriter(json);
                     }
                     numberOfEvents++;
 
@@ -135,7 +141,7 @@ namespace WindowsFormsApplication1
         */
         private void briefMessage_TextChanged(object sender, EventArgs e)
         {
-            //do nothing yet
+            //Nothing important happened today
         }
     }
 }

@@ -39,10 +39,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new CueTextBox();
-            this.briefMessage = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.briefMessageText = new System.Windows.Forms.TextBox();
+            this.capactiyText = new System.Windows.Forms.TextBox();
             this.capLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.locationText = new CueTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,20 +141,20 @@
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 10;
             // 
-            // briefMessage
+            // briefMessageText
             // 
-            this.briefMessage.Location = new System.Drawing.Point(14, 74);
-            this.briefMessage.Name = "briefMessage";
-            this.briefMessage.Size = new System.Drawing.Size(255, 20);
-            this.briefMessage.TabIndex = 11;
-            this.briefMessage.TextChanged += new System.EventHandler(this.briefMessage_TextChanged);
+            this.briefMessageText.Location = new System.Drawing.Point(14, 74);
+            this.briefMessageText.Name = "briefMessageText";
+            this.briefMessageText.Size = new System.Drawing.Size(255, 20);
+            this.briefMessageText.TabIndex = 11;
+            this.briefMessageText.TextChanged += new System.EventHandler(this.briefMessage_TextChanged);
             // 
-            // textBox1
+            // capactiyText
             // 
-            this.textBox1.Location = new System.Drawing.Point(224, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(41, 20);
-            this.textBox1.TabIndex = 12;
+            this.capactiyText.Location = new System.Drawing.Point(224, 25);
+            this.capactiyText.Name = "capactiyText";
+            this.capactiyText.Size = new System.Drawing.Size(41, 20);
+            this.capactiyText.TabIndex = 12;
             // 
             // capLabel
             // 
@@ -173,15 +174,24 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Brief Message";
             // 
+            // locationText
+            // 
+            this.locationText.Cue = "Location";
+            this.locationText.Location = new System.Drawing.Point(118, 25);
+            this.locationText.Name = "locationText";
+            this.locationText.Size = new System.Drawing.Size(100, 20);
+            this.locationText.TabIndex = 15;
+            // 
             // RegisterEventWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 307);
+            this.Controls.Add(this.locationText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.capLabel);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.briefMessage);
+            this.Controls.Add(this.capactiyText);
+            this.Controls.Add(this.briefMessageText);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label2);
@@ -210,9 +220,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label dateLabel;
         private CueTextBox nameTextBox;
-        private System.Windows.Forms.TextBox briefMessage;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox briefMessageText;
+        private System.Windows.Forms.TextBox capactiyText;
         private System.Windows.Forms.Label capLabel;
         private System.Windows.Forms.Label label3;
+        private CueTextBox locationText;
     }
 }
