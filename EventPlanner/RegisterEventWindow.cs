@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1
                     this.Close();
                     MessageBox.Show("Event Created!");
 
-                    Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, startTime, endTime, locationText.Text, "1", capacityText.Text);
+                    Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, startTime.ToString(), endTime.ToString(), locationText.Text, "1", capacityText.Text);
 
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.json";
                     string json = JsonConvert.SerializeObject(evt);

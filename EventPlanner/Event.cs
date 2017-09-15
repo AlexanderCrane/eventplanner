@@ -44,11 +44,11 @@ class Event
     //list because we can have multiple time blocks with independent start, end times
     private List<Tuple<DateTime, DateTime>> dateTimes;
 
-    private int capacity = 0;
-    private int numberOfAttendees = 0;
+    private string capacity = "";
+    private string numberOfAttendees = "";
     #endregion
 
-    public Event(string eventName, string hostName, string description, string startTime, string endTime, string loc, int attending, int cap) 
+    public Event(string eventName, string hostName, string description, string startTime, string endTime, string loc, string attending, string cap) 
     {
         nameOfEvent = eventName;
         host = hostName;
@@ -59,12 +59,12 @@ class Event
         numberOfAttendees = attending;
         capacity = cap;
 
-        saveToFile(eventName, capacity, brief, start, end);
+        //saveToFile(eventName, capacity, brief, start, end);
     }
 
     //SETTERS
     #region Public Method Setters
-    public void setName(string name)
+    /*public void setName(string name)
     {
         nameOfEvent = name;
     }
@@ -79,7 +79,7 @@ class Event
     public void setCapacity(int cap)
     {
         capacity = cap;
-    }
+    }*/
     #endregion
 
     /*
@@ -87,7 +87,7 @@ class Event
     */
     public void addAttenedee()
     {
-        numberOfAttendees++;
+        //numberOfAttendees++;
     }
 
     /*
@@ -96,7 +96,7 @@ class Event
 
     //GETTERS
     #region Public Method Getters
-    public string getName()
+    /*public string getName()
     {
         return (nameOfEvent);
     }
@@ -119,7 +119,7 @@ class Event
     public int getAttendeeCount()
     {
         return (numberOfAttendees);
-    }
+    }*/
     #endregion
 
     #region File Functionality
