@@ -28,6 +28,8 @@ using System.Windows.Forms;
 #endregion
 
 #region Private Variables and Properties
+private int numberOfEvents = 0;
+
 private string nameOfEvent = "";
 private string host = "";
 private string location = "";
@@ -118,5 +120,41 @@ public int getCapacity()
 public int getAttendeeCount()
 {
     return (numberOfAttendees);
+}
+#endregion
+
+#region File Functionality
+public void saveToFile(string eventName, string capacity, string briefMsg, string startTime, string endTime)
+{
+    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.txt";
+
+    if (numberOfEvents == 0)
+    {
+        // Write the string to a file.
+        System.IO.StreamWriter file = new System.IO.StreamWriter(path);
+    }
+    else
+    {
+        System.IO.StreamWriter file = System.IO.StreamWriter(path);
+    }
+    numberOfEvents++;
+    
+    //Traverses To A New Line
+
+    file.WriteLine(eventName, ",", capacity, ",", briefMsg, ",", startTime, ",", endTime);
+    file.Close();
+}
+
+/*
+ * Note: this will change number of attendees for an event in file 
+*/
+public void quickSaveToFile()
+{
+
+}
+
+public void deleteEventFromFile(string matchName)
+{
+
 }
 #endregion
