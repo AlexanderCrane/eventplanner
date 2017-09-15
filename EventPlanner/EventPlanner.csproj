@@ -58,6 +58,7 @@
     <Compile Include="CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Event.cs" />
     <Compile Include="LoginPopup.cs">
       <SubType>Form</SubType>
     </Compile>
