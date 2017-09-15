@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -70,6 +71,34 @@ namespace WindowsFormsApplication1
                     //Write event specified by user to file
                     this.Close();
                     MessageBox.Show("Event Created!");
+
+
+
+                    //string path = @"C:\Users\Alexander\Desktop\Example.txt";
+                    //string path = @".\test.txt";
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.txt";
+
+                    //if (!File.Exists(path))
+                    //{
+                      //  File.Create(path);
+                        //TextWriter tw = new StreamWriter(path);
+                        // tw.WriteLine("The very first line!");
+                        //tw.Close();
+                    //}
+                    //else if (File.Exists(path))
+                    //{
+                    //    TextWriter tw = new StreamWriter(path);
+                    //    tw.WriteLine("The next line!");
+                    //    tw.Close();
+                    //}
+
+                    // Write the string to a file.
+                    System.IO.StreamWriter file = new System.IO.StreamWriter(path);
+                    file.WriteLine(startTime);
+                    file.WriteLine("\n");
+                    file.WriteLine(endTime);
+
+                    file.Close();
                 }
             }
 
