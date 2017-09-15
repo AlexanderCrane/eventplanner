@@ -62,6 +62,8 @@ namespace WindowsFormsApplication1
                 text.ReadOnly = true;
                 text.Multiline = true;
 
+                text.Click += Text_Click;
+
                 TextBoxArray[i] = text;
                 text.Name = "text" + i.ToString();
                 text.MaximumSize = new Size(200, 300);
@@ -76,6 +78,11 @@ namespace WindowsFormsApplication1
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
         }
 
+        private void Text_Click(object sender, EventArgs e)
+        {
+            AddAvailabilityWindow addAvail = new AddAvailabilityWindow();
+            addAvail.ShowDialog();
+        }
 
         private void hideTextBoxCursor(object sender, EventArgs args)
         {
