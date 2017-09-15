@@ -43,13 +43,23 @@ namespace WindowsFormsApplication1
         //todo - load events from file to associate with these and displayt heir names
         private void UserWindow_Load(object sender, EventArgs e)
         {
-            TextBox[] TextBoxArray = new TextBox[48];
+            AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
             DateTime currentTime = DateTime.Today;
 
             for (int i = 0; i < 48; i++)
             {
-                TextBox text = new TextBox();
+                
+                Event testEvent = new Event("jakob");
+                testEvent.setName("event");
+
+                AgendaTextBox text = new AgendaTextBox();
+
+                text.associatedEvents.Add(testEvent);
                 text.GotFocus += hideTextBoxCursor;
+                foreach(Event ev in text.associatedEvents)
+                {
+                    text.Text += ev;
+                }
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
                 if (!use24Hour)
@@ -72,8 +82,6 @@ namespace WindowsFormsApplication1
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);
             }
-
-            TextBoxArray[3].Text = "test";
 
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
         }
