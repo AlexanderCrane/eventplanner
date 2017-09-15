@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// Primary form allowing for mode selection.
+    /// </summary>
     public partial class MainWindow : Form
     {
         private string userName;
@@ -45,7 +48,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-                UserWindow user = new UserWindow(use24Hour);
+                UserWindow user = new UserWindow(use24Hour, mainCalendar.SelectionStart);
                 user.ShowDialog();
         }
 

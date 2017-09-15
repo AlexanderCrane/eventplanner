@@ -11,8 +11,15 @@ using Newtonsoft.Json;
 
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// Form allowing users to flag their available time slots for an event.
+    /// </summary>
     public partial class AddAvailabilityWindow : Form
     {
+
+        /// <summary>
+        /// Constructor for the Add Availability window.
+        /// </summary>
         public AddAvailabilityWindow()
         {
             InitializeComponent();

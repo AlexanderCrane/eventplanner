@@ -13,6 +13,9 @@ using Newtonsoft.Json;
 
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// Form allowing user to add a new event.
+    /// </summary>
     public partial class RegisterEventWindow : Form
     {
 
@@ -28,6 +31,11 @@ namespace WindowsFormsApplication1
 
         public int numberOfEvents = 0;
 
+        /// <summary>
+        /// Constructor for the RegisterEventWindow form.
+        /// </summary>
+        /// <param name="selectedDate">The date selected by the user.</param>
+        /// <param name="use24Hour">Whether 24 hour time will be used.</param>
         public RegisterEventWindow(DateTime selectedDate, bool use24Hour)
         {
             InitializeComponent();

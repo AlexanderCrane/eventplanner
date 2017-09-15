@@ -20,21 +20,23 @@ namespace WindowsFormsApplication1
         [DllImport("user32.dll")]
         static extern bool HideCaret(IntPtr hWnd);
         private bool use24Hour;
+        private DateTime startingDate;
 
         /// <summary>
         /// Constructor for the user window.
         /// </summary>
         /// <param name="use24Hour">Whether to use 24 hour times in the 'agenda' panel.</param>
-        public UserWindow(bool use24Hour)
+        public UserWindow(bool use24Hour, DateTime selectedDate)
         {
-            this.use24Hour = use24Hour;
             InitializeComponent();
+            this.use24Hour = use24Hour;
+            this.startingDate = selectedDate;
         }
 
         
         /// <summary>
         /// Date Selected behavior for the calendar.
-        /// Updates the selected date and updates the 'agenda' panel to show that day's events
+        /// Updates the selected date when it changes and updates the 'agenda' panel to show that day's events
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -53,7 +55,7 @@ namespace WindowsFormsApplication1
         //todo - load events from file to associate with these and displayt heir names
         /// <summary>
         /// Load behavior for the user window.
-        /// Populates the 'agenda' panel of textboxes and loads the current day's events into them.
+        /// Populates the 'agenda' panel of textboxes and loads the events from the day selected in MainWindow into them.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -61,6 +63,10 @@ namespace WindowsFormsApplication1
         {
             AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
             DateTime currentTime = DateTime.Today;
+
+            monthCalendar1.SelectionStart = startingDate;
+            monthCalendar1.SelectionEnd = startingDate;
+            currentDateLabel.Text = startingDate.ToShortDateString();
 
             for (int i = 0; i < 48; i++)
             {
@@ -97,8 +103,6 @@ namespace WindowsFormsApplication1
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);
             }
-
-            currentDateLabel.Text = DateTime.Today.ToShortDateString();
         }
 
 
