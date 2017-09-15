@@ -21,13 +21,23 @@ namespace WindowsFormsApplication1
         static extern bool HideCaret(IntPtr hWnd);
         private bool use24Hour;
 
+        /// <summary>
+        /// Constructor for the user window.
+        /// </summary>
+        /// <param name="use24Hour">Whether to use 24 hour times in the 'agenda' panel.</param>
         public UserWindow(bool use24Hour)
         {
             this.use24Hour = use24Hour;
             InitializeComponent();
         }
 
-        //display the selected date
+        
+        /// <summary>
+        /// Date Selected behavior for the calendar.
+        /// Updates the selected date and updates the 'agenda' panel to show that day's events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             currentDateLabel.Text = e.Start.ToShortDateString();
@@ -41,6 +51,12 @@ namespace WindowsFormsApplication1
 
         //add 48 textboxes to a panel, one for each time slot
         //todo - load events from file to associate with these and displayt heir names
+        /// <summary>
+        /// Load behavior for the user window.
+        /// Populates the 'agenda' panel of textboxes and loads the current day's events into them.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserWindow_Load(object sender, EventArgs e)
         {
             AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
@@ -86,6 +102,11 @@ namespace WindowsFormsApplication1
         }
 
 
+        /// <summary>
+        /// GotFocus behavior for the agenda text boxes. Hides the insertion caret.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void hideTextBoxCursor(object sender, EventArgs args)
         {
             TextBox box = sender as TextBox;
