@@ -40,7 +40,7 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new CueTextBox();
             this.briefMessageText = new System.Windows.Forms.TextBox();
-            this.capactiyText = new System.Windows.Forms.TextBox();
+            this.capacityText = new System.Windows.Forms.TextBox();
             this.capLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.locationText = new CueTextBox();
@@ -149,12 +149,12 @@
             this.briefMessageText.TabIndex = 11;
             this.briefMessageText.TextChanged += new System.EventHandler(this.briefMessage_TextChanged);
             // 
-            // capactiyText
+            // capacityText
             // 
-            this.capactiyText.Location = new System.Drawing.Point(224, 25);
-            this.capactiyText.Name = "capactiyText";
-            this.capactiyText.Size = new System.Drawing.Size(41, 20);
-            this.capactiyText.TabIndex = 12;
+            this.capacityText.Location = new System.Drawing.Point(224, 25);
+            this.capacityText.Name = "capacityText";
+            this.capacityText.Size = new System.Drawing.Size(41, 20);
+            this.capacityText.TabIndex = 12;
             // 
             // capLabel
             // 
@@ -190,7 +190,7 @@
             this.Controls.Add(this.locationText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.capLabel);
-            this.Controls.Add(this.capactiyText);
+            this.Controls.Add(this.capacityText);
             this.Controls.Add(this.briefMessageText);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.dateLabel);
@@ -221,7 +221,7 @@
         private System.Windows.Forms.Label dateLabel;
         private CueTextBox nameTextBox;
         private System.Windows.Forms.TextBox briefMessageText;
-        private System.Windows.Forms.TextBox capactiyText;
+        private System.Windows.Forms.TextBox capacityText;
         private System.Windows.Forms.Label capLabel;
         private System.Windows.Forms.Label label3;
         private CueTextBox locationText;
