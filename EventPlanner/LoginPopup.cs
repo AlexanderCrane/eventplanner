@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
+            //block the user from progressing from the login popup if they haven't entered a name
             if (usernameBox.TextLength != 0 && usernameBox.Modified)
             {
                 this.userName = usernameBox.Text;
