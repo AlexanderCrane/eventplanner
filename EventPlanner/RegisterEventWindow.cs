@@ -134,5 +134,14 @@ namespace WindowsFormsApplication1
                 timeBoxes.Remove(timeBoxes.Last());
             }
         }
+
+        /*
+         * Note: Brief Message Stored
+         * Author Austin
+        */
+        private void briefMessage_TextChanged(object sender, EventArgs e)
+        {
+            //do nothing yet
+        }
     }
 }

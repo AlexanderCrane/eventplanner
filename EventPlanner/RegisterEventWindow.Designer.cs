@@ -39,6 +39,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new CueTextBox();
+            this.briefMessage = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.capLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,7 +126,7 @@
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(65, 23);
+            this.dateLabel.Location = new System.Drawing.Point(14, 9);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(35, 13);
             this.dateLabel.TabIndex = 9;
@@ -131,16 +135,53 @@
             // nameTextBox
             // 
             this.nameTextBox.Cue = "Event Name";
-            this.nameTextBox.Location = new System.Drawing.Point(87, 53);
+            this.nameTextBox.Location = new System.Drawing.Point(14, 25);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 10;
+            // 
+            // briefMessage
+            // 
+            this.briefMessage.Location = new System.Drawing.Point(14, 74);
+            this.briefMessage.Name = "briefMessage";
+            this.briefMessage.Size = new System.Drawing.Size(255, 20);
+            this.briefMessage.TabIndex = 11;
+            this.briefMessage.TextChanged += new System.EventHandler(this.briefMessage_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(224, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(41, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // capLabel
+            // 
+            this.capLabel.AutoSize = true;
+            this.capLabel.Location = new System.Drawing.Point(221, 9);
+            this.capLabel.Name = "capLabel";
+            this.capLabel.Size = new System.Drawing.Size(48, 13);
+            this.capLabel.TabIndex = 13;
+            this.capLabel.Text = "Capacity";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Brief Message";
             // 
             // RegisterEventWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 307);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.capLabel);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.briefMessage);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label2);
@@ -169,5 +210,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label dateLabel;
         private CueTextBox nameTextBox;
+        private System.Windows.Forms.TextBox briefMessage;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label capLabel;
+        private System.Windows.Forms.Label label3;
     }
 }
