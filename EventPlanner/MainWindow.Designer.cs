@@ -120,7 +120,7 @@
         #endregion
         private System.Windows.Forms.Button addAvailabilityButton;
         private System.Windows.Forms.Button addEventsButton;
-        public System.Windows.Forms.MonthCalendar mainCalendar;
+        private System.Windows.Forms.MonthCalendar mainCalendar;
         private System.Windows.Forms.Label currentDateLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox twentyFourCheckbox;

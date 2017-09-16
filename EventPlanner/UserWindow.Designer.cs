@@ -1,5 +1,8 @@
 ﻿namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// Form displaying events for guests to add their availability.
+    /// </summary>
     partial class UserWindow
     {
         /// <summary>

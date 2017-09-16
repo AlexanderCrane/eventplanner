@@ -10,21 +10,26 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// The first form displayed upon startup. Prompts the user for a name.
+    /// </summary>
     public partial class LoginPopup : Form
     {
-
-        public string userName;
+        /// <summary>
+        /// Constructor for the login popup form.
+        /// </summary>
         public LoginPopup()
         {
             InitializeComponent();
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
+            //block the user from progressing from the login popup if they haven't entered a name
             if (usernameBox.TextLength != 0 && usernameBox.Modified)
             {
-                this.userName = usernameBox.Text;
+                String userName = usernameBox.Text;
                 this.Hide();
-                MainWindow main = new MainWindow(userName);
+                MainWindow main = new MainWindow(usernameBox.Text);
                 main.Closed += (s, args) => this.Close();
                 main.ShowDialog();
             }

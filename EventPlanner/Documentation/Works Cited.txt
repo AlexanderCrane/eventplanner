@@ -1,0 +1,5 @@
+Microsoft Visual Studio 2017 with Visual C# and Winforms UI [C# System.Windows.Forms]
+WinFormsCalendarView by Jose Menendez Póo: https://www.codeproject.com/Articles/38699/A-Professional-Calendar-Agenda-View-That-You-Will
+CueTextBox by Hans Passant: https://stackoverflow.com/users/17034/hans-passant
+Calendar Icon from Icons8: https://icons8.com/icon/22/Calendar
+JSON.Net by Newtonsoft: newtonsoft.com/json
