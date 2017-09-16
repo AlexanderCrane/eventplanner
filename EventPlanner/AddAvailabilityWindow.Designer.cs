@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAvailabilityWindow));
             this.saveAvailabilityButton = new System.Windows.Forms.Button();
-            this.timeSlotComboBox = new System.Windows.Forms.ComboBox();
             this.eventComboBox = new System.Windows.Forms.ComboBox();
+            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // saveAvailabilityButton
@@ -43,15 +43,6 @@
             this.saveAvailabilityButton.Text = "Save Availability";
             this.saveAvailabilityButton.UseVisualStyleBackColor = true;
             // 
-            // timeSlotComboBox
-            // 
-            this.timeSlotComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeSlotComboBox.FormattingEnabled = true;
-            this.timeSlotComboBox.Location = new System.Drawing.Point(25, 86);
-            this.timeSlotComboBox.Name = "timeSlotComboBox";
-            this.timeSlotComboBox.Size = new System.Drawing.Size(247, 21);
-            this.timeSlotComboBox.TabIndex = 0;
-            // 
             // eventComboBox
             // 
             this.eventComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -60,15 +51,23 @@
             this.eventComboBox.Name = "eventComboBox";
             this.eventComboBox.Size = new System.Drawing.Size(247, 21);
             this.eventComboBox.TabIndex = 2;
+            this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
+            // 
+            // flowPanel
+            // 
+            this.flowPanel.Location = new System.Drawing.Point(25, 72);
+            this.flowPanel.Name = "flowPanel";
+            this.flowPanel.Size = new System.Drawing.Size(247, 148);
+            this.flowPanel.TabIndex = 3;
             // 
             // AddAvailabilityWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.flowPanel);
             this.Controls.Add(this.eventComboBox);
             this.Controls.Add(this.saveAvailabilityButton);
-            this.Controls.Add(this.timeSlotComboBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(300, 300);
             this.Name = "AddAvailabilityWindow";
@@ -79,7 +78,7 @@
 
         #endregion
         private System.Windows.Forms.Button saveAvailabilityButton;
-        private System.Windows.Forms.ComboBox timeSlotComboBox;
         private System.Windows.Forms.ComboBox eventComboBox;
+        private System.Windows.Forms.FlowLayoutPanel flowPanel;
     }
 }

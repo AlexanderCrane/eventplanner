@@ -26,5 +26,26 @@ namespace WindowsFormsApplication1
             eventComboBox.DataSource = events;
             eventComboBox.DisplayMember = "nameOfEvent";
         }
+
+        /// <summary>
+        /// adds checkboxes for times
+        /// </summary>
+        private void eventComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.Write(eventComboBox.DataSource);
+
+            CheckBox cB = AddCheckbox("time");
+            flowPanel.Controls.Add(cB);
+        }
+
+        /// <summary>
+        /// Adds checkboxes for times, but checkboxes do nothing so far
+        /// </summary>
+        private CheckBox AddCheckbox(string dTime)
+        {
+            CheckBox cB = new CheckBox();
+            cB.Text = "Join at: " + dTime;
+            return (cB);
+        }
     }
 }
