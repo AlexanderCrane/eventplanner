@@ -78,7 +78,7 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < 48; i++)
             {
                 
-                Event testEvent = new Event("NarutoRunDownMass123456789012345678901234567890", "Austin", "asfajkaj", "19:00", "21:00", "Mass St", "50", "100");
+                Event testEvent = new Event("NarutoRunDownMass123456789012345678901234567890", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
 
                 AgendaTextBox text = new AgendaTextBox();
 
@@ -86,7 +86,7 @@ namespace WindowsFormsApplication1
                 text.GotFocus += hideTextBoxCursor;
                 foreach(Event ev in text.associatedEvents)
                 {
-                    text.Text += ev.ToString();
+                    text.Text += ev.ToString() + " ";
                 }
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
@@ -107,7 +107,7 @@ namespace WindowsFormsApplication1
                 TextBoxArray[i] = text;
                 text.Name = "text" + i.ToString();
                 text.MaximumSize = new Size(200, 300);
-                text.Size = new Size(300, 30);
+                text.Size = new Size(300, 50);
                 flowLayoutPanel1.Controls.Add(timeLabel);
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);

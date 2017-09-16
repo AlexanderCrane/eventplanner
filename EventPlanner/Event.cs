@@ -44,18 +44,17 @@ public class Event
     //list because we can have multiple time blocks with independent start, end times
     private List<Tuple<DateTime, DateTime>> dateTimes;
 
-    private string capacity = "";
-    private string numberOfAttendees = "";
+    private int capacity = 0;
+    private int numberOfAttendees = 0;
     #endregion
 
-    public Event(string eventName, string hostName, string description, string startTime, string endTime, string loc, string attending, string cap) 
+    public Event(string eventName, string hostName, string description, List<Tuple<DateTime, DateTime>> dateTimes, string loc, int attending, int cap)
     {
         nameOfEvent = eventName;
         host = hostName;
         location = loc;
         brief = description;
-        start = startTime;
-        end = endTime;
+        this.dateTimes = dateTimes;
         numberOfAttendees = attending;
         capacity = cap;
 

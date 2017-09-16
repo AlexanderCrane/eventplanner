@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             dateLabel.Text = "Adding event for: " + selectedDate.ToShortDateString();
-            ComboBoxDateTime currentTime = new ComboBoxDateTime(selectedDate.Date);
+            ComboBoxDateTime currentTime = new ComboBoxDateTime(selectedDate.Date, use24Hour);
             for (int i = 0; i < 48; i++)
             {
                 //start at midnight, add DateTimes in 30 minute increments until we have all 48
@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
                     String twentyFourFormat = "HH:mm";
                     halfHourStrings.Add(currentTime.inner.ToString(twentyFourFormat));
                 }
-                currentTime = new ComboBoxDateTime(currentTime.inner.AddMinutes(30));
+                currentTime = new ComboBoxDateTime(currentTime.inner.AddMinutes(30), use24Hour);
             }
             //use the list of times as the list of options for our time boxes
             startTimeBox.DataSource = halfHourDateTimes;
@@ -63,7 +63,8 @@ namespace WindowsFormsApplication1
 
             endTimeBox.BindingContext = new BindingContext();
             endTimeBox.DataSource = halfHourDateTimes;
-            endTimeBox.DisplayMember = "shortTimeString";
+            endTimeBox.DisplayMember = "shortTimeStringForEndBoxes";
+
             //put the time boxes in a tuple to associate them and put it in a list to keep track of it
             timeBoxes.Add(new Tuple<ComboBox, ComboBox>(startTimeBox, endTimeBox));
         }
@@ -79,7 +80,9 @@ namespace WindowsFormsApplication1
             String errorText = "";
             Boolean inputError = false;
             Boolean comboBoxError = false;
+            int capInt;
             List<Tuple<DateTime, DateTime>> dateTimes = new List<Tuple<DateTime, DateTime>>();
+            int.TryParse(capacityText.Text, out capInt);
             foreach (Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
             {
                 //ensure the time slots are valid
@@ -104,6 +107,11 @@ namespace WindowsFormsApplication1
                 errorText = String.Concat(errorText, "\nEvent name is too long.");
                 inputError = true;
             }
+            if (capInt == 0)
+            {
+                errorText = String.Concat(errorText, "\nCapacity must be a nonzero number");
+                inputError = true;
+            }
             if (inputError)
             {
                 MessageBox.Show(errorText);               
@@ -114,7 +122,7 @@ namespace WindowsFormsApplication1
                 this.Close();
                 MessageBox.Show("Event Created!");
 
-                Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, dateTimes[0].Item1.ToString(), dateTimes[0].Item2.ToString(), locationText.Text, "1", capacityText.Text);
+                Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, dateTimes, locationText.Text, 1, capInt);
 
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
                 JsonSerializer serializer = new JsonSerializer();
@@ -144,7 +152,6 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void addSlotButton_Click(object sender, EventArgs e)
         {
-
             ComboBox newStartBox = new ComboBox();
             newStartBox.Text = "Start Time";
             newStartBox.BindingContext = new BindingContext();
@@ -199,15 +206,36 @@ namespace WindowsFormsApplication1
         {
             private String sts;
             public string shortTimeString { get { return sts; } set { sts = value; } }
+            public string shortTimeStringForEndBoxes
+            {
+                get { if (!sts.Equals("12:00 AM")){
+                        return sts;
+                    }
+                    else
+                    {
+                        return (sts + "(Next Day)");
+                    }
+                }
+                set { shortTimeStringForEndBoxes = value; }
+            }
             public DateTime inner;
-            public ComboBoxDateTime(DateTime dt)
+            public ComboBoxDateTime(DateTime dt, bool use24Hour)
             {
                 this.inner = dt;
-                this.shortTimeString = inner.ToShortTimeString();
+                if (use24Hour)
+                {
+                    String dateFormat = "HH:mm";
+                    this.sts = inner.ToString(dateFormat);
+                }
+                else
+                {
+                    this.sts = inner.ToShortTimeString();
+                }
+
             }
-            public string ToString()
+            public override string ToString()
             {
-                return inner.ToShortTimeString();
+                return this.sts;
             }
         }
 
