@@ -36,14 +36,15 @@ namespace WindowsFormsApplication1
         /// </summary>
         private void eventComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            flowPanel.Controls.Clear();
             Console.Write(eventComboBox.DataSource);
 
             ComboBox comBox = (ComboBox)sender;
             Event selectedEvent = (Event)comBox.SelectedItem;
 
-            hostBox.Text = selectedEvent.getHost();
-            locationBox.Text = selectedEvent.getLocation();
-            briefBox.Text = selectedEvent.getBrief();
+            hostBox.Text = selectedEvent.getHost()??"";
+            locationBox.Text = selectedEvent.getLocation()??"";
+            briefBox.Text = selectedEvent.getBrief()??"";
 
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)
@@ -53,15 +54,15 @@ namespace WindowsFormsApplication1
 
                 TimeSpan timeDifference = selectedEvent.dateTimes[i].Item2 - selectedEvent.dateTimes[i].Item1;
 
-                int minuteIntervals = (int)timeDifference.TotalMinutes % 30;
+                int minuteIntervals = (int)timeDifference.TotalMinutes / 30;
 
                 DateTime startTimeBox = selectedEvent.dateTimes[i].Item1;
                 for (int j = 0; j < minuteIntervals; j++)
                 {
-                    CheckBox cB = AddCheckbox(startTimeBox.ToString());
+                    CheckBox cB = AddCheckbox(startTimeBox.ToShortTimeString());
                     flowPanel.Controls.Add(cB);
 
-                    startTimeBox.AddMinutes(30);
+                    startTimeBox = startTimeBox.AddMinutes(30);
                 }
             }
         }
