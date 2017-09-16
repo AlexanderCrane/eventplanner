@@ -84,6 +84,8 @@ public class Event
         numberOfAttendees = attending;
         capacity = cap;
 
+        this.attendees = new List<Tuple<string, List<DateTime>>>();
+
         //saveToFile(eventName, capacity, brief, start, end);
     }
 

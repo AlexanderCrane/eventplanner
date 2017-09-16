@@ -18,7 +18,8 @@ namespace WindowsFormsApplication1
     public partial class AddAvailabilityWindow : Form
     {
         private string userName;
-        private List<CheckBox> checkboxList = new List<CheckBox>();
+        private List<AvailabilityCheckBox> checkboxList = new List<AvailabilityCheckBox>();
+        private List<DateTime> availableTimes = new List<DateTime>();
         private List<Event> allEvents;
         private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
 
@@ -87,34 +88,29 @@ namespace WindowsFormsApplication1
         private void saveAvailabilityButton_Click(object sender, EventArgs e)
         {
             Event realEvent = allEvents.Find(x => x.nameOfEvent == ((Event)eventComboBox.SelectedItem).nameOfEvent);
-            if (realEvent == null)
+            if (realEvent != null)
             {
-
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine(checkboxList.Count);
                 for (int i = 0; i < checkboxList.Count; i++)
                 {
                     if (checkboxList[i].Checked)
                     {
-                        WriteToJSON();
-                        break;
+                        availableTimes.Add(checkboxList[i].associatedDateTime);
                     }
                 }
+                WriteToJSON(realEvent);
             }
             this.Close();
         }
 
-        private void WriteToJSON()
+        private void WriteToJSON(Event realEvent)
         {
+            realEvent.setAttendees(1);
+            realEvent.addAttendee(userName, availableTimes);
             //JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+            JsonSerializer serializer = new JsonSerializer();
             using (StreamWriter file = new StreamWriter(path, append: false))
             {
-                //edit json file
-
-                
-                //serializer.Serialize(file, evts);
+                serializer.Serialize(file, allEvents);
             }
         }
     }
