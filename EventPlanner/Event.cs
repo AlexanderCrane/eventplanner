@@ -61,9 +61,13 @@ public class Event
 
     //SETTERS
     #region Public Method Setters
-    /*public void setName(string name)
+    public void setName(string name)
     {
         nameOfEvent = name;
+    }
+    public void setHost(string hostName)
+    {
+        host = hostName;
     }
     public void setLocation(string loc)
     {
@@ -76,15 +80,18 @@ public class Event
     public void setCapacity(int cap)
     {
         capacity = cap;
-    }*/
+    }
+    public void setAttendees(int att)
+    {
+        numberOfAttendees = att;
+    }
     #endregion
-
     /*
     NOTE:Maybe we'll eventually show everyone who is going to said event?
     */
     public void addAttendee()
     {
-        //numberOfAttendees++;
+        numberOfAttendees++;
     }
 
     /*
@@ -93,7 +100,7 @@ public class Event
 
     //GETTERS
     #region Public Method Getters
-    /*public string getName()
+    public string getName()
     {
         return (nameOfEvent);
     }
@@ -116,7 +123,7 @@ public class Event
     public int getAttendeeCount()
     {
         return (numberOfAttendees);
-    }*/
+    }
     #endregion
 
     #region File Functionality
