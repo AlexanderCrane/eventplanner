@@ -58,7 +58,7 @@ public class Event
     /// </summary>
     public List<Tuple<DateTime, DateTime>> dateTimes;
 
-    public List<String> attendees;
+    public List<Tuple<String, List<DateTime>>> attendees;
 
     private int capacity = 0;
     private int numberOfAttendees = 0;
@@ -145,9 +145,9 @@ public class Event
     /// Add an attendee to the event
     /// </summary>
     /// <param name="name">The attendee's name</param>
-    public void addAttendee(String name)
+    public void addAttendee(String name, List<DateTime> availableSlots)
     {
-        attendees.Add(name);
+        attendees.Add(new Tuple<string, List<DateTime>>(name, availableSlots));
         numberOfAttendees++;
     }
 
