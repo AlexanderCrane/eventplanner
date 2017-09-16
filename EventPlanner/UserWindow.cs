@@ -25,6 +25,9 @@ namespace WindowsFormsApplication1
         private DateTime startingDate;
         private string userName;
 
+        private List<Event> evtList;
+        private List<Event> dayEvents = new List<Event>();
+
         /// <summary>
         /// Constructor for the user window.
         /// </summary>
@@ -38,7 +41,6 @@ namespace WindowsFormsApplication1
             this.startingDate = selectedDate;
             this.userName = userName;
             System.Diagnostics.Debug.WriteLine(this.userName);
-
         }
 
 
@@ -65,6 +67,29 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
+        /// <summary>
+        /// Creates A List of Events This Day
+        /// </summary>
+        private void getEventsForTheDay(DateTime currentTime)
+        {
+            //cleardayEvents
+            for(int j = 0; j < dayEvents.Count; j++)
+            {
+                dayEvents.Remove(dayEvents[j]);
+            }
+            //dayEvents
+            foreach (Event evt in evtList)
+            {
+                for (int i = 0; i < evt.dateTimes.Count; i++)
+                {
+                    if (currentTime.Day == evt.dateTimes[i].Item1.Day)
+                    {
+                        dayEvents.Add(evt);
+                    }
+                }
+            }
+        }
+
         //add 48 textboxes to a panel, one for each time slot
         //todo - load events from file to associate with these and displayt heir names
         /// <summary>
@@ -83,16 +108,24 @@ namespace WindowsFormsApplication1
             currentDateLabel.Text = startingDate.ToShortDateString();
 
             pullEventsFromJSON();
+            getEventsForTheDay(currentTime);
 
             for (int i = 0; i < 48; i++)
             {
-                
-                Event testEvent = new Event("33323289679111673265050105032946746271022", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
-                Event testEventtwo = new Event("3360292493154691677656104369796918174839742715026412054022817489762285530991460209690737435657947018", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
+                //Event testEvent = new Event("33323289679111673265050105032946746271022", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
+                //Event testEventtwo = new Event("3360292493154691677656104369796918174839742715026412054022817489762285530991460209690737435657947018", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
 
                 AgendaTextBox text = new AgendaTextBox();
 
-                text.associatedEvents.Add(testEvent);
+                foreach(Event evt in evtList)
+                {
+                    if(text.associatedDateTime == evt.dateTimes[i].Item1)
+                    {
+
+                    }
+                }
+                
+                //text.associatedEvents.Add(evt);
                 text.GotFocus += hideTextBoxCursor;
                 foreach(Event ev in text.associatedEvents)
                 {
