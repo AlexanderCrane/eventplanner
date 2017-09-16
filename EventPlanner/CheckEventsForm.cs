@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
     {
         List<Event> evtList;
         string userName;
+        bool closeImmediately = false;
         private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
 
         public CheckEventsForm(string userName)
@@ -38,8 +39,17 @@ namespace WindowsFormsApplication1
             }
 
             yourEventsBox.DataSource = yourEvents;
-            yourEventsBox.SelectedIndex = 0;
-            Event ev = (Event)yourEventsBox.SelectedItem;
+            Event ev = null;
+            if (yourEvents.Count != 0)
+            {
+                yourEventsBox.SelectedIndex = 0;
+                ev = (Event)yourEventsBox.SelectedItem;
+            }
+            else
+            {
+                this.Close();
+                MessageBox.Show("You have not created any events!");
+            }
             if (ev != null)
             {
                 if (ev.attendees != null)
@@ -57,7 +67,7 @@ namespace WindowsFormsApplication1
                         attendeesBox.Text += "\r\n";
                     }
                 }
-            } 
+            }
         }
         private void pullEventsFromJSON()
         {
