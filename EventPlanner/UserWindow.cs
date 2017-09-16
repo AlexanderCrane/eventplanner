@@ -78,16 +78,43 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < 48; i++)
             {
                 
-                Event testEvent = new Event("NarutoRunDownMass123456789012345678901234567890", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
+                Event testEvent = new Event("33323289679111673265050105032946746271022", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
+                Event testEventtwo = new Event("3360292493154691677656104369796918174839742715026412054022817489762285530991460209690737435657947018", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
 
                 AgendaTextBox text = new AgendaTextBox();
 
                 text.associatedEvents.Add(testEvent);
+                text.associatedEvents.Add(testEventtwo);
+                text.MaxLength = 100;
                 text.GotFocus += hideTextBoxCursor;
+                String eventText = "";
+                bool firstEvent = true;
                 foreach(Event ev in text.associatedEvents)
                 {
-                    text.Text += ev.ToString() + " ";
+                  
+                    if (eventText.Length + ev.ToString().Length > 94)
+                    {
+                       if (firstEvent)
+                        {
+                            eventText += "Event names too long to display. Click for info.";
+                            //firstEvent = false;
+                        }
+                        else
+                        {
+                            eventText += " others";
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        eventText += ev.ToString() + ",";
+                    }
+                    if (firstEvent)
+                    {
+                        firstEvent = false;
+                    }
                 }
+                text.Text = eventText;
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
                 if (!use24Hour)
@@ -119,6 +146,11 @@ namespace WindowsFormsApplication1
             AgendaTextBox send = sender as AgendaTextBox;
             AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents);
             addAvail.ShowDialog();
+        }
+
+        private string truncate(string value, int maxChars)
+        {
+            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
         }
 
         /// <summary>
