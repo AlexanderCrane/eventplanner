@@ -9,6 +9,7 @@ using System.Collections.Generic;
 class AgendaTextBox : TextBox
 {
     public List<Event> associatedEvents;
+    public DateTime associatedDateTime;
     public AgendaTextBox()
     {
         this.associatedEvents = new List<Event>();

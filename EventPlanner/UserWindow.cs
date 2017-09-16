@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
         private void UserWindow_Load(object sender, EventArgs e)
         {
             AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
-            DateTime currentTime = DateTime.Today;
+            DateTime currentTime = startingDate;
 
             monthCalendar1.SelectionStart = startingDate;
             monthCalendar1.SelectionEnd = startingDate;
@@ -85,7 +85,7 @@ namespace WindowsFormsApplication1
                 
                 Event testEvent = new Event("33323289679111673265050105032946746271022", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
                 Event testEventtwo = new Event("3360292493154691677656104369796918174839742715026412054022817489762285530991460209690737435657947018", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
-
+                
                 AgendaTextBox text = new AgendaTextBox();
 
                 text.associatedEvents.Add(testEvent);
@@ -140,6 +140,7 @@ namespace WindowsFormsApplication1
                 text.Name = "text" + i.ToString();
                 text.MaximumSize = new Size(200, 300);
                 text.Size = new Size(300, 50);
+                text.associatedDateTime = currentTime;
                 flowLayoutPanel1.Controls.Add(timeLabel);
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);
@@ -153,11 +154,6 @@ namespace WindowsFormsApplication1
 
             AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName);
             addAvail.ShowDialog();
-        }
-
-        private string truncate(string value, int maxChars)
-        {
-            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
         }
 
         /// <summary>

@@ -38,12 +38,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.briefMessageText = new System.Windows.Forms.TextBox();
             this.capacityText = new System.Windows.Forms.TextBox();
             this.capLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.nameTextBox = new CueTextBox();
             this.locationText = new CueTextBox();
+            this.briefMessageText = new CueTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,22 +132,6 @@
             this.dateLabel.TabIndex = 9;
             this.dateLabel.Text = "label3";
             // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(14, 25);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 10;
-            this.nameTextBox.Text = "Event Name";
-            // 
-            // briefMessageText
-            // 
-            this.briefMessageText.Location = new System.Drawing.Point(14, 74);
-            this.briefMessageText.Name = "briefMessageText";
-            this.briefMessageText.Size = new System.Drawing.Size(255, 20);
-            this.briefMessageText.TabIndex = 11;
-            this.briefMessageText.TextChanged += new System.EventHandler(this.briefMessage_TextChanged);
-            // 
             // capacityText
             // 
             this.capacityText.Location = new System.Drawing.Point(224, 25);
@@ -166,35 +149,41 @@
             this.capLabel.TabIndex = 13;
             this.capLabel.Text = "Capacity";
             // 
-            // label3
+            // nameTextBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Brief Message";
+            this.nameTextBox.Cue = "Event Name";
+            this.nameTextBox.Location = new System.Drawing.Point(12, 25);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nameTextBox.TabIndex = 16;
             // 
             // locationText
             // 
-            this.locationText.Cue = null;
-            this.locationText.Location = new System.Drawing.Point(118, 25);
+            this.locationText.Cue = "Location";
+            this.locationText.Location = new System.Drawing.Point(115, 25);
             this.locationText.Name = "locationText";
             this.locationText.Size = new System.Drawing.Size(100, 20);
-            this.locationText.TabIndex = 15;
-            this.locationText.Text = "Location";
+            this.locationText.TabIndex = 17;
+            // 
+            // briefMessageText
+            // 
+            this.briefMessageText.Cue = "Description";
+            this.briefMessageText.Location = new System.Drawing.Point(12, 51);
+            this.briefMessageText.Name = "briefMessageText";
+            this.briefMessageText.Size = new System.Drawing.Size(253, 20);
+            this.briefMessageText.TabIndex = 18;
+            this.briefMessageText.TextChanged += new System.EventHandler(this.b_TextChanged);
             // 
             // RegisterEventWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 307);
+            this.Controls.Add(this.briefMessageText);
             this.Controls.Add(this.locationText);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.capLabel);
             this.Controls.Add(this.capacityText);
-            this.Controls.Add(this.briefMessageText);
-            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -221,11 +210,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox briefMessageText;
         private System.Windows.Forms.TextBox capacityText;
         private System.Windows.Forms.Label capLabel;
-        private System.Windows.Forms.Label label3;
+        private CueTextBox nameTextBox;
         private CueTextBox locationText;
+        private CueTextBox briefMessageText;
     }
 }

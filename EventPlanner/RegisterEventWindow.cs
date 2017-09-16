@@ -112,6 +112,11 @@ namespace WindowsFormsApplication1
 
                 dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
             }
+            if (nameTextBox.Text.Length == 0)
+            {
+                errorText = String.Concat(errorText, "\n Event name cannot be empty.");
+                inputError = true;
+            }
             if (nameTextBox.Text.Length > 36)
             {
                 errorText = String.Concat(errorText, "\nEvent name is too long.");
@@ -264,5 +269,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void b_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
