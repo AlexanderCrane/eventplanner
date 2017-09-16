@@ -81,7 +81,15 @@ namespace WindowsFormsApplication1
 
         private void saveAvailabilityButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(userName);
+            System.Diagnostics.Debug.WriteLine(checkboxList.Count);
+            for (int i = 0; i < checkboxList.Count; i++)
+            {
+                if (checkboxList[i].Checked)
+                {
+                    //Method
+                    break;
+                }
+            }
             this.Close();
         }
     }
