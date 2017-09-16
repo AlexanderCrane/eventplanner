@@ -145,6 +145,7 @@
             this.Controls.Add(this.eventComboBox);
             this.Controls.Add(this.saveAvailabilityButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(298, 557);
             this.Name = "AddAvailabilityWindow";
             this.Text = "AddAvailabilityWindow";
             this.ResumeLayout(false);
