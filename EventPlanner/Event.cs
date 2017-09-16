@@ -35,14 +35,12 @@ public class Event
     public string host = "";
     public string location = "";
     public string brief = "";
-    public string start = "";
-    public string end = "";
 
     //Tuple<DateTime,DateTime> contains 2 datetimes
     //first one is start time 
     //second one is end time
     //list because we can have multiple time blocks with independent start, end times
-    private List<Tuple<DateTime, DateTime>> dateTimes;
+    public List<Tuple<DateTime, DateTime>> dateTimes;
 
     private int capacity = 0;
     private int numberOfAttendees = 0;

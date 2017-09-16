@@ -109,7 +109,7 @@ namespace WindowsFormsApplication1
             }
             if (capInt == 0)
             {
-                errorText = String.Concat(errorText, "\nCapacity must be a nonzero number");
+                errorText = String.Concat(errorText, "\nCapacity must be a nonzero number.");
                 inputError = true;
             }
             if (inputError)
@@ -126,22 +126,38 @@ namespace WindowsFormsApplication1
 
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
                 JsonSerializer serializer = new JsonSerializer();
+                
+                // Write the string to a file.
+                    try
+                    {
 
-                System.IO.StreamWriter file;
-                if (numberOfEvents == 0)
-                {
-                    // Write the string to a file.
-                    file = new System.IO.StreamWriter(path);
-                    serializer.Serialize(file, evt);
-                }
-                else
-                {
-                    file = new System.IO.StreamWriter(path);
-                    serializer.Serialize(file, evt);
-
-                }
-                numberOfEvents++;
-                file.Close();
+                            if (!File.Exists(path))
+                            {
+                                File.Create(path).Dispose();
+                                using (StreamWriter file = new StreamWriter(path, append: true))
+                                {
+                                    List<Event> evts = new List<Event>();
+                                    evts.Add(evt);
+                                    serializer.Serialize(file, evts);
+                                }
+                            }
+                            else
+                            {
+                                    List<Event> evts = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+                                    evts.Add(evt);
+                                    using (StreamWriter file = new StreamWriter(path, append: false))
+                                    {
+                                        serializer.Serialize(file, evts);
+                                    }                     
+                            }
+                            numberOfEvents++;
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("File write failed with exception." + ex.ToString());
+                    }
+                
             }
         }
         /// <summary>
