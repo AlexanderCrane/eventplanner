@@ -37,8 +37,12 @@ namespace WindowsFormsApplication1
             ComboBox comBox = (ComboBox)sender;
             Event selectedEvent = (Event)comBox.SelectedItem;
 
+            hostBox.Text = selectedEvent.getHost();
+            locationBox.Text = selectedEvent.getLocation();
+            briefBox.Text = selectedEvent.getBrief();
+
             //gives me list of date time tuples
-            for(int i = 0; i < selectedEvent.dateTimes.Count; i++)
+            for (int i = 0; i < selectedEvent.dateTimes.Count; i++)
             {
                 Console.Write("item 1: " + selectedEvent.dateTimes[i].Item1);
                 Console.Write("item 2: " + selectedEvent.dateTimes[i].Item2);
