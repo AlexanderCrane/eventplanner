@@ -81,6 +81,7 @@ namespace WindowsFormsApplication1
             Boolean inputError = false;
             Boolean comboBoxError = false;
             DateTime previousEndTime = DateTime.MinValue;
+            DateTime previousStartTime = DateTime.MinValue;
             int capInt;
             bool timeWindowError = false;
             List<Tuple<DateTime, DateTime>> dateTimes = new List<Tuple<DateTime, DateTime>>();
@@ -102,12 +103,14 @@ namespace WindowsFormsApplication1
                 {
                     endTime = endTime.AddDays(1);
                 }
-                else if (startTime <= previousEndTime && !timeWindowError)
+                else if (((startTime >= previousStartTime) && (startTime <= previousEndTime)||
+                    ((endTime >= previousStartTime) && (endTime <= previousEndTime))) && !timeWindowError)
                 {
-                    errorText = String.Concat(errorText, "Two of the selected time windows overlap.");
+                    errorText = String.Concat(errorText, "\nTwo of the selected time windows overlap.");
                     inputError = true;
                     timeWindowError = true;
                 }
+                previousStartTime = startTime;
                 previousEndTime = endTime;
 
                 dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
@@ -125,6 +128,16 @@ namespace WindowsFormsApplication1
             if (capInt == 0)
             {
                 errorText = String.Concat(errorText, "\nCapacity must be a nonzero number.");
+                inputError = true;
+            }
+            if (locationText.Text.Length == 0)
+            {
+                errorText = String.Concat(errorText, "\n Event Location cannot be empty.");
+                inputError = true;
+            }
+            if (briefMessageText.Text.Length == 0)
+            {
+                errorText = String.Concat(errorText, "\n Event Description cannot be empty.");
                 inputError = true;
             }
             if (inputError)
@@ -269,5 +282,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
