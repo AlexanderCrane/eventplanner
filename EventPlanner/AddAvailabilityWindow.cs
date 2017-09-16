@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace WindowsFormsApplication1
@@ -19,6 +20,8 @@ namespace WindowsFormsApplication1
         private string userName;
         private List<CheckBox> checkboxList = new List<CheckBox>();
         private List<Event> allEvents;
+        private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+
         /// <summary>
         /// Constructor for the Add Availability window.
         /// </summary>
@@ -30,7 +33,6 @@ namespace WindowsFormsApplication1
             this.userName = userName;
             this.allEvents = allEvents;
             System.Diagnostics.Debug.WriteLine(userName);
-
         }
 
         /// <summary>
@@ -47,10 +49,6 @@ namespace WindowsFormsApplication1
             hostBox.Text = selectedEvent.getHost()??"";
             locationBox.Text = selectedEvent.getLocation()??"";
             briefBox.Text = selectedEvent.getBrief()??"";
-            if (selectedEvent.attendees != null)
-            {
-                attendeesBox.Text = string.Join(",", selectedEvent.attendees);
-            }
 
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)
@@ -100,12 +98,24 @@ namespace WindowsFormsApplication1
                 {
                     if (checkboxList[i].Checked)
                     {
-                        //Method
+                        WriteToJSON();
                         break;
                     }
                 }
             }
             this.Close();
+        }
+
+        private void WriteToJSON()
+        {
+            //JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+            using (StreamWriter file = new StreamWriter(path, append: false))
+            {
+                //edit json file
+
+                
+                //serializer.Serialize(file, evts);
+            }
         }
     }
 }
