@@ -135,11 +135,11 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Text = "Event Name";
             this.nameTextBox.Location = new System.Drawing.Point(14, 25);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 10;
+            this.nameTextBox.Text = "Event Name";
             // 
             // briefMessageText
             // 
@@ -155,6 +155,7 @@
             this.capacityText.Name = "capacityText";
             this.capacityText.Size = new System.Drawing.Size(41, 20);
             this.capacityText.TabIndex = 12;
+            this.capacityText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.capacityText_KeyPress);
             // 
             // capLabel
             // 
@@ -176,11 +177,12 @@
             // 
             // locationText
             // 
-            this.locationText.Text = "Location";
+            this.locationText.Cue = null;
             this.locationText.Location = new System.Drawing.Point(118, 25);
             this.locationText.Name = "locationText";
             this.locationText.Size = new System.Drawing.Size(100, 20);
             this.locationText.TabIndex = 15;
+            this.locationText.Text = "Location";
             // 
             // RegisterEventWindow
             // 

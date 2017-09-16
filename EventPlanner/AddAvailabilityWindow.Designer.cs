@@ -70,6 +70,7 @@
             this.Controls.Add(this.saveAvailabilityButton);
             this.Controls.Add(this.timeSlotComboBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(300, 300);
             this.Name = "AddAvailabilityWindow";
             this.Text = "AddAvailabilityWindow";
             this.ResumeLayout(false);

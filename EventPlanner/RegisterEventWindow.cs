@@ -74,52 +74,64 @@ namespace WindowsFormsApplication1
         /// <param name="e">Winforms event arguments.</param>
         private void saveButton_Click(object sender, EventArgs e)
         {
-            foreach(Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
+            String errorText = "";
+            Boolean inputError = false;
+            Boolean comboBoxError = false;
+            List<Tuple<DateTime, DateTime>> dateTimes = new List<Tuple<DateTime, DateTime>>();
+            foreach (Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
             {
                 String endTimeString = (String)currentBoxes.Item2.SelectedItem;
                 String startTimeString = (String)currentBoxes.Item1.SelectedItem;
                 DateTime startTime = DateTime.Parse(startTimeString);
                 DateTime endTime = DateTime.Parse(endTimeString);
+                dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
                 //ensure the time slots are valid
                 //if end time is 12:00 AM that is equivalent to 11:59:59 pm, not a repeat or smaller number.
                 //if both times are 12:00AM we have to put the event into every text box!!!
-                if (endTime <= startTime && endTime.ToShortTimeString() != "12:00 AM")
+ 
+                if (endTime <= startTime && endTime.ToShortTimeString() != "12:00 AM" && !comboBoxError )
                 {
-                    MessageBox.Show("At least one of the time slots is impossible.");
-                    break;
+                    String.Concat(errorText, "At least one of the time slots is impossible.");
+                    comboBoxError = true;
+                    inputError = true;
+                }
+            }
+            if (nameTextBox.Text.Length > 36)
+            {
+                String.Concat(errorText, "\nEvent name is too long.");
+                inputError = true;
+            }
+            if (inputError)
+            {
+                MessageBox.Show(errorText);               
+            }
+            else
+            {
+                //Write event specified by user to file
+                this.Close();
+                MessageBox.Show("Event Created!");
+
+                Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, dateTimes[1].Item1.ToString(), dateTimes[1].Item2.ToString(), locationText.Text, "1", capacityText.Text);
+
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+                JsonSerializer serializer = new JsonSerializer();
+
+                System.IO.StreamWriter file;
+                if (numberOfEvents == 0)
+                {
+                    // Write the string to a file.
+                    file = new System.IO.StreamWriter(path);
+                    serializer.Serialize(file, evt);
                 }
                 else
                 {
-                    //Write event specified by user to file
-                    this.Close();
-                    MessageBox.Show("Event Created!");
+                    file = new System.IO.StreamWriter(path);
+                    serializer.Serialize(file, evt);
 
-                    Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, startTime.ToString(), endTime.ToString(), locationText.Text, "1", capacityText.Text);
-
-                    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
-                    JsonSerializer serializer = new JsonSerializer();
-
-                    System.IO.StreamWriter file;
-                    if (numberOfEvents == 0)
-                    {
-                        // Write the string to a file.
-                        file = new System.IO.StreamWriter(path);
-                        serializer.Serialize(file, evt);
-                    }
-                    else
-                    {
-                        file = new System.IO.StreamWriter(path);
-                        serializer.Serialize(file, evt);
-
-                    }
-                    numberOfEvents++;
-
-                    //JSON
-                    //file.WriteLine(eventName, ",", capacity, ",", briefMsg, ",", startTime, ",", endTime);
-                    file.Close();
                 }
+                numberOfEvents++;
+                file.Close();
             }
-
         }
         /// <summary>
         /// Click behavior for the add slot button.
@@ -171,6 +183,14 @@ namespace WindowsFormsApplication1
         private void briefMessage_TextChanged(object sender, EventArgs e)
         {
             //Nothing important happened today
+        }
+
+        private void capacityText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
