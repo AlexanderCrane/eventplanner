@@ -42,7 +42,7 @@
             // 
             this.addAvailabilityButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addAvailabilityButton.Location = new System.Drawing.Point(375, 178);
-            this.addAvailabilityButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addAvailabilityButton.Margin = new System.Windows.Forms.Padding(4);
             this.addAvailabilityButton.Name = "addAvailabilityButton";
             this.addAvailabilityButton.Size = new System.Drawing.Size(189, 105);
             this.addAvailabilityButton.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             this.addEventsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addEventsButton.Location = new System.Drawing.Point(375, 71);
-            this.addEventsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addEventsButton.Margin = new System.Windows.Forms.Padding(4);
             this.addEventsButton.Name = "addEventsButton";
             this.addEventsButton.Size = new System.Drawing.Size(189, 105);
             this.addEventsButton.TabIndex = 0;
@@ -95,7 +95,7 @@
             // 
             this.twentyFourCheckbox.AutoSize = true;
             this.twentyFourCheckbox.Location = new System.Drawing.Point(375, 314);
-            this.twentyFourCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.twentyFourCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.twentyFourCheckbox.Name = "twentyFourCheckbox";
             this.twentyFourCheckbox.Size = new System.Drawing.Size(160, 21);
             this.twentyFourCheckbox.TabIndex = 7;
@@ -126,10 +126,10 @@
             this.Controls.Add(this.addAvailabilityButton);
             this.Controls.Add(this.addEventsButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Event Planner";
+            this.Text = "Doodle 2: Electric Boogaloo";
             this.Load += new System.EventHandler(this.StartWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
