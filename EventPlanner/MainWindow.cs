@@ -36,10 +36,17 @@ namespace WindowsFormsApplication1
         /// <param name="sender">The sending winforms object.</param>
         /// <param name="e">Winforms event arguments.</param>
         private void button1_Click(object sender, EventArgs e)
-        {
-                DateTime placeHolder = mainCalendar.SelectionStart;
-                RegisterEventWindow registerPopup = new RegisterEventWindow(placeHolder, use24Hour, userName);
+        {         
+            DateTime selectedDate = mainCalendar.SelectionStart;
+            if (selectedDate < DateTime.Today)
+            {
+                MessageBox.Show("Select a current or future date to add events.");
+            }
+            else
+            {
+                RegisterEventWindow registerPopup = new RegisterEventWindow(selectedDate, use24Hour, userName);
                 registerPopup.ShowDialog();
+            }
         }
 
         /// <summary>

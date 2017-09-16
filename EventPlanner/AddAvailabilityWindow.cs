@@ -80,7 +80,7 @@ namespace WindowsFormsApplication1
         private void saveAvailabilityButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(userName);
-
+            this.Close();
         }
     }
 }

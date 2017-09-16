@@ -84,6 +84,7 @@ namespace WindowsFormsApplication1
             Boolean inputError = false;
             Boolean comboBoxError = false;
             DateTime previousEndTime = DateTime.MinValue;
+            DateTime previousStartTime = DateTime.MinValue;
             int capInt;
             bool timeWindowError = false;
             List<Tuple<DateTime, DateTime>> dateTimes = new List<Tuple<DateTime, DateTime>>();
@@ -105,12 +106,14 @@ namespace WindowsFormsApplication1
                 {
                     endTime = endTime.AddDays(1);
                 }
-                else if (startTime <= previousEndTime && !timeWindowError)
+                else if (((startTime >= previousStartTime) && (startTime <= previousEndTime)||
+                    ((endTime >= previousStartTime) && (endTime <= previousEndTime))) && !timeWindowError)
                 {
-                    errorText = String.Concat(errorText, "Two of the selected time windows overlap.");
+                    errorText = String.Concat(errorText, "\nTwo of the selected time windows overlap.");
                     inputError = true;
                     timeWindowError = true;
                 }
+                previousStartTime = startTime;
                 previousEndTime = endTime;
 
                 dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
