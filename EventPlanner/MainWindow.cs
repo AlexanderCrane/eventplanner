@@ -49,7 +49,8 @@ namespace WindowsFormsApplication1
         /// <param name="e">Winforms event arguments.</param>
         private void button2_Click(object sender, EventArgs e)
         {
-                UserWindow user = new UserWindow(use24Hour, mainCalendar.SelectionStart);
+                System.Diagnostics.Debug.WriteLine(userName);
+                UserWindow user = new UserWindow(use24Hour, mainCalendar.SelectionStart, userName);
                 user.ShowDialog();
         }
 

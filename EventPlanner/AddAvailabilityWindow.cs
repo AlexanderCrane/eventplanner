@@ -16,15 +16,19 @@ namespace WindowsFormsApplication1
     /// </summary>
     public partial class AddAvailabilityWindow : Form
     {
+        private string userName;
 
         /// <summary>
         /// Constructor for the Add Availability window.
         /// </summary>
-        public AddAvailabilityWindow(List<Event> events)
+        public AddAvailabilityWindow(List<Event> events, string userName)
         {
             InitializeComponent();
             eventComboBox.DataSource = events;
             eventComboBox.DisplayMember = "nameOfEvent";
+            this.userName = userName;
+            System.Diagnostics.Debug.WriteLine(userName);
+
         }
 
         /// <summary>
@@ -70,6 +74,12 @@ namespace WindowsFormsApplication1
             CheckBox cB = new CheckBox();
             cB.Text = "Join at: " + dTime;
             return (cB);
+        }
+
+        private void saveAvailabilityButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(userName);
+
         }
     }
 }

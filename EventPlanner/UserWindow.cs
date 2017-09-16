@@ -21,20 +21,25 @@ namespace WindowsFormsApplication1
         static extern bool HideCaret(IntPtr hWnd);
         private bool use24Hour;
         private DateTime startingDate;
+        private string userName;
 
         /// <summary>
         /// Constructor for the user window.
         /// </summary>
         /// <param name="use24Hour">Whether to use 24 hour times in the 'agenda' panel.</param>
         /// <param name="selectedDate">The date selected previously on the main window calendar.</param>
-        public UserWindow(bool use24Hour, DateTime selectedDate)
+        /// <param name="userName">The username entered in LoginPopup</param>
+        public UserWindow(bool use24Hour, DateTime selectedDate, string userName)
         {
             InitializeComponent();
             this.use24Hour = use24Hour;
             this.startingDate = selectedDate;
+            this.userName = userName;
+            System.Diagnostics.Debug.WriteLine(this.userName);
+
         }
 
-        
+
         /// <summary>
         /// Date Selected behavior for the calendar.
         /// Updates the selected date when it changes and updates the 'agenda' panel to show that day's events
@@ -144,7 +149,9 @@ namespace WindowsFormsApplication1
         private void Text_Click(object sender, EventArgs e)
         {
             AgendaTextBox send = sender as AgendaTextBox;
-            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents);
+            System.Diagnostics.Debug.WriteLine(userName);
+
+            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName);
             addAvail.ShowDialog();
         }
 
@@ -162,6 +169,11 @@ namespace WindowsFormsApplication1
         {
             TextBox box = sender as TextBox;
             HideCaret(box.Handle);
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

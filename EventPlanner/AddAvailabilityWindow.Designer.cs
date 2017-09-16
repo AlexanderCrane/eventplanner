@@ -42,29 +42,35 @@
             // 
             // saveAvailabilityButton
             // 
+
             this.saveAvailabilityButton.Location = new System.Drawing.Point(81, 228);
+
             this.saveAvailabilityButton.Name = "saveAvailabilityButton";
-            this.saveAvailabilityButton.Size = new System.Drawing.Size(118, 23);
+            this.saveAvailabilityButton.Size = new System.Drawing.Size(177, 35);
             this.saveAvailabilityButton.TabIndex = 1;
             this.saveAvailabilityButton.Text = "Save Availability";
             this.saveAvailabilityButton.UseVisualStyleBackColor = true;
+            this.saveAvailabilityButton.Click += new System.EventHandler(this.saveAvailabilityButton_Click);
             // 
             // eventComboBox
             // 
             this.eventComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.eventComboBox.FormattingEnabled = true;
-            this.eventComboBox.Location = new System.Drawing.Point(25, 32);
+            this.eventComboBox.Location = new System.Drawing.Point(38, 49);
+            this.eventComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eventComboBox.Name = "eventComboBox";
-            this.eventComboBox.Size = new System.Drawing.Size(247, 21);
+            this.eventComboBox.Size = new System.Drawing.Size(368, 28);
             this.eventComboBox.TabIndex = 2;
             this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
             // 
             // flowPanel
             // 
             this.flowPanel.AutoScroll = true;
+
             this.flowPanel.Location = new System.Drawing.Point(25, 118);
             this.flowPanel.Name = "flowPanel";
             this.flowPanel.Size = new System.Drawing.Size(247, 104);
+
             this.flowPanel.TabIndex = 3;
             // 
             // briefBox
@@ -123,8 +129,9 @@
             // 
             // AddAvailabilityWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -132,11 +139,13 @@
             this.Controls.Add(this.hostBox);
             this.Controls.Add(this.locationBox);
             this.Controls.Add(this.briefBox);
+
             this.Controls.Add(this.flowPanel);
             this.Controls.Add(this.eventComboBox);
             this.Controls.Add(this.saveAvailabilityButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(300, 300);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(439, 431);
             this.Name = "AddAvailabilityWindow";
             this.Text = "AddAvailabilityWindow";
             this.ResumeLayout(false);
