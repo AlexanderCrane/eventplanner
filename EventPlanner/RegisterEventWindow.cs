@@ -130,6 +130,16 @@ namespace WindowsFormsApplication1
                 errorText = String.Concat(errorText, "\nCapacity must be a nonzero number.");
                 inputError = true;
             }
+            if (locationText.Text.Length == 0)
+            {
+                errorText = String.Concat(errorText, "\n Event Location cannot be empty.");
+                inputError = true;
+            }
+            if (briefMessageText.Text.Length == 0)
+            {
+                errorText = String.Concat(errorText, "\n Event Description cannot be empty.");
+                inputError = true;
+            }
             if (inputError)
             {
                 MessageBox.Show(errorText);               
@@ -272,5 +282,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
