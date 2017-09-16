@@ -26,7 +26,7 @@ using System.Windows.Forms;
     -attendees
 */
 #endregion
-class Event
+public class Event
 {
     #region Private Variables and Properties
     private int numberOfEvents = 0;
@@ -85,7 +85,7 @@ class Event
     /*
     NOTE:Maybe we'll eventually show everyone who is going to said event?
     */
-    public void addAttenedee()
+    public void addAttendee()
     {
         //numberOfAttendees++;
     }
@@ -157,4 +157,8 @@ class Event
 
     }
     #endregion
+    public override string ToString()
+    {
+        return (this.nameOfEvent+"("+this.numberOfAttendees+")");
+    }
 }

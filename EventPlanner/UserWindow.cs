@@ -78,15 +78,15 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < 48; i++)
             {
                 
-               // Event testEvent = new Event("NarutoRunDownMass", "Austin", "asfajkaj", "19:00", "21:00", "Mass St", 50, 100);
+                Event testEvent = new Event("NarutoRunDownMass", "Austin", "asfajkaj", "19:00", "21:00", "Mass St", "50", "100");
 
                 AgendaTextBox text = new AgendaTextBox();
 
-               // text.associatedEvents.Add(testEvent);
+                text.associatedEvents.Add(testEvent);
                 text.GotFocus += hideTextBoxCursor;
                 foreach(Event ev in text.associatedEvents)
                 {
-                    text.Text += ev;
+                    text.Text += ev.ToString();
                 }
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
@@ -116,7 +116,8 @@ namespace WindowsFormsApplication1
 
         private void Text_Click(object sender, EventArgs e)
         {
-            AddAvailabilityWindow addAvail = new AddAvailabilityWindow();
+            AgendaTextBox send = sender as AgendaTextBox;
+            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents);
             addAvail.ShowDialog();
         }
 

@@ -20,9 +20,11 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Constructor for the Add Availability window.
         /// </summary>
-        public AddAvailabilityWindow()
+        public AddAvailabilityWindow(List<Event> events)
         {
             InitializeComponent();
+            eventComboBox.DataSource = events;
+            eventComboBox.DisplayMember = "nameOfEvent";
         }
     }
 }
