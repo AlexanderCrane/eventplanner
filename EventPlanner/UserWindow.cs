@@ -24,8 +24,9 @@ namespace WindowsFormsApplication1
         private bool use24Hour;
         private DateTime startingDate;
         private string userName;
+        private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
 
-        private List<Event> evtList;
+        private List<Event> evtList = new List<Event>();
         private List<Event> dayEvents = new List<Event>();
 
         /// <summary>
@@ -73,9 +74,12 @@ namespace WindowsFormsApplication1
         private void getEventsForTheDay(DateTime currentTime)
         {
             //cleardayEvents
-            for(int j = 0; j < dayEvents.Count; j++)
+            if (dayEvents != null)
             {
-                dayEvents.Remove(dayEvents[j]);
+                for (int j = 0; j < dayEvents.Count; j++)
+                {
+                    dayEvents.Remove(dayEvents[j]);
+                }
             }
             //dayEvents
             foreach (Event evt in evtList)
@@ -107,8 +111,14 @@ namespace WindowsFormsApplication1
             monthCalendar1.SelectionEnd = startingDate;
             currentDateLabel.Text = startingDate.ToShortDateString();
 
-            pullEventsFromJSON();
-            getEventsForTheDay(currentTime);
+            if (File.Exists(path))
+            {
+                pullEventsFromJSON();
+                if (evtList != null)
+                {
+                    getEventsForTheDay(currentTime);
+                }
+            }
 
             for (int i = 0; i < 48; i++)
             {
@@ -117,17 +127,20 @@ namespace WindowsFormsApplication1
 
                 AgendaTextBox text = new AgendaTextBox();
 
-                foreach(Event evt in evtList)
+                for(int j = 0; j < dayEvents.Count; j++)
                 {
-                    if(text.associatedDateTime == evt.dateTimes[i].Item1)
+                    for(int k = 0; k < dayEvents[j].dateTimes.Count; k++)
                     {
-
+                        if (text.associatedDateTime == dayEvents[j].dateTimes[k].Item1)
+                        {
+                            text.associatedEvents.Add(dayEvents[j]);
+                        }
                     }
                 }
-                
+
                 //text.associatedEvents.Add(evt);
                 text.GotFocus += hideTextBoxCursor;
-                foreach(Event ev in text.associatedEvents)
+                foreach (Event ev in text.associatedEvents)
                 {
                     text.Text += ev.ToString() + " ";
                 }
@@ -172,11 +185,10 @@ namespace WindowsFormsApplication1
         //NOTE: 
         private void pullEventsFromJSON()
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
             // read file into a string and deserialize JSON to a type
             if (File.Exists(path))
             {
-                List<Event> evtList = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+                evtList = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
                 foreach (Event e in evtList)
                 {
                     Console.Write(e.getHost());
