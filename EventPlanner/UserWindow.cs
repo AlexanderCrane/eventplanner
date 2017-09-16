@@ -28,6 +28,7 @@ namespace WindowsFormsApplication1
 
         private List<Event> evtList = new List<Event>();
         private List<Event> dayEvents = new List<Event>();
+        AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
 
         /// <summary>
         /// Constructor for the user window.
@@ -53,8 +54,34 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
+            getEventsForTheDay(e.Start);
             currentDateLabel.Text = e.Start.ToShortDateString();
-
+            for (int i = 0; i < 48; i++)
+            {
+                AgendaTextBox text = TextBoxArray[i];
+                text.Text = "";
+                text.associatedEvents.Clear();
+            }
+            for (int i = 0; i<48; i++) {
+                AgendaTextBox text = TextBoxArray[i];
+                for (int j = 0; j < dayEvents.Count; j++)
+                {
+                    for (int k = 0; k < dayEvents[j].dateTimes.Count; k++)
+                    {
+                        if (text.associatedDateTime < dayEvents[j].dateTimes[k].Item2 && text.associatedDateTime >= dayEvents[j].dateTimes[k].Item1)
+                        {
+                            if (!text.associatedEvents.Contains(dayEvents[j]))
+                            {
+                                text.associatedEvents.Add(dayEvents[j]);
+                            }
+                        }
+                    }
+                }
+                foreach (Event ev in text.associatedEvents)
+                {
+                    text.Text += ev.ToString() + " ";
+                }
+            }
         }
 
         /// <summary>
@@ -76,10 +103,7 @@ namespace WindowsFormsApplication1
             //cleardayEvents
             if (dayEvents != null)
             {
-                for (int j = 0; j < dayEvents.Count; j++)
-                {
-                    dayEvents.Remove(dayEvents[j]);
-                }
+                dayEvents.Clear();
             }
             //dayEvents
             foreach (Event evt in evtList)
@@ -89,6 +113,7 @@ namespace WindowsFormsApplication1
                     if (currentTime.Day == evt.dateTimes[i].Item1.Day)
                     {
                         dayEvents.Add(evt);
+                        break;
                     }
                 }
             }
@@ -104,7 +129,6 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void UserWindow_Load(object sender, EventArgs e)
         {
-            AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
             DateTime currentTime = startingDate;
 
             monthCalendar1.SelectionStart = startingDate;

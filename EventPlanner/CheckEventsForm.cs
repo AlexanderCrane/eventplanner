@@ -39,12 +39,6 @@ namespace WindowsFormsApplication1
             yourEventsBox.DataSource = yourEvents;
             yourEventsBox.SelectedIndex = 0;
             Event ev = (Event)yourEventsBox.SelectedItem;
-            List<Tuple<String, List<DateTime>>> testList = new List<Tuple<string, List<DateTime>>>();
-            List<DateTime> testTimes = new List<DateTime>();
-            testTimes.Add(DateTime.Today);
-            testTimes.Add(DateTime.Today.AddHours(5));
-            testList.Add(new Tuple<string, List<DateTime>>("Jakob", testTimes));
-            ev.attendees = testList;
             if (ev != null) {
                 if (ev.attendees != null)
                 {
