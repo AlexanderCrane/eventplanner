@@ -31,14 +31,17 @@ namespace WindowsFormsApplication1
 
         public int numberOfEvents = 0;
 
+        public string userName;
+
         /// <summary>
         /// Constructor for the RegisterEventWindow form.
         /// </summary>
         /// <param name="selectedDate">The date selected by the user.</param>
         /// <param name="use24Hour">Whether 24 hour time will be used.</param>
-        public RegisterEventWindow(DateTime selectedDate, bool use24Hour)
+        public RegisterEventWindow(DateTime selectedDate, bool use24Hour, string username)
         {
             InitializeComponent();
+            userName = username;
             dateLabel.Text = "Adding event for: " + selectedDate.ToShortDateString();
             ComboBoxDateTime currentTime = new ComboBoxDateTime(selectedDate.Date, use24Hour);
             for (int i = 0; i < 48; i++)
@@ -147,7 +150,7 @@ namespace WindowsFormsApplication1
                 this.Close();
                 MessageBox.Show("Event Created!");
 
-                Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, dateTimes, locationText.Text, 1, capInt);
+                Event evt = new Event(nameTextBox.Text, userName, briefMessageText.Text, dateTimes, locationText.Text, 1, capInt);
 
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
                 JsonSerializer serializer = new JsonSerializer();

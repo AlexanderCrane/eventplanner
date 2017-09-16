@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
                 DateTime placeHolder = mainCalendar.SelectionStart;
-                RegisterEventWindow registerPopup = new RegisterEventWindow(placeHolder, use24Hour);
+                RegisterEventWindow registerPopup = new RegisterEventWindow(placeHolder, use24Hour, userName);
                 registerPopup.ShowDialog();
         }
 
