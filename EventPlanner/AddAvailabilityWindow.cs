@@ -18,15 +18,17 @@ namespace WindowsFormsApplication1
     {
         private string userName;
         private List<CheckBox> checkboxList = new List<CheckBox>();
+        private List<Event> allEvents;
         /// <summary>
         /// Constructor for the Add Availability window.
         /// </summary>
-        public AddAvailabilityWindow(List<Event> events, string userName)
+        public AddAvailabilityWindow(List<Event> events, string userName, List<Event> allEvents)
         {
             InitializeComponent();
             eventComboBox.DataSource = events;
             eventComboBox.DisplayMember = "nameOfEvent";
             this.userName = userName;
+            this.allEvents = allEvents;
             System.Diagnostics.Debug.WriteLine(userName);
 
         }
@@ -63,7 +65,7 @@ namespace WindowsFormsApplication1
                 DateTime startTimeBox = selectedEvent.dateTimes[i].Item1;
                 for (int j = 0; j < minuteIntervals; j++)
                 {
-                    CheckBox cB = AddCheckbox(startTimeBox.ToShortTimeString());
+                    AvailabilityCheckBox cB = AddCheckbox(startTimeBox);
                     flowPanel.Controls.Add(cB);
 
                     startTimeBox = startTimeBox.AddMinutes(30);
@@ -74,10 +76,11 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Adds checkboxes for times, but checkboxes do nothing so far
         /// </summary>
-        private CheckBox AddCheckbox(string dTime)
+        private AvailabilityCheckBox AddCheckbox(DateTime dTime)
         {
-            CheckBox cB = new CheckBox();
-            cB.Text = dTime;
+            AvailabilityCheckBox cB = new AvailabilityCheckBox();
+            cB.associatedDateTime = dTime;
+            cB.Text = dTime.ToShortTimeString();
 
             checkboxList.Add(cB);
             return (cB);
@@ -85,13 +88,21 @@ namespace WindowsFormsApplication1
 
         private void saveAvailabilityButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(checkboxList.Count);
-            for (int i = 0; i < checkboxList.Count; i++)
+            Event realEvent = allEvents.Find(x => x.nameOfEvent == ((Event)eventComboBox.SelectedItem).nameOfEvent);
+            if (realEvent == null)
             {
-                if (checkboxList[i].Checked)
+
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine(checkboxList.Count);
+                for (int i = 0; i < checkboxList.Count; i++)
                 {
-                    //Method
-                    break;
+                    if (checkboxList[i].Checked)
+                    {
+                        //Method
+                        break;
+                    }
                 }
             }
             this.Close();

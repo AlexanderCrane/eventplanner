@@ -179,7 +179,7 @@ namespace WindowsFormsApplication1
             AgendaTextBox send = sender as AgendaTextBox;
             System.Diagnostics.Debug.WriteLine(userName);
 
-            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName);
+            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName, evtList);
             addAvail.ShowDialog();
         }
 
