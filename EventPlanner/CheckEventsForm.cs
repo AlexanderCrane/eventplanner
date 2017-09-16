@@ -54,6 +54,7 @@ namespace WindowsFormsApplication1
                         attendeesBox.Text += tuple.Item1;
                         attendeesBox.Text += ":";
                         attendeesBox.Text += String.Join(",", timeStrings);
+                        attendeesBox.Text += "\r\n";
                     }
                 }
             } 

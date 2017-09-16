@@ -31,9 +31,29 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             eventComboBox.DataSource = events;
             eventComboBox.DisplayMember = "nameOfEvent";
+            eventComboBox.SelectedIndex = 0;
             this.userName = userName;
             this.allEvents = allEvents;
+            Event startingEvent = (Event)eventComboBox.SelectedItem;
+            //UpdateAttendees(startingEvent);
             System.Diagnostics.Debug.WriteLine(userName);
+        }
+
+        private void UpdateAttendees(Event ev)
+        {
+            attendeesBox.Clear();
+            foreach (Tuple<String, List<DateTime>> tuple in ev.attendees)
+            {
+                List<String> timeStrings = new List<string>();
+                foreach (DateTime dt in tuple.Item2)
+                {
+                    timeStrings.Add(dt.ToShortTimeString());
+                }
+                attendeesBox.Text += tuple.Item1;
+                attendeesBox.Text += ":";
+                attendeesBox.Text += String.Join(",", timeStrings);
+                attendeesBox.Text += "\r\n";
+            }
         }
 
         /// <summary>
@@ -50,6 +70,7 @@ namespace WindowsFormsApplication1
             hostBox.Text = selectedEvent.getHost()??"";
             locationBox.Text = selectedEvent.getLocation()??"";
             briefBox.Text = selectedEvent.getBrief()??"";
+            UpdateAttendees(selectedEvent);
 
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)
