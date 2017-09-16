@@ -133,7 +133,6 @@ namespace WindowsFormsApplication1
 
                             if (!File.Exists(path))
                             {
-                                File.Create(path).Dispose();
                                 using (StreamWriter file = new StreamWriter(path, append: true))
                                 {
                                     List<Event> evts = new List<Event>();

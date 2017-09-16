@@ -26,26 +26,54 @@ using System.Windows.Forms;
     -attendees
 */
 #endregion
+/// <summary>
+/// Event class. Serializable to JSON.
+/// </summary>
 public class Event
 {
     #region Private Variables and Properties
     private int numberOfEvents = 0;
 
+    /// <summary>
+    /// The event's name.
+    /// </summary>
     public string nameOfEvent = "";
+    /// <summary>
+    /// The creator of the event.
+    /// </summary>
     public string host = "";
+    /// <summary>
+    /// The location of the event.
+    /// </summary>
     public string location = "";
+    /// <summary>
+    /// A description of the event.
+    /// </summary>
     public string brief = "";
 
-    //Tuple<DateTime,DateTime> contains 2 datetimes
-    //first one is start time 
-    //second one is end time
-    //list because we can have multiple time blocks with independent start, end times
+
+    /// <summary>
+    /// A list of tuples containing two DateTimes. 
+    /// These represent the start and end times of each contiguous block of scheduled event time.
+    /// </summary>
     public List<Tuple<DateTime, DateTime>> dateTimes;
+
+    public List<String> attendees;
 
     private int capacity = 0;
     private int numberOfAttendees = 0;
     #endregion
 
+    /// <summary>
+    /// Constructor for the event class
+    /// </summary>
+    /// <param name="eventName">The name of the event. User specified.</param>
+    /// <param name="hostName">The name of the host. Passed in from LoginPopup.</param>
+    /// <param name="description">A brief description of the event. User specified, optional.</param>
+    /// <param name="dateTimes">List of datetimes representing the user's selections</param>
+    /// <param name="loc">The event's location</param>
+    /// <param name="attending">Number attending the event</param>
+    /// <param name="cap">The event's capacity.</param>
     public Event(string eventName, string hostName, string description, List<Tuple<DateTime, DateTime>> dateTimes, string loc, int attending, int cap)
     {
         nameOfEvent = eventName;
@@ -61,26 +89,50 @@ public class Event
 
     //SETTERS
     #region Public Method Setters
+    /// <summary>
+    /// Set the event name.
+    /// </summary>
+    /// <param name="name">New name.</param>
     public void setName(string name)
     {
         nameOfEvent = name;
     }
+    /// <summary>
+    /// Set the host name.
+    /// </summary>
+    /// <param name="hostName">new host name.</param>
     public void setHost(string hostName)
     {
         host = hostName;
     }
+    /// <summary>
+    /// New location.
+    /// </summary>
+    /// <param name="loc">New location.</param>
     public void setLocation(string loc)
     {
         location = loc;
     }
+    /// <summary>
+    /// Set the description.
+    /// </summary>
+    /// <param name="msg">New description message.</param>
     public void setBrief(string msg)
     {
         brief = msg;
     }
+    /// <summary>
+    /// Set the capacity.
+    /// </summary>
+    /// <param name="cap">New capacity</param>
     public void setCapacity(int cap)
     {
         capacity = cap;
     }
+    /// <summary>
+    /// Set the number of attendees
+    /// </summary>
+    /// <param name="att">New number.</param>
     public void setAttendees(int att)
     {
         numberOfAttendees = att;
@@ -89,8 +141,13 @@ public class Event
     /*
     NOTE:Maybe we'll eventually show everyone who is going to said event?
     */
-    public void addAttendee()
+    /// <summary>
+    /// Add an attendee to the event
+    /// </summary>
+    /// <param name="name">The attendee's name</param>
+    public void addAttendee(String name)
     {
+        attendees.Add(name);
         numberOfAttendees++;
     }
 
@@ -126,41 +183,10 @@ public class Event
     }
     #endregion
 
-    #region File Functionality
-    public void saveToFile(string eventName, int capacity, string briefMsg, string startTime, string endTime)
-    {
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/eventSaveFile.txt";
-        System.IO.StreamWriter file;
-        if (numberOfEvents == 0)
-        {
-            // Write the string to a file.
-            file = new System.IO.StreamWriter(path);
-        }
-        else
-        {
-            file = new System.IO.StreamWriter(path);
-        }
-        numberOfEvents++;
-
-        //Traverses To A New Line
-
-        file.WriteLine(eventName + capacity + briefMsg + startTime + endTime);
-        file.Close();
-    }
-
-    /*
-     * Note: this will change number of attendees for an event in file 
-    */
-    public void quickSaveToFile()
-    {
-
-    }
-
-    public void deleteEventFromFile(string matchName)
-    {
-
-    }
-    #endregion
+    /// <summary>
+    /// ToString overload for Event.cs. 
+    /// </summary>
+    /// <returns>Returns the event followed by number of attendees for use in UserWindow.</returns>
     public override string ToString()
     {
         return (this.nameOfEvent+"("+this.numberOfAttendees+")");
