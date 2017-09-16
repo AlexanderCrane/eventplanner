@@ -126,8 +126,9 @@ namespace WindowsFormsApplication1
                 //Event testEventtwo = new Event("3360292493154691677656104369796918174839742715026412054022817489762285530991460209690737435657947018", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
 
                 AgendaTextBox text = new AgendaTextBox();
+                text.associatedDateTime = currentTime;
 
-                for(int j = 0; j < dayEvents.Count; j++)
+                for (int j = 0; j < dayEvents.Count; j++)
                 {
                     for(int k = 0; k < dayEvents[j].dateTimes.Count; k++)
                     {
@@ -164,7 +165,6 @@ namespace WindowsFormsApplication1
                 text.Name = "text" + i.ToString();
                 text.MaximumSize = new Size(200, 300);
                 text.Size = new Size(300, 50);
-                text.associatedDateTime = currentTime;
                 flowLayoutPanel1.Controls.Add(timeLabel);
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);
