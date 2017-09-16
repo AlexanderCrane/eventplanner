@@ -34,8 +34,28 @@ namespace WindowsFormsApplication1
         {
             Console.Write(eventComboBox.DataSource);
 
-            CheckBox cB = AddCheckbox("time");
-            flowPanel.Controls.Add(cB);
+            ComboBox comBox = (ComboBox)sender;
+            Event selectedEvent = (Event)comBox.SelectedItem;
+
+            //gives me list of date time tuples
+            for(int i = 0; i < selectedEvent.dateTimes.Count; i++)
+            {
+                Console.Write("item 1: " + selectedEvent.dateTimes[i].Item1);
+                Console.Write("item 2: " + selectedEvent.dateTimes[i].Item2);
+
+                TimeSpan timeDifference = selectedEvent.dateTimes[i].Item2 - selectedEvent.dateTimes[i].Item1;
+
+                int minuteIntervals = (int)timeDifference.TotalMinutes % 30;
+
+                DateTime startTimeBox = selectedEvent.dateTimes[i].Item1;
+                for (int j = 0; j < minuteIntervals; j++)
+                {
+                    CheckBox cB = AddCheckbox(startTimeBox.ToString());
+                    flowPanel.Controls.Add(cB);
+
+                    startTimeBox.AddMinutes(30);
+                }
+            }
         }
 
         /// <summary>

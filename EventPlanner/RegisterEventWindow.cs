@@ -80,7 +80,9 @@ namespace WindowsFormsApplication1
             String errorText = "";
             Boolean inputError = false;
             Boolean comboBoxError = false;
+            DateTime previousEndTime = DateTime.MinValue;
             int capInt;
+            bool timeWindowError = false;
             List<Tuple<DateTime, DateTime>> dateTimes = new List<Tuple<DateTime, DateTime>>();
             int.TryParse(capacityText.Text, out capInt);
             foreach (Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
@@ -100,6 +102,14 @@ namespace WindowsFormsApplication1
                 {
                     endTime = endTime.AddDays(1);
                 }
+                else if (startTime <= previousEndTime && !timeWindowError)
+                {
+                    errorText = String.Concat(errorText, "Two of the selected time windows overlap.");
+                    inputError = true;
+                    timeWindowError = true;
+                }
+                previousEndTime = endTime;
+
                 dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
             }
             if (nameTextBox.Text.Length > 36)
@@ -170,13 +180,13 @@ namespace WindowsFormsApplication1
             ComboBox newStartBox = new ComboBox();
             newStartBox.Text = "Start Time";
             newStartBox.BindingContext = new BindingContext();
-            newStartBox.DataSource = halfHourStrings;
+            newStartBox.DataSource = halfHourDateTimes;
             newStartBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             ComboBox newEndBox = new ComboBox();
             newEndBox.Text = "End Time";
             newEndBox.BindingContext = new BindingContext();
-            newEndBox.DataSource = halfHourStrings;
+            newEndBox.DataSource = halfHourDateTimes;
             newEndBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             timeBoxes.Add(new Tuple<ComboBox, ComboBox>(newStartBox, newEndBox));
