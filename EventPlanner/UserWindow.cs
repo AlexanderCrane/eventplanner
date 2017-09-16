@@ -141,11 +141,13 @@ namespace WindowsFormsApplication1
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
             // read file into a string and deserialize JSON to a type
-            List<Event> evtList = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
-
-            foreach (Event e in evtList)
+            if (File.Exists(path))
             {
-                Console.Write(e.getHost());
+                List<Event> evtList = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+                foreach (Event e in evtList)
+                {
+                    Console.Write(e.getHost());
+                }
             }
         }
 
