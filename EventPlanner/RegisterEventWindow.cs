@@ -269,9 +269,5 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void b_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

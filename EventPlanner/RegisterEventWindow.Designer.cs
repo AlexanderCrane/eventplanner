@@ -172,7 +172,6 @@
             this.briefMessageText.Name = "briefMessageText";
             this.briefMessageText.Size = new System.Drawing.Size(253, 20);
             this.briefMessageText.TabIndex = 18;
-            this.briefMessageText.TextChanged += new System.EventHandler(this.b_TextChanged);
             // 
             // RegisterEventWindow
             // 
