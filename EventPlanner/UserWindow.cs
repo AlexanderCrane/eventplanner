@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Calendar;
 using System.Runtime.InteropServices;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace WindowsFormsApplication1
 {
@@ -80,46 +82,22 @@ namespace WindowsFormsApplication1
             monthCalendar1.SelectionEnd = startingDate;
             currentDateLabel.Text = startingDate.ToShortDateString();
 
+            pullEventsFromJSON();
+
             for (int i = 0; i < 48; i++)
             {
                 
                 Event testEvent = new Event("33323289679111673265050105032946746271022", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
                 Event testEventtwo = new Event("3360292493154691677656104369796918174839742715026412054022817489762285530991460209690737435657947018", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
-                
+
                 AgendaTextBox text = new AgendaTextBox();
 
                 text.associatedEvents.Add(testEvent);
-                text.associatedEvents.Add(testEventtwo);
-                text.MaxLength = 100;
                 text.GotFocus += hideTextBoxCursor;
-                String eventText = "";
-                bool firstEvent = true;
                 foreach(Event ev in text.associatedEvents)
                 {
-                  
-                    if (eventText.Length + ev.ToString().Length > 94)
-                    {
-                       if (firstEvent)
-                        {
-                            eventText += "Event names too long to display. Click for info.";
-                            //firstEvent = false;
-                        }
-                        else
-                        {
-                            eventText += " others";
-                        }
-                        break;
-                    }
-                    else
-                    {
-                        eventText += ev.ToString() + ",";
-                    }
-                    if (firstEvent)
-                    {
-                        firstEvent = false;
-                    }
+                    text.Text += ev.ToString() + " ";
                 }
-                text.Text = eventText;
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
                 if (!use24Hour)
@@ -154,6 +132,21 @@ namespace WindowsFormsApplication1
 
             AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName);
             addAvail.ShowDialog();
+        }
+
+        //Source of JSON Work: https://www.newtonsoft.com/json/help/html/DeserializeWithJsonSerializerFromFile.htm
+        //& Jackob
+        //NOTE: 
+        private void pullEventsFromJSON()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+            // read file into a string and deserialize JSON to a type
+            List<Event> evtList = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+
+            foreach (Event e in evtList)
+            {
+                Console.Write(e.getHost());
+            }
         }
 
         /// <summary>
