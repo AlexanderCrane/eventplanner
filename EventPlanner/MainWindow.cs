@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -88,7 +89,12 @@ namespace WindowsFormsApplication1
         private void button1_Click_1(object sender, EventArgs e)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
-            System.IO.File.WriteAllText(path, "");
+            //System.IO.File.WriteAllText(path, "");
+
+            if (File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
 
         }
     }
