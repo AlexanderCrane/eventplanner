@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+* File: Program.cs | Program Class
+* Author: Jacob Wulf-eck
+* Date Created: September 9, 2017
+* Brief: Main starting point for the program
+*        Enables visual styles
+*        Sets text rendering
+*        Makes a call to LoginPopop
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,8 +26,8 @@ namespace WindowsFormsApplication1
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();//Enables visual styles such as colors, fonts, and other visual elements
+            Application.SetCompatibleTextRenderingDefault(false); //Sets the application-wide default for the UseCompatibleTextRendering property defined on certain controls.
             Application.Run(new LoginPopup());
         }
     }
