@@ -116,11 +116,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void currentDateLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -130,6 +125,14 @@ namespace WindowsFormsApplication1
         {
             CheckEventsForm checkEvents = new CheckEventsForm(userName);
             checkEvents.ShowDialog();
+        }
+
+        private void currentDateLabel_TextChanged_1(object sender, EventArgs e)
+        {
+            if (currentDateLabel.Text[0] != 'S')
+            {
+                currentDateLabel.Text = "Selected date: " + currentDateLabel.Text;
+            }
         }
     }
 }
