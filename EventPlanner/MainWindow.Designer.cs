@@ -35,14 +35,16 @@
             this.currentDateLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.twentyFourCheckbox = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addAvailabilityButton
             // 
             this.addAvailabilityButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAvailabilityButton.Location = new System.Drawing.Point(281, 145);
+            this.addAvailabilityButton.Location = new System.Drawing.Point(375, 178);
+            this.addAvailabilityButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addAvailabilityButton.Name = "addAvailabilityButton";
-            this.addAvailabilityButton.Size = new System.Drawing.Size(142, 85);
+            this.addAvailabilityButton.Size = new System.Drawing.Size(189, 105);
             this.addAvailabilityButton.TabIndex = 1;
             this.addAvailabilityButton.Text = "Add Availability";
             this.addAvailabilityButton.UseVisualStyleBackColor = true;
@@ -51,9 +53,10 @@
             // addEventsButton
             // 
             this.addEventsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addEventsButton.Location = new System.Drawing.Point(281, 58);
+            this.addEventsButton.Location = new System.Drawing.Point(375, 71);
+            this.addEventsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addEventsButton.Name = "addEventsButton";
-            this.addEventsButton.Size = new System.Drawing.Size(142, 85);
+            this.addEventsButton.Size = new System.Drawing.Size(189, 105);
             this.addEventsButton.TabIndex = 0;
             this.addEventsButton.Text = "Add Events";
             this.addEventsButton.UseVisualStyleBackColor = true;
@@ -61,7 +64,8 @@
             // 
             // mainCalendar
             // 
-            this.mainCalendar.Location = new System.Drawing.Point(18, 76);
+            this.mainCalendar.Location = new System.Drawing.Point(24, 94);
+            this.mainCalendar.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mainCalendar.MaxSelectionCount = 1;
             this.mainCalendar.Name = "mainCalendar";
             this.mainCalendar.TabIndex = 4;
@@ -70,37 +74,51 @@
             // currentDateLabel
             // 
             this.currentDateLabel.AutoSize = true;
-            this.currentDateLabel.Location = new System.Drawing.Point(94, 247);
+            this.currentDateLabel.Location = new System.Drawing.Point(125, 304);
+            this.currentDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.currentDateLabel.Name = "currentDateLabel";
-            this.currentDateLabel.Size = new System.Drawing.Size(28, 13);
+            this.currentDateLabel.Size = new System.Drawing.Size(36, 17);
             this.currentDateLabel.TabIndex = 5;
             this.currentDateLabel.Text = "date";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 58);
+            this.label1.Location = new System.Drawing.Point(125, 71);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
             // 
             // twentyFourCheckbox
             // 
             this.twentyFourCheckbox.AutoSize = true;
-            this.twentyFourCheckbox.Location = new System.Drawing.Point(281, 243);
+            this.twentyFourCheckbox.Location = new System.Drawing.Point(375, 314);
+            this.twentyFourCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.twentyFourCheckbox.Name = "twentyFourCheckbox";
-            this.twentyFourCheckbox.Size = new System.Drawing.Size(123, 17);
+            this.twentyFourCheckbox.Size = new System.Drawing.Size(160, 21);
             this.twentyFourCheckbox.TabIndex = 7;
             this.twentyFourCheckbox.Text = "Use 24 Hour Times?";
             this.twentyFourCheckbox.UseVisualStyleBackColor = true;
             this.twentyFourCheckbox.CheckedChanged += new System.EventHandler(this.twentyFourCheckbox_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(375, 284);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(189, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Clear All Events";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 283);
+            this.ClientSize = new System.Drawing.Size(563, 348);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.twentyFourCheckbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.currentDateLabel);
@@ -108,6 +126,7 @@
             this.Controls.Add(this.addAvailabilityButton);
             this.Controls.Add(this.addEventsButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Planner";
@@ -124,6 +143,7 @@
         private System.Windows.Forms.Label currentDateLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox twentyFourCheckbox;
+        private System.Windows.Forms.Button button1;
     }
 }
 
