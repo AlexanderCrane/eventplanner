@@ -37,12 +37,30 @@ namespace WindowsFormsApplication1
                 }
             }
             yourEventsBox.DataSource = yourEvents;
+            yourEventsBox.SelectedIndex = 0;
             Event ev = (Event)yourEventsBox.SelectedItem;
-            if (ev.attendees != null)
-            {
-                String attendees = string.Join(",", ev.attendees);
+            List<Tuple<String, List<DateTime>>> testList = new List<Tuple<string, List<DateTime>>>();
+            List<DateTime> testTimes = new List<DateTime>();
+            testTimes.Add(DateTime.Today);
+            testTimes.Add(DateTime.Today.AddHours(5));
+            testList.Add(new Tuple<string, List<DateTime>>("Jakob", testTimes));
+            ev.attendees = testList;
+            if (ev != null) {
+                if (ev.attendees != null)
+                {
+                    foreach (Tuple<String, List<DateTime>> tuple in ev.attendees)
+                    {
+                        List<String> timeStrings = new List<string>();
+                        foreach (DateTime dt in tuple.Item2)
+                        {
+                            timeStrings.Add(dt.ToShortTimeString());
+                        }
+                        attendeesBox.Text += tuple.Item1;
+                        attendeesBox.Text += ":";
+                        attendeesBox.Text += String.Join(",", timeStrings);
+                    }
+                }
             }
-            attendeesBox.Text += (ev.attendees + ",");
                 
             }
         private void pullEventsFromJSON()
