@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
     public partial class AddAvailabilityWindow : Form
     {
         private string userName;
-
+        private List<CheckBox> checkboxList = new List<CheckBox>();
         /// <summary>
         /// Constructor for the Add Availability window.
         /// </summary>
@@ -73,7 +73,9 @@ namespace WindowsFormsApplication1
         private CheckBox AddCheckbox(string dTime)
         {
             CheckBox cB = new CheckBox();
-            cB.Text = "Join at: " + dTime;
+            cB.Text = dTime;
+
+            checkboxList.Add(cB);
             return (cB);
         }
 
