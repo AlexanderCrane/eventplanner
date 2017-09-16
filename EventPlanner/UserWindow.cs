@@ -61,6 +61,13 @@ namespace WindowsFormsApplication1
                 AgendaTextBox text = TextBoxArray[i];
                 text.Text = "";
                 text.associatedEvents.Clear();
+
+                DateTime selectedDate = monthCalendar1.SelectionStart;
+                DateTime associatedDT = text.associatedDateTime;
+                int hour = associatedDT.Hour;
+                int minute = associatedDT.Minute;
+
+                text.associatedDateTime = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, hour, minute, 0);
             }
             for (int i = 0; i<48; i++) {
                 AgendaTextBox text = TextBoxArray[i];
