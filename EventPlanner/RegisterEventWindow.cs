@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
 
         //list of times that we use as the source for our dropdown has to be strings to be formatted properly
         //we can reference them against the original list of datetimes for actual logic
-        List<DateTime> halfHourDateTimes = new List<DateTime>();
+        List<ComboBoxDateTime> halfHourDateTimes = new List<ComboBoxDateTime>();
         List<String> halfHourStrings = new List<String>();
 
         public int numberOfEvents = 0;
@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             dateLabel.Text = "Adding event for: " + selectedDate.ToShortDateString();
-            DateTime currentTime = selectedDate.Date;
+            ComboBoxDateTime currentTime = new ComboBoxDateTime(selectedDate.Date);
             for (int i = 0; i < 48; i++)
             {
                 //start at midnight, add DateTimes in 30 minute increments until we have all 48
@@ -48,20 +48,22 @@ namespace WindowsFormsApplication1
                 //convert to string - military time string if it's enabled, regular otherwise
                 if (!use24Hour)
                 {
-                    halfHourStrings.Add(currentTime.ToShortTimeString());
+                    halfHourStrings.Add(currentTime.shortTimeString);
                 }
                 else
                 {
                     String twentyFourFormat = "HH:mm";
-                    halfHourStrings.Add(currentTime.ToString(twentyFourFormat));
+                    halfHourStrings.Add(currentTime.inner.ToString(twentyFourFormat));
                 }
-                currentTime = currentTime.AddMinutes(30);
+                currentTime = new ComboBoxDateTime(currentTime.inner.AddMinutes(30));
             }
             //use the list of times as the list of options for our time boxes
-            startTimeBox.DataSource = halfHourStrings;
+            startTimeBox.DataSource = halfHourDateTimes;
+            startTimeBox.DisplayMember = "shortTimeString";
 
             endTimeBox.BindingContext = new BindingContext();
-            endTimeBox.DataSource = halfHourStrings;
+            endTimeBox.DataSource = halfHourDateTimes;
+            endTimeBox.DisplayMember = "shortTimeString";
             //put the time boxes in a tuple to associate them and put it in a list to keep track of it
             timeBoxes.Add(new Tuple<ComboBox, ComboBox>(startTimeBox, endTimeBox));
         }
@@ -80,25 +82,26 @@ namespace WindowsFormsApplication1
             List<Tuple<DateTime, DateTime>> dateTimes = new List<Tuple<DateTime, DateTime>>();
             foreach (Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
             {
-                String endTimeString = (String)currentBoxes.Item2.SelectedItem;
-                String startTimeString = (String)currentBoxes.Item1.SelectedItem;
-                DateTime startTime = DateTime.Parse(startTimeString);
-                DateTime endTime = DateTime.Parse(endTimeString);
-                dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
                 //ensure the time slots are valid
                 //if end time is 12:00 AM that is equivalent to 11:59:59 pm, not a repeat or smaller number.
                 //if both times are 12:00AM we have to put the event into every text box!!!
- 
-                if (endTime <= startTime && endTime.ToShortTimeString() != "12:00 AM" && !comboBoxError )
+                DateTime startTime = (currentBoxes.Item1.SelectedValue as ComboBoxDateTime).inner;
+                DateTime endTime = (currentBoxes.Item2.SelectedValue as ComboBoxDateTime).inner;
+                if (endTime <= startTime && !endTime.ToShortTimeString().Equals("12:00 AM") && !comboBoxError)
                 {
-                    String.Concat(errorText, "At least one of the time slots is impossible.");
+                    errorText = String.Concat(errorText, "At least one of the time slots is impossible.");
                     comboBoxError = true;
                     inputError = true;
                 }
+                if (endTime.ToShortTimeString().Equals("12:00 AM"))
+                {
+                    endTime = endTime.AddDays(1);
+                }
+                dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
             }
             if (nameTextBox.Text.Length > 36)
             {
-                String.Concat(errorText, "\nEvent name is too long.");
+                errorText = String.Concat(errorText, "\nEvent name is too long.");
                 inputError = true;
             }
             if (inputError)
@@ -111,7 +114,7 @@ namespace WindowsFormsApplication1
                 this.Close();
                 MessageBox.Show("Event Created!");
 
-                Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, dateTimes[1].Item1.ToString(), dateTimes[1].Item2.ToString(), locationText.Text, "1", capacityText.Text);
+                Event evt = new Event(nameTextBox.Text, "Austin", briefMessageText.Text, dateTimes[0].Item1.ToString(), dateTimes[0].Item2.ToString(), locationText.Text, "1", capacityText.Text);
 
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
                 JsonSerializer serializer = new JsonSerializer();
@@ -192,5 +195,21 @@ namespace WindowsFormsApplication1
                 e.Handled = true;
             }
         }
+        private class ComboBoxDateTime
+        {
+            private String sts;
+            public string shortTimeString { get { return sts; } set { sts = value; } }
+            public DateTime inner;
+            public ComboBoxDateTime(DateTime dt)
+            {
+                this.inner = dt;
+                this.shortTimeString = inner.ToShortTimeString();
+            }
+            public string ToString()
+            {
+                return inner.ToShortTimeString();
+            }
+        }
+
     }
 }
