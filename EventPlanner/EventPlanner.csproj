@@ -63,6 +63,12 @@
     <Compile Include="AgendaTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CheckEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckEventsForm.Designer.cs">
+      <DependentUpon>CheckEventsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="AddAvailabilityWindow.resx">
       <DependentUpon>AddAvailabilityWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckEventsForm.resx">
+      <DependentUpon>CheckEventsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPopup.resx">
       <DependentUpon>LoginPopup.cs</DependentUpon>

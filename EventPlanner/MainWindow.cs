@@ -115,5 +115,21 @@ namespace WindowsFormsApplication1
             }
 
         }
+
+        private void currentDateLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEventsButton_Click(object sender, EventArgs e)
+        {
+            CheckEventsForm checkEvents = new CheckEventsForm(userName);
+            checkEvents.ShowDialog();
+        }
     }
 }

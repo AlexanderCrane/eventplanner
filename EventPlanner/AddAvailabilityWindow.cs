@@ -45,6 +45,10 @@ namespace WindowsFormsApplication1
             hostBox.Text = selectedEvent.getHost()??"";
             locationBox.Text = selectedEvent.getLocation()??"";
             briefBox.Text = selectedEvent.getBrief()??"";
+            if (selectedEvent.attendees != null)
+            {
+                attendeesBox.Text = string.Join(",", selectedEvent.attendees);
+            }
 
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)

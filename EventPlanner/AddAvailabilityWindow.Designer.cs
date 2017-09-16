@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.attendeesBox = new System.Windows.Forms.TextBox();
+            this.AttendeesLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // saveAvailabilityButton
@@ -64,10 +66,10 @@
             // flowPanel
             // 
             this.flowPanel.AutoScroll = true;
-            this.flowPanel.Location = new System.Drawing.Point(23, 131);
+            this.flowPanel.Location = new System.Drawing.Point(23, 216);
             this.flowPanel.Margin = new System.Windows.Forms.Padding(2);
             this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(247, 334);
+            this.flowPanel.Size = new System.Drawing.Size(247, 249);
             this.flowPanel.TabIndex = 3;
             // 
             // briefBox
@@ -130,11 +132,34 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Description";
             // 
+            // attendeesBox
+            // 
+            this.attendeesBox.Location = new System.Drawing.Point(23, 126);
+            this.attendeesBox.Margin = new System.Windows.Forms.Padding(2);
+            this.attendeesBox.Multiline = true;
+            this.attendeesBox.Name = "attendeesBox";
+            this.attendeesBox.ReadOnly = true;
+            this.attendeesBox.Size = new System.Drawing.Size(247, 86);
+            this.attendeesBox.TabIndex = 10;
+            // 
+            // AttendeesLabel
+            // 
+            this.AttendeesLabel.AutoSize = true;
+            this.AttendeesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttendeesLabel.Location = new System.Drawing.Point(22, 117);
+            this.AttendeesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AttendeesLabel.Name = "AttendeesLabel";
+            this.AttendeesLabel.Size = new System.Drawing.Size(37, 7);
+            this.AttendeesLabel.TabIndex = 11;
+            this.AttendeesLabel.Text = "Attendees";
+            // 
             // AddAvailabilityWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 518);
+            this.Controls.Add(this.AttendeesLabel);
+            this.Controls.Add(this.attendeesBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -145,7 +170,6 @@
             this.Controls.Add(this.eventComboBox);
             this.Controls.Add(this.saveAvailabilityButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(298, 557);
             this.Name = "AddAvailabilityWindow";
             this.Text = "AddAvailabilityWindow";
             this.ResumeLayout(false);
@@ -163,5 +187,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox attendeesBox;
+        private System.Windows.Forms.Label AttendeesLabel;
     }
 }
