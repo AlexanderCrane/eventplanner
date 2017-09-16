@@ -84,5 +84,12 @@ namespace WindowsFormsApplication1
             use24Hour = box.Checked;
             Console.Out.WriteLine(use24Hour);
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+            System.IO.File.WriteAllText(path, "");
+
+        }
     }
 }
