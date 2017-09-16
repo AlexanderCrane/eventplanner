@@ -135,7 +135,7 @@ public class Event
     /// <param name="att">New number.</param>
     public void setAttendees(int att)
     {
-        numberOfAttendees = att;
+        numberOfAttendees += att;
     }
     #endregion
     /*
