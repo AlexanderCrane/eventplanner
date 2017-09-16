@@ -132,14 +132,14 @@ namespace WindowsFormsApplication1
                 {
                     for(int k = 0; k < dayEvents[j].dateTimes.Count; k++)
                     {
-                        if (text.associatedDateTime == dayEvents[j].dateTimes[k].Item1)
+                        
+                        if (text.associatedDateTime < dayEvents[j].dateTimes[k].Item2 && text.associatedDateTime >= dayEvents[j].dateTimes[k].Item1)
                         {
                             text.associatedEvents.Add(dayEvents[j]);
                         }
                     }
                 }
 
-                //text.associatedEvents.Add(evt);
                 text.GotFocus += hideTextBoxCursor;
                 foreach (Event ev in text.associatedEvents)
                 {
