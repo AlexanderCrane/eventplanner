@@ -135,7 +135,10 @@ namespace WindowsFormsApplication1
                         
                         if (text.associatedDateTime < dayEvents[j].dateTimes[k].Item2 && text.associatedDateTime >= dayEvents[j].dateTimes[k].Item1)
                         {
-                            text.associatedEvents.Add(dayEvents[j]);
+                            if (!text.associatedEvents.Contains(dayEvents[j]))
+                            {
+                                text.associatedEvents.Add(dayEvents[j]);
+                            }
                         }
                     }
                 }
