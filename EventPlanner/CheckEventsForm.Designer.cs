@@ -31,6 +31,7 @@
             this.yourEventsBox = new System.Windows.Forms.ComboBox();
             this.AttendeesLabel = new System.Windows.Forms.Label();
             this.attendeesBox = new System.Windows.Forms.TextBox();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // yourEventsBox
@@ -62,11 +63,25 @@
             this.attendeesBox.Size = new System.Drawing.Size(532, 227);
             this.attendeesBox.TabIndex = 12;
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackButton.Location = new System.Drawing.Point(414, 28);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(146, 40);
+            this.BackButton.TabIndex = 14;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // CheckEventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 349);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AttendeesLabel);
             this.Controls.Add(this.attendeesBox);
             this.Controls.Add(this.yourEventsBox);
@@ -83,5 +98,6 @@
         private System.Windows.Forms.ComboBox yourEventsBox;
         private System.Windows.Forms.Label AttendeesLabel;
         private System.Windows.Forms.TextBox attendeesBox;
+        private System.Windows.Forms.Button BackButton;
     }
 }

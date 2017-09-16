@@ -29,17 +29,19 @@ namespace WindowsFormsApplication1
         {
             pullEventsFromJSON();
             List<Event> yourEvents = new List<Event>();
-            foreach(Event i in evtList)
+            foreach (Event i in evtList)
             {
                 if (i.host.Equals(userName))
                 {
                     yourEvents.Add(i);
                 }
             }
+
             yourEventsBox.DataSource = yourEvents;
             yourEventsBox.SelectedIndex = 0;
             Event ev = (Event)yourEventsBox.SelectedItem;
-            if (ev != null) {
+            if (ev != null)
+            {
                 if (ev.attendees != null)
                 {
                     foreach (Tuple<String, List<DateTime>> tuple in ev.attendees)
@@ -54,9 +56,8 @@ namespace WindowsFormsApplication1
                         attendeesBox.Text += String.Join(",", timeStrings);
                     }
                 }
-            }
-                
-            }
+            } 
+        }
         private void pullEventsFromJSON()
         {
             // read file into a string and deserialize JSON to a type
@@ -66,6 +67,11 @@ namespace WindowsFormsApplication1
 
 
             }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
