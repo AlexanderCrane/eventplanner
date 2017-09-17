@@ -28,6 +28,10 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Constructor for the Add Availability window.
         /// </summary>
+        /// <param name="events">The list of events relevant to the selected time period.</param>
+        /// <param name="userName">The user's chosen name.</param>
+        /// <param name="allEvents">The master list of all events, to be updated and written to JSON.</param>
+        /// <param name="use24Hour">Whether to use 24 hour time.</param>
         public AddAvailabilityWindow(List<Event> events, string userName, List<Event> allEvents, bool use24Hour)
         {
             checkboxList = new List<AvailabilityCheckBox>();
@@ -148,6 +152,9 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Add Unavailable Times To List So They Can't Be Selected
         /// </summary>
+        /// <param name="minuteIntervals">The number of 30 minute intervals in the relevant time window.</param>
+        /// <param name="startTimeBox">The starting DateTime of the relevant time window.</param>
+        /// <param name="selectedEvent">The event selected for availability modification.</param>
         private void CheckUnavailableTimes(int minuteIntervals, DateTime startTimeBox, Event selectedEvent)
         {
             if (selectedEvent.getAttendeeCount() >= selectedEvent.getCapacity())
@@ -202,6 +209,7 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Adds checkboxes for times, but checkboxes do nothing so far
         /// </summary>
+        /// <param name="dTime">The datetime to add a checkbox for.</param>
         private AvailabilityCheckBox AddCheckbox(DateTime dTime)
         {
             AvailabilityCheckBox cB = new AvailabilityCheckBox();

@@ -104,6 +104,12 @@ namespace WindowsFormsApplication1
             Console.Out.WriteLine(use24Hour);
         }
 
+        /// <summary>
+        /// Click behavior for the clear events button.
+        /// Deletes the event data JSON file.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void clearEventsButton_Click(object sender, EventArgs e)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
@@ -116,12 +122,24 @@ namespace WindowsFormsApplication1
 
         }
 
+        /// <summary>
+        /// Click behavior for the Check Events button. 
+        /// Opens the check events form.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void checkEventsButton_Click(object sender, EventArgs e)
         {
             CheckEventsForm checkEvents = new CheckEventsForm(userName, use24Hour);
             checkEvents.ShowDialog();
         }
 
+        /// <summary>
+        /// TextChanged behavior for the current date label.
+        /// Appends "selected date:" to the front.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void currentDateLabel_TextChanged_1(object sender, EventArgs e)
         {
             if (currentDateLabel.Text[0] != 'S')

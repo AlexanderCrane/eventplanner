@@ -206,8 +206,8 @@ namespace WindowsFormsApplication1
         /// Click behavior for the add slot button.
         /// Dynamically add two more combo boxes for the user to input a second, non-contiguous time slot.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void addSlotButton_Click(object sender, EventArgs e)
         {
             ComboBox newStartBox = new ComboBox();
@@ -244,14 +244,12 @@ namespace WindowsFormsApplication1
             }
         }
 
-        /*
-         * Note: Brief Message Stored
-         * Author Austin
-        */
-        private void briefMessage_TextChanged(object sender, EventArgs e)
-        {
-            //Nothing important happened today
-        }
+        /// <summary>
+        /// KeyPress behavior for the capacity textbox.
+        /// Prevents the addition of any characters other than digits.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
 
         private void capacityText_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -260,6 +258,9 @@ namespace WindowsFormsApplication1
                 e.Handled = true;
             }
         }
+        /// <summary>
+        /// A wrapper for the DateTime class for 24 hour formatting.
+        /// </summary>
         private class ComboBoxDateTime
         {
             private String sts;
@@ -296,6 +297,13 @@ namespace WindowsFormsApplication1
                 return this.sts;
             }
         }
+
+        /// <summary>
+        /// Click behavior for the cancel button.
+        /// Closes the window.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
 
         private void cancelButton_Click(object sender, EventArgs e)
         {

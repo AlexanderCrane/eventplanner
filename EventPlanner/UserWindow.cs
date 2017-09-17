@@ -11,6 +11,9 @@ namespace WindowsFormsApplication1
     public partial class UserWindow : Form
     {
 
+        /// <summary>
+        /// A method used in hiding the insertion caret.
+        /// </summary>
         [DllImport("user32.dll")]
         static extern bool HideCaret(IntPtr hWnd);
 
@@ -42,8 +45,8 @@ namespace WindowsFormsApplication1
         /// Date Selected behavior for the calendar.
         /// Updates the selected date when it changes and updates the 'agenda' panel to show that day's events
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             getEventsForTheDay(e.Start);
@@ -96,6 +99,7 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Populates dayEvents with the list of events for the selected day.
         /// </summary>
+        /// <param name="currentTime">The time to pull the selected day from.</param>
         private void getEventsForTheDay(DateTime currentTime)
         {
             //cleardayEvents
@@ -123,8 +127,8 @@ namespace WindowsFormsApplication1
         /// Load behavior for the user window.
         /// Populates the 'agenda' panel of textboxes and loads the events from the day selected in MainWindow into them.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void UserWindow_Load(object sender, EventArgs e)
         {
             DateTime currentTime = startingDate;
