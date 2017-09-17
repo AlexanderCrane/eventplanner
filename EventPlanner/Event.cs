@@ -156,7 +156,19 @@ public class Event
     /// <param name="name">The attendee's name</param>
     public void addAttendee(String name, List<DateTime> availableSlots)
     {
-        attendees.Add(new Tuple<string, List<DateTime>>(name, availableSlots));
+        foreach(Tuple<String, List<DateTime>> x in attendees)
+        {
+            if (x.Item1 == name)
+            {
+                attendees.Remove(x);
+                break;
+            }
+        }
+        if (availableSlots.Count != 0)
+        {
+            attendees.Add(new Tuple<string, List<DateTime>>(name, availableSlots));
+        }
+        this.numberOfAttendees = attendees.Count;
     }
 
     /*

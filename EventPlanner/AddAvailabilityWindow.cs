@@ -133,7 +133,7 @@ namespace WindowsFormsApplication1
 
                         AvailabilityCheckBox cB = AddCheckbox(startTimeBox);
                         flowPanel.Controls.Add(cB);
-                    if (noCheckBox)
+                    if (noCheckBox && !cB.Checked )
                     {
                         cB.Enabled = false;
                     }
@@ -188,11 +188,11 @@ namespace WindowsFormsApplication1
                 {
                     if(unAvailableTimes.Count == possibleTimes.Count)
                     {
-                        MessageBox.Show("Be Aware: Attendee Capacity Reached For Event!");
+                        MessageBox.Show("This event is at capacity.");
                     }
                     else
                     {
-                        MessageBox.Show("Be Aware: Capacity Reached For Some Times Slots!");
+                        MessageBox.Show("Some time slots for this event are at capacity.");
                     }
                 }
             }
