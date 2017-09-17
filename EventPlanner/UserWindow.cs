@@ -1,26 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.Calendar;
-using System.Runtime.InteropServices;
 using System.IO;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
     public partial class UserWindow : Form
     {
-        //this is a weird trick to prevent the text position caret from showing up when we click on our read-only calendar text boxes?
-        //its ugly but it works
 
         [DllImport("user32.dll")]
         static extern bool HideCaret(IntPtr hWnd);
+
         private bool use24Hour;
         private DateTime startingDate;
         private string userName;
@@ -42,7 +35,6 @@ namespace WindowsFormsApplication1
             this.use24Hour = use24Hour;
             this.startingDate = selectedDate;
             this.userName = userName;
-            System.Diagnostics.Debug.WriteLine(this.userName);
         }
 
 
@@ -56,6 +48,7 @@ namespace WindowsFormsApplication1
         {
             getEventsForTheDay(e.Start);
             currentDateLabel.Text = e.Start.ToShortDateString();
+
             for (int i = 0; i < 48; i++)
             {
                 AgendaTextBox text = TextBoxArray[i];
@@ -68,9 +61,7 @@ namespace WindowsFormsApplication1
                 int minute = associatedDT.Minute;
 
                 text.associatedDateTime = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, hour, minute, 0);
-            }
-            for (int i = 0; i<48; i++) {
-                AgendaTextBox text = TextBoxArray[i];
+
                 for (int j = 0; j < dayEvents.Count; j++)
                 {
                     for (int k = 0; k < dayEvents[j].dateTimes.Count; k++)
@@ -153,9 +144,6 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < 48; i++)
             {
-                //Event testEvent = new Event("33323289679111673265050105032946746271022", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
-                //Event testEventtwo = new Event("3360292493154691677656104369796918174839742715026412054022817489762285530991460209690737435657947018", "Austin", "asfajkaj", new List<Tuple<DateTime, DateTime>>(), "Mass St", 50, 100);
-
                 AgendaTextBox text = new AgendaTextBox();
                 text.associatedDateTime = currentTime;
 
@@ -214,7 +202,6 @@ namespace WindowsFormsApplication1
         private void Text_Click(object sender, EventArgs e)
         {
             AgendaTextBox send = sender as AgendaTextBox;
-            System.Diagnostics.Debug.WriteLine(userName);
 
             AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName, evtList, use24Hour);
             addAvail.ShowDialog();
@@ -249,7 +236,12 @@ namespace WindowsFormsApplication1
             HideCaret(box.Handle);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Click behavior for the close button. Closes the form.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="args">Winforms event arguments.</param>
+        private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

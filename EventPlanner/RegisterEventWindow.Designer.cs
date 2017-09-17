@@ -54,7 +54,7 @@
             this.startTimeBox.Location = new System.Drawing.Point(3, 3);
             this.startTimeBox.Name = "startTimeBox";
             this.startTimeBox.Size = new System.Drawing.Size(121, 21);
-            this.startTimeBox.TabIndex = 1;
+            this.startTimeBox.TabIndex = 5;
             // 
             // endTimeBox
             // 
@@ -63,7 +63,7 @@
             this.endTimeBox.Location = new System.Drawing.Point(130, 3);
             this.endTimeBox.Name = "endTimeBox";
             this.endTimeBox.Size = new System.Drawing.Size(121, 21);
-            this.endTimeBox.TabIndex = 2;
+            this.endTimeBox.TabIndex = 6;
             // 
             // saveButton
             // 
@@ -71,7 +71,7 @@
             this.saveButton.Location = new System.Drawing.Point(194, 272);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 3;
+            this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -81,7 +81,7 @@
             this.addSlotButton.Location = new System.Drawing.Point(19, 228);
             this.addSlotButton.Name = "addSlotButton";
             this.addSlotButton.Size = new System.Drawing.Size(119, 23);
-            this.addSlotButton.TabIndex = 4;
+            this.addSlotButton.TabIndex = 9;
             this.addSlotButton.Text = "Add Time Slot";
             this.addSlotButton.UseVisualStyleBackColor = true;
             this.addSlotButton.Click += new System.EventHandler(this.addSlotButton_Click);
@@ -101,7 +101,7 @@
             this.removeTimeSlotButton.Location = new System.Drawing.Point(146, 228);
             this.removeTimeSlotButton.Name = "removeTimeSlotButton";
             this.removeTimeSlotButton.Size = new System.Drawing.Size(119, 23);
-            this.removeTimeSlotButton.TabIndex = 6;
+            this.removeTimeSlotButton.TabIndex = 8;
             this.removeTimeSlotButton.Text = "Remove Time Slot";
             this.removeTimeSlotButton.UseVisualStyleBackColor = true;
             this.removeTimeSlotButton.Click += new System.EventHandler(this.removeTimeSlotButton_Click);
@@ -138,7 +138,7 @@
             this.capacityText.Location = new System.Drawing.Point(224, 25);
             this.capacityText.Name = "capacityText";
             this.capacityText.Size = new System.Drawing.Size(41, 20);
-            this.capacityText.TabIndex = 12;
+            this.capacityText.TabIndex = 3;
             this.capacityText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.capacityText_KeyPress);
             // 
             // capLabel
@@ -153,10 +153,10 @@
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(11, 276);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 19);
-            this.cancelButton.TabIndex = 19;
+            this.cancelButton.TabIndex = 10;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -167,7 +167,7 @@
             this.briefMessageText.Location = new System.Drawing.Point(12, 51);
             this.briefMessageText.Name = "briefMessageText";
             this.briefMessageText.Size = new System.Drawing.Size(253, 20);
-            this.briefMessageText.TabIndex = 18;
+            this.briefMessageText.TabIndex = 4;
             // 
             // locationText
             // 
@@ -175,7 +175,7 @@
             this.locationText.Location = new System.Drawing.Point(115, 25);
             this.locationText.Name = "locationText";
             this.locationText.Size = new System.Drawing.Size(100, 20);
-            this.locationText.TabIndex = 17;
+            this.locationText.TabIndex = 2;
             // 
             // nameTextBox
             // 
@@ -183,7 +183,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(12, 25);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 16;
+            this.nameTextBox.TabIndex = 1;
             // 
             // RegisterEventWindow
             // 

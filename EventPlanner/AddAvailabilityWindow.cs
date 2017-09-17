@@ -1,14 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using Newtonsoft.Json;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
@@ -49,6 +43,10 @@ namespace WindowsFormsApplication1
             System.Diagnostics.Debug.WriteLine(userName);
         }
 
+        /// <summary>
+        /// Updates the text box showing the current attendees of the event.
+        /// </summary>
+        /// <param name="ev">The selected event.</param>
         private void UpdateAttendees(Event ev)
         {
             attendeesBox.Clear();
@@ -189,6 +187,12 @@ namespace WindowsFormsApplication1
             return (cB);
         }
 
+        /// <summary>
+        /// Click behavior for the save button.
+        /// Prepares to overwrite the user's current attendee info on the event with the current state of their checkboxes.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void saveAvailabilityButton_Click(object sender, EventArgs e)
         {
             Event realEvent = allEvents.Find(x => x.nameOfEvent == ((Event)eventComboBox.SelectedItem).nameOfEvent);
@@ -206,6 +210,10 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
+        /// <summary>
+        /// Writes the changes to the user's attendee info to JSON.
+        /// </summary>
+        /// <param name="realEvent">The event in the main list of all events to be modified.</param>
         private void WriteToJSON(Event realEvent)
         {
             realEvent.setAttendees(1);
