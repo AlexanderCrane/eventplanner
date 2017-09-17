@@ -38,10 +38,33 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             userName = username;
             dateLabel.Text = "Adding event for: " + selectedDate.ToShortDateString();
-            ComboBoxDateTime currentTime = new ComboBoxDateTime(selectedDate.Date, use24Hour);
-            for (int i = 0; i < 48; i++)
+
+            int local_hrs; 
+
+            ComboBoxDateTime currentTime;
+
+
+            /*
+             ** To show only valid time slots. For today, don't show time slots for time that has passed.
+             */
+            //If the selected date is after today, show all 48 time slots. That is, let the loop run 48 times.
+            if ( selectedDate.Date > DateTime.Now)
             {
-                //start at midnight, add DateTimes in 30 minute increments until we have all 48
+                currentTime = new ComboBoxDateTime(selectedDate.Date, use24Hour);
+                local_hrs = -1;
+            }
+
+            //If the selected date is today, round off to the nearest next half hour using the Round method. Pass that to ComboBoxDateTime
+            //Loop should run such that only slots till midnight are displayed. Should not run 48 times.
+            else
+            {
+                DateTime test = Round(DateTime.Now); //Get current time rounded to the next hour
+                currentTime = new ComboBoxDateTime(test, use24Hour);
+                local_hrs = DateTime.Now.Hour*2; 
+            }
+
+            for (int i = 0; i < 48 - (local_hrs + 1); i++)
+            {
                 halfHourDateTimes.Add(currentTime);
                 currentTime = new ComboBoxDateTime(currentTime.inner.AddMinutes(30), use24Hour);
             }
@@ -56,6 +79,28 @@ namespace WindowsFormsApplication1
             //put the time boxes in a tuple to associate them and put it in a list to keep track of it
             timeBoxes.Add(new Tuple<ComboBox, ComboBox>(startTimeBox, endTimeBox));
         }
+
+        /// <summary>
+        /// Constructor for the RegisterEventWindow form.
+        /// </summary>
+        /// <param name="dateTime">The Current Date selected by the user.</param>
+        public static DateTime Round(DateTime dateTime)
+        {
+            var updated = dateTime.AddMinutes(30);
+
+            if (dateTime.Minute < 30)
+            {
+                return new DateTime(updated.Year, updated.Month, updated.Day,
+                                 updated.Hour, 30, 0, dateTime.Kind);
+            }
+            else
+            {
+                return new DateTime(updated.Year, updated.Month, updated.Day,
+                                 updated.Hour+1, 0, 0, dateTime.Kind);
+            }
+            
+        }
+
         //make a new event object with the user's chosen options, write it to file
         /// <summary>
         /// Click behavior for the save button.
