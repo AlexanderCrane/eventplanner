@@ -40,10 +40,10 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.capacityText = new System.Windows.Forms.TextBox();
             this.capLabel = new System.Windows.Forms.Label();
-            this.nameTextBox = new CueTextBox();
-            this.locationText = new CueTextBox();
-            this.briefMessageText = new CueTextBox();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.briefMessageText = new CueTextBox();
+            this.locationText = new CueTextBox();
+            this.nameTextBox = new CueTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,30 +150,6 @@
             this.capLabel.TabIndex = 13;
             this.capLabel.Text = "Capacity";
             // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Cue = "Event Name";
-            this.nameTextBox.Location = new System.Drawing.Point(12, 25);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 16;
-            // 
-            // locationText
-            // 
-            this.locationText.Cue = "Location";
-            this.locationText.Location = new System.Drawing.Point(115, 25);
-            this.locationText.Name = "locationText";
-            this.locationText.Size = new System.Drawing.Size(100, 20);
-            this.locationText.TabIndex = 17;
-            // 
-            // briefMessageText
-            // 
-            this.briefMessageText.Cue = "Description";
-            this.briefMessageText.Location = new System.Drawing.Point(12, 51);
-            this.briefMessageText.Name = "briefMessageText";
-            this.briefMessageText.Size = new System.Drawing.Size(253, 20);
-            this.briefMessageText.TabIndex = 18;
-            // 
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(11, 276);
@@ -184,6 +160,30 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // briefMessageText
+            // 
+            this.briefMessageText.Cue = "Description";
+            this.briefMessageText.Location = new System.Drawing.Point(12, 51);
+            this.briefMessageText.Name = "briefMessageText";
+            this.briefMessageText.Size = new System.Drawing.Size(253, 20);
+            this.briefMessageText.TabIndex = 18;
+            // 
+            // locationText
+            // 
+            this.locationText.Cue = "Location";
+            this.locationText.Location = new System.Drawing.Point(115, 25);
+            this.locationText.Name = "locationText";
+            this.locationText.Size = new System.Drawing.Size(100, 20);
+            this.locationText.TabIndex = 17;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Cue = "Event Name";
+            this.nameTextBox.Location = new System.Drawing.Point(12, 25);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nameTextBox.TabIndex = 16;
             // 
             // RegisterEventWindow
             // 
@@ -204,6 +204,8 @@
             this.Controls.Add(this.addSlotButton);
             this.Controls.Add(this.saveButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(308, 346);
+            this.MinimumSize = new System.Drawing.Size(308, 346);
             this.Name = "RegisterEventWindow";
             this.Text = "Create Event";
             this.flowLayoutPanel1.ResumeLayout(false);

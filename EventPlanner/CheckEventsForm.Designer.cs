@@ -1,5 +1,8 @@
 ﻿namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// A form allowing users to check the attendees of events created under their username.
+    /// </summary>
     partial class CheckEventsForm
     {
         /// <summary>
@@ -42,6 +45,7 @@
             this.yourEventsBox.Name = "yourEventsBox";
             this.yourEventsBox.Size = new System.Drawing.Size(121, 21);
             this.yourEventsBox.TabIndex = 0;
+            this.yourEventsBox.SelectedValueChanged += new System.EventHandler(this.yourEventsBox_SelectedValueChanged);
             // 
             // AttendeesLabel
             // 
@@ -60,6 +64,7 @@
             this.attendeesBox.Multiline = true;
             this.attendeesBox.Name = "attendeesBox";
             this.attendeesBox.ReadOnly = true;
+            this.attendeesBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.attendeesBox.Size = new System.Drawing.Size(532, 227);
             this.attendeesBox.TabIndex = 12;
             // 
@@ -85,6 +90,7 @@
             this.Controls.Add(this.AttendeesLabel);
             this.Controls.Add(this.attendeesBox);
             this.Controls.Add(this.yourEventsBox);
+            this.MinimumSize = new System.Drawing.Size(597, 388);
             this.Name = "CheckEventsForm";
             this.Text = "CheckEventsForm";
             this.Load += new System.EventHandler(this.CheckEventsForm_Load);

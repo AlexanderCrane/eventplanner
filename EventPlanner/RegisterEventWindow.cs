@@ -23,21 +23,17 @@ namespace WindowsFormsApplication1
         //maintain a list of the boxes for entering these so we can reference them when they save
         List<Tuple<ComboBox, ComboBox>> timeBoxes = new List<Tuple<ComboBox, ComboBox>>();
         List<ComboBox> endTimes = new List<ComboBox>();
-
-        //list of times that we use as the source for our dropdown has to be strings to be formatted properly
-        //we can reference them against the original list of datetimes for actual logic
+        
         List<ComboBoxDateTime> halfHourDateTimes = new List<ComboBoxDateTime>();
-        List<String> halfHourStrings = new List<String>();
 
-        public int numberOfEvents = 0;
-
-        public string userName;
+        private string userName;
 
         /// <summary>
         /// Constructor for the RegisterEventWindow form.
         /// </summary>
         /// <param name="selectedDate">The date selected by the user.</param>
         /// <param name="use24Hour">Whether 24 hour time will be used.</param>
+        /// <param name="username">The name provided by the user.</param>
         public RegisterEventWindow(DateTime selectedDate, bool use24Hour, string username)
         {
             InitializeComponent();
@@ -48,16 +44,6 @@ namespace WindowsFormsApplication1
             {
                 //start at midnight, add DateTimes in 30 minute increments until we have all 48
                 halfHourDateTimes.Add(currentTime);
-                //convert to string - military time string if it's enabled, regular otherwise
-                if (!use24Hour)
-                {
-                    halfHourStrings.Add(currentTime.shortTimeString);
-                }
-                else
-                {
-                    String twentyFourFormat = "HH:mm";
-                    halfHourStrings.Add(currentTime.inner.ToString(twentyFourFormat));
-                }
                 currentTime = new ComboBoxDateTime(currentTime.inner.AddMinutes(30), use24Hour);
             }
             //use the list of times as the list of options for our time boxes
@@ -74,7 +60,7 @@ namespace WindowsFormsApplication1
         //make a new event object with the user's chosen options, write it to file
         /// <summary>
         /// Click behavior for the save button.
-        /// Write the event specified by the user to a file as JSON.
+        /// Check for valid input in the form and collect user input.
         /// </summary>
         /// <param name="sender">The sending winforms object.</param>
         /// <param name="e">Winforms event arguments.</param>
@@ -93,7 +79,6 @@ namespace WindowsFormsApplication1
             {
                 //ensure the time slots are valid
                 //if end time is 12:00 AM that is equivalent to 11:59:59 pm, not a repeat or smaller number.
-                //if both times are 12:00AM we have to put the event into every text box!!!
                 DateTime startTime = (currentBoxes.Item1.SelectedValue as ComboBoxDateTime).inner;
                 DateTime endTime = (currentBoxes.Item2.SelectedValue as ComboBoxDateTime).inner;
                 if (endTime <= startTime && !endTime.ToShortTimeString().Equals("12:00 AM") && !comboBoxError)
@@ -145,51 +130,75 @@ namespace WindowsFormsApplication1
             }
             if (inputError)
             {
-                MessageBox.Show(errorText);               
+                MessageBox.Show(errorText);
             }
             else
             {
-                //Write event specified by user to file
-                this.Close();
-                MessageBox.Show("Event Created!");
-
-                Event evt = new Event(nameTextBox.Text, userName, briefMessageText.Text, dateTimes, locationText.Text, 1, capInt);
-
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
-                JsonSerializer serializer = new JsonSerializer();
-                
-                // Write the string to a file.
-                    try
-                    {
-
-                            if (!File.Exists(path))
-                            {
-                                using (StreamWriter file = new StreamWriter(path, append: true))
-                                {
-                                    List<Event> evts = new List<Event>();
-                                    evts.Add(evt);
-                                    serializer.Serialize(file, evts);
-                                }
-                            }
-                            else
-                            {
-                                    List<Event> evts = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
-                                    evts.Add(evt);
-                                    using (StreamWriter file = new StreamWriter(path, append: false))
-                                    {
-                                        serializer.Serialize(file, evts);
-                                    }                     
-                            }
-                            numberOfEvents++;
-                        
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("File write failed with exception." + ex.ToString());
-                    }
-                
+                buildEvent(capInt, dateTimes);
             }
         }
+
+        /// <summary>
+        /// Builds a new event object from the user's input and writes it to file.
+        /// </summary>
+        /// <param name="capInt">The user's chosen capacity value, converted to int.</param>
+        /// <param name="dateTimes">The user's chosen DateTime time slots</param>
+        private void buildEvent(int capInt, List<Tuple<DateTime, DateTime>> dateTimes)
+        {
+            //Write event specified by user to file
+            this.Close();
+
+            Event evt = new Event(nameTextBox.Text, userName, briefMessageText.Text, dateTimes, locationText.Text, 1, capInt);
+            List<Tuple<String, List<DateTime>>> startingAttendees = new List<Tuple<string, List<DateTime>>>();
+            List<DateTime> attendeeDTs = new List<DateTime>();
+
+            foreach (Tuple<DateTime, DateTime> tuple in dateTimes)
+            {
+                DateTime currentTime = tuple.Item1;
+                while (currentTime != tuple.Item2)
+                {
+                    attendeeDTs.Add(currentTime);
+                    currentTime = currentTime.AddMinutes(30);
+                }
+            }
+            startingAttendees.Add(new Tuple<String, List<DateTime>>(userName, attendeeDTs));
+            evt.attendees = startingAttendees;
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+            JsonSerializer serializer = new JsonSerializer();
+
+            // Write the string to a file.
+            try
+            {
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter file = new StreamWriter(path, append: true))
+                    {
+                        List<Event> evts = new List<Event>();
+                        evts.Add(evt);
+                        serializer.Serialize(file, evts);
+                    }
+                }
+                else
+                {
+                    List<Event> evts = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+                    evts.Add(evt);
+                    using (StreamWriter file = new StreamWriter(path, append: false))
+                    {
+                        serializer.Serialize(file, evts);
+                    }
+                }
+                MessageBox.Show("Event created!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("File write failed with exception." + ex.ToString());
+            }
+
+        }
+
         /// <summary>
         /// Click behavior for the add slot button.
         /// Dynamically add two more combo boxes for the user to input a second, non-contiguous time slot.

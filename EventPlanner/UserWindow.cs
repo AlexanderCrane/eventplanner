@@ -103,7 +103,7 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// Creates A List of Events This Day
+        /// Populates dayEvents with the list of events for the selected day.
         /// </summary>
         private void getEventsForTheDay(DateTime currentTime)
         {
@@ -205,18 +205,26 @@ namespace WindowsFormsApplication1
             }
         }
 
+        /// <summary>
+        /// Click behavior for the Agenda text boxes.
+        /// Opens the addavailabilitywindow so the user can flag themselves available for events.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void Text_Click(object sender, EventArgs e)
         {
             AgendaTextBox send = sender as AgendaTextBox;
             System.Diagnostics.Debug.WriteLine(userName);
 
-            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName, evtList);
+            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName, evtList, use24Hour);
             addAvail.ShowDialog();
         }
 
         //Source of JSON Work: https://www.newtonsoft.com/json/help/html/DeserializeWithJsonSerializerFromFile.htm
-        //& Jackob
-        //NOTE: 
+    
+        /// <summary>
+        /// Deserialize the JSON save file into a list of events.
+        /// </summary>
         private void pullEventsFromJSON()
         {
             // read file into a string and deserialize JSON to a type
@@ -233,17 +241,12 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// GotFocus behavior for the agenda text boxes. Hides the insertion caret.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="args">Winforms event arguments.</param>
         private void hideTextBoxCursor(object sender, EventArgs args)
         {
             TextBox box = sender as TextBox;
             HideCaret(box.Handle);
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

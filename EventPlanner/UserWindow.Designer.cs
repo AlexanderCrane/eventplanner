@@ -41,10 +41,9 @@
             // 
             // doneButton
             // 
-            this.doneButton.Location = new System.Drawing.Point(1245, 684);
-            this.doneButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doneButton.Location = new System.Drawing.Point(934, 556);
             this.doneButton.Name = "doneButton";
-            this.doneButton.Size = new System.Drawing.Size(100, 28);
+            this.doneButton.Size = new System.Drawing.Size(75, 23);
             this.doneButton.TabIndex = 2;
             this.doneButton.Text = "Done";
             this.doneButton.UseVisualStyleBackColor = true;
@@ -53,17 +52,14 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(393, 9);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(295, 7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(933, 666);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 541);
             this.flowLayoutPanel1.TabIndex = 3;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(56, 201);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.monthCalendar1.Location = new System.Drawing.Point(42, 163);
             this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 4;
@@ -72,18 +68,18 @@
             // currentDateLabel
             // 
             this.currentDateLabel.AutoSize = true;
-            this.currentDateLabel.Location = new System.Drawing.Point(163, 430);
-            this.currentDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentDateLabel.Location = new System.Drawing.Point(122, 349);
             this.currentDateLabel.Name = "currentDateLabel";
-            this.currentDateLabel.Size = new System.Drawing.Size(46, 17);
+            this.currentDateLabel.Size = new System.Drawing.Size(35, 13);
             this.currentDateLabel.TabIndex = 5;
             this.currentDateLabel.Text = "label1";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(56, 43);
+            this.button1.Location = new System.Drawing.Point(42, 35);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(262, 61);
+            this.button1.Size = new System.Drawing.Size(196, 50);
             this.button1.TabIndex = 6;
             this.button1.Text = "Return to Main Menu";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,18 +87,17 @@
             // 
             // UserWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 727);
+            this.ClientSize = new System.Drawing.Size(1022, 597);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.currentDateLabel);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.doneButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1378, 774);
-            this.MinimumSize = new System.Drawing.Size(1378, 774);
+            this.MaximumSize = new System.Drawing.Size(1038, 636);
+            this.MinimumSize = new System.Drawing.Size(1038, 636);
             this.Name = "UserWindow";
             this.Text = "Add Availability";
             this.Load += new System.EventHandler(this.UserWindow_Load);

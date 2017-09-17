@@ -21,19 +21,25 @@ namespace WindowsFormsApplication1
         private List<AvailabilityCheckBox> checkboxList = new List<AvailabilityCheckBox>();
         private List<DateTime> availableTimes = new List<DateTime>();
         private List<Event> allEvents;
-        private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+        private string path;
+        private bool use24Hour;
 
         /// <summary>
         /// Constructor for the Add Availability window.
         /// </summary>
-        public AddAvailabilityWindow(List<Event> events, string userName, List<Event> allEvents)
+        public AddAvailabilityWindow(List<Event> events, string userName, List<Event> allEvents, bool use24Hour)
         {
+            checkboxList = new List<AvailabilityCheckBox>();
+            availableTimes = new List<DateTime>();
+            path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+            this.userName = userName;
+            this.allEvents = allEvents;
+            this.use24Hour = use24Hour;
             InitializeComponent();
             eventComboBox.DataSource = events;
             eventComboBox.DisplayMember = "nameOfEvent";
             eventComboBox.SelectedIndex = 0;
-            this.userName = userName;
-            this.allEvents = allEvents;
+
             Event startingEvent = (Event)eventComboBox.SelectedItem;
             //UpdateAttendees(startingEvent);
             System.Diagnostics.Debug.WriteLine(userName);
@@ -47,11 +53,19 @@ namespace WindowsFormsApplication1
                 List<String> timeStrings = new List<string>();
                 foreach (DateTime dt in tuple.Item2)
                 {
-                    timeStrings.Add(dt.ToShortTimeString());
+                    if (!use24Hour)
+                    {
+                        timeStrings.Add(dt.ToShortTimeString());
+                    }
+                    else
+                    {
+                        String dateFormat = "HH:mm";
+                        timeStrings.Add(dt.ToString(dateFormat));
+                    }
                 }
                 attendeesBox.Text += tuple.Item1;
                 attendeesBox.Text += ":";
-                attendeesBox.Text += String.Join(",", timeStrings);
+                attendeesBox.Text += String.Join(", ", timeStrings);
                 attendeesBox.Text += "\r\n";
             }
         }

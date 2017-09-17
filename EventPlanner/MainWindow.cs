@@ -123,7 +123,7 @@ namespace WindowsFormsApplication1
 
         private void checkEventsButton_Click(object sender, EventArgs e)
         {
-            CheckEventsForm checkEvents = new CheckEventsForm(userName);
+            CheckEventsForm checkEvents = new CheckEventsForm(userName, use24Hour);
             checkEvents.ShowDialog();
         }
 

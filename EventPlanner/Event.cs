@@ -32,7 +32,6 @@ using System.Windows.Forms;
 public class Event
 {
     #region Private Variables and Properties
-    private int numberOfEvents = 0;
 
     /// <summary>
     /// The event's name.
@@ -58,6 +57,10 @@ public class Event
     /// </summary>
     public List<Tuple<DateTime, DateTime>> dateTimes;
 
+    /// <summary>
+    /// A list representing the attendess of the event.
+    /// Tuples contain a string representing the user's name and a list of available time slots.
+    /// </summary>
     public List<Tuple<String, List<DateTime>>> attendees;
 
     private int capacity = 0;

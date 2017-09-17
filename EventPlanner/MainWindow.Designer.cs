@@ -135,6 +135,8 @@
             this.Controls.Add(this.addAvailabilityButton);
             this.Controls.Add(this.addEventsButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(438, 322);
+            this.MinimumSize = new System.Drawing.Size(438, 322);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Doodle 2: Electric Boogaloo";

@@ -22,6 +22,12 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Click behavior for the login button
+        /// Opens the main window and passes the user's chosen name.
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void loginButton_Click(object sender, EventArgs e)
         {
             //block the user from progressing from the login popup if they haven't entered a name
