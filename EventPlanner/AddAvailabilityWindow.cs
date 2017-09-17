@@ -50,25 +50,27 @@ namespace WindowsFormsApplication1
         private void UpdateAttendees(Event ev)
         {
             attendeesBox.Clear();
-            foreach (Tuple<String, List<DateTime>> tuple in ev.attendees)
-            {
-                List<String> timeStrings = new List<string>();
-                foreach (DateTime dt in tuple.Item2)
+            if (ev.attendees != null) {
+                foreach (Tuple<String, List<DateTime>> tuple in ev.attendees)
                 {
-                    if (!use24Hour)
+                    List<String> timeStrings = new List<string>();
+                    foreach (DateTime dt in tuple.Item2)
                     {
-                        timeStrings.Add(dt.ToShortTimeString());
+                        if (!use24Hour)
+                        {
+                            timeStrings.Add(dt.ToShortTimeString());
+                        }
+                        else
+                        {
+                            String dateFormat = "HH:mm";
+                            timeStrings.Add(dt.ToString(dateFormat));
+                        }
                     }
-                    else
-                    {
-                        String dateFormat = "HH:mm";
-                        timeStrings.Add(dt.ToString(dateFormat));
-                    }
+                    attendeesBox.Text += tuple.Item1;
+                    attendeesBox.Text += ":";
+                    attendeesBox.Text += String.Join(", ", timeStrings);
+                    attendeesBox.Text += "\r\n";
                 }
-                attendeesBox.Text += tuple.Item1;
-                attendeesBox.Text += ":";
-                attendeesBox.Text += String.Join(", ", timeStrings);
-                attendeesBox.Text += "\r\n";
             }
         }
 
@@ -119,11 +121,13 @@ namespace WindowsFormsApplication1
                         }
                     }
 
-                    if(!noCheckBox)
-                    {
                         AvailabilityCheckBox cB = AddCheckbox(startTimeBox);
                         flowPanel.Controls.Add(cB);
+                    if (noCheckBox)
+                    {
+                        cB.Enabled = false;
                     }
+                    
                     
                     startTimeBox = startTimeBox.AddMinutes(30);
                 }
