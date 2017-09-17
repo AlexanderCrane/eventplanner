@@ -86,7 +86,7 @@
             this.MinimumSize = new System.Drawing.Size(246, 172);
             this.Name = "LoginPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginPopup";
+            this.Text = "Log In";
             this.ResumeLayout(false);
             this.PerformLayout();
 
