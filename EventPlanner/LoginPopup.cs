@@ -44,22 +44,38 @@ namespace WindowsFormsApplication1
         private void loginButton_Click(object sender, EventArgs e)
         {
             //block the user from progressing from the login popup if they haven't entered a name
-            if (usernameBox.TextLength != 0)
+            if (usernameBox.TextLength != 0 && userPasswordBox.TextLength != 0)
             {
                 String userName = usernameBox.Text;
-                this.Hide();
+                String password = userPasswordBox.Text;
+                List<string> empty = new List<string>();
 
                 //Call to User to save user related data
-                User login = new User(userName, 0);
-
-                //Call to Main Window which gives the option to create event, check availability, and attend event
-                MainWindow main = new MainWindow(usernameBox.Text);
-                main.Closed += (s, args) => this.Close();
-                main.ShowDialog();
+                User login = new User(userName, 0, password, empty, empty);
+                login.Login(login);// :)
             }
             else
             {
-                MessageBox.Show("Enter a name!");
+                MessageBox.Show("Password or Username not entered!");
+            }
+        }
+
+        //user is creating their account
+        private void createAccountButton_Click(object sender, EventArgs e)
+        {
+            if (usernameBox.TextLength != 0 && userPasswordBox.TextLength != 0)
+            {
+                String userName = usernameBox.Text;
+                String password = userPasswordBox.Text;
+                List<string> empty = new List<string>();
+
+                //Call to User to save user related data
+                User login = new User(userName, 0, password, empty, empty);
+                login.createAccount(login);
+            }
+            else
+            {
+                MessageBox.Show("Enter password and username on this page, we will confirm your password.");
             }
         }
     }
