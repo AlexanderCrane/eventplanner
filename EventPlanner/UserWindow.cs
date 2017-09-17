@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
         private string userName;
         private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
 
-        private List<Event> evtList = new List<Event>();
+        private List<Event> evtList;// = new List<Event>();
         private List<Event> dayEvents = new List<Event>();
         AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
 
@@ -119,7 +119,7 @@ namespace WindowsFormsApplication1
                 {
                     if (currentTime.Day == evt.dateTimes[i].Item1.Day)
                     {
-                        dayEvents.Add(evt);
+                       dayEvents.Add(evt);
                         break;
                     }
                 }

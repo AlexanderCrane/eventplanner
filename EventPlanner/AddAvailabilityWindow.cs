@@ -20,6 +20,10 @@ namespace WindowsFormsApplication1
         private string userName;
         private List<AvailabilityCheckBox> checkboxList = new List<AvailabilityCheckBox>();
         private List<DateTime> availableTimes = new List<DateTime>();
+
+        private List<DateTime> possibleTimes = new List<DateTime>();
+        private List<int> attendeesPerTime = new List<int>();
+        private List<DateTime> unAvailableTimes = new List<DateTime>();
         private List<Event> allEvents;
         private string path;
         private bool use24Hour;
@@ -89,21 +93,86 @@ namespace WindowsFormsApplication1
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)
             {
-                Console.Write("item 1: " + selectedEvent.dateTimes[i].Item1);
-                Console.Write("item 2: " + selectedEvent.dateTimes[i].Item2);
-
                 TimeSpan timeDifference = selectedEvent.dateTimes[i].Item2 - selectedEvent.dateTimes[i].Item1;
 
                 int minuteIntervals = (int)timeDifference.TotalMinutes / 30;
 
                 DateTime startTimeBox = selectedEvent.dateTimes[i].Item1;
+
+                Console.WriteLine("OKAY CAPACITY IS: " + selectedEvent.getCapacity());
+                CheckUnavailableTimes(minuteIntervals, startTimeBox, selectedEvent);
+
                 for (int j = 0; j < minuteIntervals; j++)
                 {
-                    AvailabilityCheckBox cB = AddCheckbox(startTimeBox);
-                    flowPanel.Controls.Add(cB);
+                    bool noCheckBox = false;
 
+                    if (unAvailableTimes != null && unAvailableTimes.Count > 0)
+                    {
+                        Console.WriteLine("We're In");
+                        for (int k = 0; k < unAvailableTimes.Count; k++)
+                        {
+                            if (unAvailableTimes[k] == startTimeBox)
+                            {
+                                Console.WriteLine("Removed Un Time");
+                                unAvailableTimes.RemoveAt(k);
+                                noCheckBox = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if(!noCheckBox)
+                    {
+                        AvailabilityCheckBox cB = AddCheckbox(startTimeBox);
+                        flowPanel.Controls.Add(cB);
+                    }
+                    
                     startTimeBox = startTimeBox.AddMinutes(30);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Add Unavailable Times To List So They Can't Be Selected
+        /// </summary>
+        private void CheckUnavailableTimes(int minuteIntervals, DateTime startTimeBox, Event selectedEvent)
+        {
+            Console.WriteLine("OKAY CAPACITY IS: " + selectedEvent.getCapacity());
+            if (selectedEvent.getAttendeeCount() >= selectedEvent.getCapacity())
+            {
+                List<Tuple<String, List<DateTime>>> peopleAndTimes = selectedEvent.getAttendees();
+
+                for (int j = 0; j < minuteIntervals; j++)
+                {
+                    possibleTimes.Add(startTimeBox);
+                    attendeesPerTime.Add(0);
+                    startTimeBox = startTimeBox.AddMinutes(30);
+                }
+
+                for (int i = 0; i < peopleAndTimes.Count; i++) //num of attendees
+                {
+                    for (int l = 0; l < peopleAndTimes[i].Item2.Count; l++) //times per attendee
+                    {
+                        for (int k = 0; k < possibleTimes.Count; k++) //possible times
+                        {
+                            if (peopleAndTimes[i].Item2[l] == possibleTimes[k])
+                            {
+                                attendeesPerTime[k]++;
+                            }
+                        }
+                    }
+                }
+
+                for (int a = 0; a < attendeesPerTime.Count; a++)
+                {
+                    Console.WriteLine("Attendees " + attendeesPerTime[a]);
+                    Console.WriteLine(selectedEvent.getCapacity());
+                    if (attendeesPerTime[a] >= selectedEvent.getCapacity())
+                    {
+                        unAvailableTimes.Add(possibleTimes[a]);
+                    }
+                }
+                
             }
         }
 

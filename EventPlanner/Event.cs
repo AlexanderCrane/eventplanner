@@ -63,8 +63,8 @@ public class Event
     /// </summary>
     public List<Tuple<String, List<DateTime>>> attendees;
 
-    private int capacity = 0;
-    private int numberOfAttendees = 0;
+    public int capacity;
+    public int numberOfAttendees = 0;
     #endregion
 
     /// <summary>
@@ -85,7 +85,8 @@ public class Event
         brief = description;
         this.dateTimes = dateTimes;
         numberOfAttendees = attending;
-        capacity = cap;
+        this.capacity = cap;
+        Console.WriteLine("WTFFFFF " + this.capacity);
 
         this.attendees = new List<Tuple<string, List<DateTime>>>();
 
@@ -132,7 +133,10 @@ public class Event
     /// <param name="cap">New capacity</param>
     public void setCapacity(int cap)
     {
-        capacity = cap;
+        if(cap != 0)
+        {
+            this.capacity = cap;
+        }
     }
     /// <summary>
     /// Set the number of attendees
@@ -153,7 +157,6 @@ public class Event
     public void addAttendee(String name, List<DateTime> availableSlots)
     {
         attendees.Add(new Tuple<string, List<DateTime>>(name, availableSlots));
-        numberOfAttendees++;
     }
 
     /*
@@ -180,11 +183,15 @@ public class Event
     }
     public int getCapacity()
     {
-        return (capacity);
+        return (this.capacity);
     }
     public int getAttendeeCount()
     {
         return (numberOfAttendees);
+    }
+    public List<Tuple<String, List<DateTime>>> getAttendees()
+    {
+        return(attendees);
     }
     #endregion
 
