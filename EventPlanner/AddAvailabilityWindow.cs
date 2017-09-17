@@ -19,6 +19,7 @@ namespace WindowsFormsApplication1
         private List<int> attendeesPerTime = new List<int>();
         private List<DateTime> unAvailableTimes = new List<DateTime>();
         private List<Event> allEvents;
+        private Tuple<String, List<DateTime>> yourAttendance;
         private string path;
         private bool use24Hour;
 
@@ -47,13 +48,17 @@ namespace WindowsFormsApplication1
         /// Updates the text box showing the current attendees of the event.
         /// </summary>
         /// <param name="ev">The selected event.</param>
-        private void UpdateAttendees(Event ev)
+        private void updateAttendees(Event ev)
         {
             attendeesBox.Clear();
             if (ev.attendees != null) {
                 foreach (Tuple<String, List<DateTime>> tuple in ev.attendees)
                 {
                     List<String> timeStrings = new List<string>();
+                    if (tuple.Item1 == userName)
+                    {
+                        yourAttendance = tuple;
+                    }
                     foreach (DateTime dt in tuple.Item2)
                     {
                         if (!use24Hour)
@@ -88,7 +93,15 @@ namespace WindowsFormsApplication1
             hostBox.Text = selectedEvent.getHost()??"";
             locationBox.Text = selectedEvent.getLocation()??"";
             briefBox.Text = selectedEvent.getBrief()??"";
-            UpdateAttendees(selectedEvent);
+            if (yourAttendance != null)
+            {
+                yourAttendance.Item2.Clear();
+            }
+            updateAttendees(selectedEvent);
+            unAvailableTimes.Clear();
+            possibleTimes.Clear();
+            attendeesPerTime.Clear();
+
 
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)
@@ -185,6 +198,13 @@ namespace WindowsFormsApplication1
         {
             AvailabilityCheckBox cB = new AvailabilityCheckBox();
             cB.associatedDateTime = dTime;
+            if (yourAttendance != null)
+            {
+                if (yourAttendance.Item2.Contains(dTime))
+                {
+                    cB.Checked = true;
+                }
+            }
             if (!use24Hour)
             {
                 cB.Text = dTime.ToShortTimeString();

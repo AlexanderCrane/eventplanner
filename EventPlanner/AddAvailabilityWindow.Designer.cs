@@ -174,6 +174,7 @@
             this.MaximumSize = new System.Drawing.Size(298, 557);
             this.MinimumSize = new System.Drawing.Size(298, 557);
             this.Name = "AddAvailabilityWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddAvailabilityWindow";
             this.ResumeLayout(false);
             this.PerformLayout();
