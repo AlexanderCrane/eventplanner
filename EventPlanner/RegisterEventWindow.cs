@@ -96,7 +96,7 @@ namespace WindowsFormsApplication1
             else
             {
                 return new DateTime(updated.Year, updated.Month, updated.Day,
-                                 updated.Hour+1, 0, 0, dateTime.Kind);
+                                 updated.Hour, 0, 0, dateTime.Kind);
             }
             
         }
