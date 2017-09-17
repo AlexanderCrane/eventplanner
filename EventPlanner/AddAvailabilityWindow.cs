@@ -97,7 +97,6 @@ namespace WindowsFormsApplication1
 
                 DateTime startTimeBox = selectedEvent.dateTimes[i].Item1;
 
-                Console.WriteLine("OKAY CAPACITY IS: " + selectedEvent.getCapacity());
                 CheckUnavailableTimes(minuteIntervals, startTimeBox, selectedEvent);
 
                 for (int j = 0; j < minuteIntervals; j++)
@@ -106,12 +105,10 @@ namespace WindowsFormsApplication1
 
                     if (unAvailableTimes != null && unAvailableTimes.Count > 0)
                     {
-                        Console.WriteLine("We're In");
                         for (int k = 0; k < unAvailableTimes.Count; k++)
                         {
                             if (unAvailableTimes[k] == startTimeBox)
                             {
-                                Console.WriteLine("Removed Un Time");
                                 unAvailableTimes.RemoveAt(k);
                                 noCheckBox = true;
                                 break;
@@ -135,7 +132,6 @@ namespace WindowsFormsApplication1
         /// </summary>
         private void CheckUnavailableTimes(int minuteIntervals, DateTime startTimeBox, Event selectedEvent)
         {
-            Console.WriteLine("OKAY CAPACITY IS: " + selectedEvent.getCapacity());
             if (selectedEvent.getAttendeeCount() >= selectedEvent.getCapacity())
             {
                 List<Tuple<String, List<DateTime>>> peopleAndTimes = selectedEvent.getAttendees();
@@ -170,7 +166,18 @@ namespace WindowsFormsApplication1
                         unAvailableTimes.Add(possibleTimes[a]);
                     }
                 }
-                
+
+                if(unAvailableTimes.Count > 0)
+                {
+                    if(unAvailableTimes.Count == possibleTimes.Count)
+                    {
+                        MessageBox.Show("Be Aware: Attendee Capacity Reached For Event!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Be Aware: Capacity Reached For Some Times Slots!");
+                    }
+                }
             }
         }
 
