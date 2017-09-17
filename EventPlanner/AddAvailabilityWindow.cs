@@ -11,17 +11,19 @@ namespace WindowsFormsApplication1
     /// </summary>
     public partial class AddAvailabilityWindow : Form
     {
+        #region Private Fields and Properties
         private string userName;
         private List<AvailabilityCheckBox> checkboxList = new List<AvailabilityCheckBox>();
-        private List<DateTime> availableTimes = new List<DateTime>();
+        private List<DateTime> availableTimes = new List<DateTime>(); //times where user is joining an event
 
-        private List<DateTime> possibleTimes = new List<DateTime>();
-        private List<int> attendeesPerTime = new List<int>();
+        private List<DateTime> possibleTimes = new List<DateTime>(); //possible times attend event
+        private List<int> attendeesPerTime = new List<int>(); //list of attendees joining at certain times
         private List<DateTime> unAvailableTimes = new List<DateTime>();
         private List<Event> allEvents;
         private Tuple<String, List<DateTime>> yourAttendance;
         private string path;
         private bool use24Hour;
+        #endregion
 
         /// <summary>
         /// Constructor for the Add Availability window.
@@ -93,6 +95,7 @@ namespace WindowsFormsApplication1
             hostBox.Text = selectedEvent.getHost()??"";
             locationBox.Text = selectedEvent.getLocation()??"";
             briefBox.Text = selectedEvent.getBrief()??"";
+            capacityBox.Text = selectedEvent.getCapacity().ToString();
             if (yourAttendance != null)
             {
                 yourAttendance.Item2.Clear();
@@ -101,7 +104,6 @@ namespace WindowsFormsApplication1
             unAvailableTimes.Clear();
             possibleTimes.Clear();
             attendeesPerTime.Clear();
-
 
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)
@@ -130,9 +132,8 @@ namespace WindowsFormsApplication1
                             }
                         }
                     }
-
-                        AvailabilityCheckBox cB = AddCheckbox(startTimeBox);
-                        flowPanel.Controls.Add(cB);
+                    AvailabilityCheckBox cB = AddCheckbox(startTimeBox);
+                    flowPanel.Controls.Add(cB);
                     if (noCheckBox && !cB.Checked )
                     {
                         cB.Enabled = false;
