@@ -40,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.attendeesBox = new System.Windows.Forms.TextBox();
             this.AttendeesLabel = new System.Windows.Forms.Label();
+            this.capacityLabel = new System.Windows.Forms.Label();
+            this.capacityBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // saveAvailabilityButton
@@ -74,36 +76,36 @@
             // 
             // briefBox
             // 
-            this.briefBox.Location = new System.Drawing.Point(47, 91);
+            this.briefBox.Location = new System.Drawing.Point(25, 92);
             this.briefBox.Margin = new System.Windows.Forms.Padding(2);
             this.briefBox.Name = "briefBox";
             this.briefBox.ReadOnly = true;
-            this.briefBox.Size = new System.Drawing.Size(166, 20);
+            this.briefBox.Size = new System.Drawing.Size(245, 20);
             this.briefBox.TabIndex = 4;
             // 
             // locationBox
             // 
-            this.locationBox.Location = new System.Drawing.Point(117, 60);
+            this.locationBox.Location = new System.Drawing.Point(133, 61);
             this.locationBox.Margin = new System.Windows.Forms.Padding(2);
             this.locationBox.Name = "locationBox";
             this.locationBox.ReadOnly = true;
-            this.locationBox.Size = new System.Drawing.Size(95, 20);
+            this.locationBox.Size = new System.Drawing.Size(74, 20);
             this.locationBox.TabIndex = 5;
             // 
             // hostBox
             // 
-            this.hostBox.Location = new System.Drawing.Point(47, 60);
+            this.hostBox.Location = new System.Drawing.Point(25, 61);
             this.hostBox.Margin = new System.Windows.Forms.Padding(2);
             this.hostBox.Name = "hostBox";
             this.hostBox.ReadOnly = true;
-            this.hostBox.Size = new System.Drawing.Size(68, 20);
+            this.hostBox.Size = new System.Drawing.Size(104, 20);
             this.hostBox.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 52);
+            this.label1.Location = new System.Drawing.Point(23, 53);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 7);
@@ -114,7 +116,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(117, 52);
+            this.label2.Location = new System.Drawing.Point(132, 53);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 7);
@@ -125,7 +127,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 81);
+            this.label3.Location = new System.Drawing.Point(24, 82);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 7);
@@ -154,11 +156,33 @@
             this.AttendeesLabel.TabIndex = 11;
             this.AttendeesLabel.Text = "Attendees";
             // 
+            // capacityLabel
+            // 
+            this.capacityLabel.AutoSize = true;
+            this.capacityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capacityLabel.Location = new System.Drawing.Point(210, 53);
+            this.capacityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.capacityLabel.Name = "capacityLabel";
+            this.capacityLabel.Size = new System.Drawing.Size(33, 7);
+            this.capacityLabel.TabIndex = 13;
+            this.capacityLabel.Text = "Capacity";
+            // 
+            // capacityBox
+            // 
+            this.capacityBox.Location = new System.Drawing.Point(211, 61);
+            this.capacityBox.Margin = new System.Windows.Forms.Padding(2);
+            this.capacityBox.Name = "capacityBox";
+            this.capacityBox.ReadOnly = true;
+            this.capacityBox.Size = new System.Drawing.Size(59, 20);
+            this.capacityBox.TabIndex = 12;
+            // 
             // AddAvailabilityWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 518);
+            this.Controls.Add(this.capacityLabel);
+            this.Controls.Add(this.capacityBox);
             this.Controls.Add(this.AttendeesLabel);
             this.Controls.Add(this.attendeesBox);
             this.Controls.Add(this.label3);
@@ -193,5 +217,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox attendeesBox;
         private System.Windows.Forms.Label AttendeesLabel;
+        private System.Windows.Forms.Label capacityLabel;
+        private System.Windows.Forms.TextBox capacityBox;
     }
 }
