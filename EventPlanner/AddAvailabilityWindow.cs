@@ -196,13 +196,19 @@ namespace WindowsFormsApplication1
                 {
                     if(unAvailableTimes.Count == possibleTimes.Count)
                     {
-                        MessageBox.Show("This event is at capacity.");
+                        capacityWarning.Text = "Warning! Attendee Capacity Reached.";
                     }
                     else
                     {
-                        MessageBox.Show("Some time slots for this event are at capacity.");
+                        capacityWarning.Text = "Warning! Attendee Capacity Reached For Some Times.";
                     }
                 }
+                else
+                {
+                    capacityWarning.Text = "Join Events That Meet Your Schedule";
+                }
+
+                capacityWarning.Refresh();
             }
         }
 
