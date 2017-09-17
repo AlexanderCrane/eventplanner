@@ -106,9 +106,9 @@
             this.label1.Location = new System.Drawing.Point(45, 52);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 7);
+            this.label1.Size = new System.Drawing.Size(19, 7);
             this.label1.TabIndex = 7;
-            this.label1.Text = "host";
+            this.label1.Text = "Host";
             // 
             // label2
             // 
@@ -117,9 +117,9 @@
             this.label2.Location = new System.Drawing.Point(117, 52);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 7);
+            this.label2.Size = new System.Drawing.Size(32, 7);
             this.label2.TabIndex = 8;
-            this.label2.Text = "location";
+            this.label2.Text = "Location";
             // 
             // label3
             // 

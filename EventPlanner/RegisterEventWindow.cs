@@ -22,7 +22,6 @@ namespace WindowsFormsApplication1
         //user can add new time slots to an event 
         //maintain a list of the boxes for entering these so we can reference them when they save
         List<Tuple<ComboBox, ComboBox>> timeBoxes = new List<Tuple<ComboBox, ComboBox>>();
-        List<ComboBox> endTimes = new List<ComboBox>();
         
         List<ComboBoxDateTime> halfHourDateTimes = new List<ComboBoxDateTime>();
 
@@ -69,11 +68,15 @@ namespace WindowsFormsApplication1
             String errorText = "";
             Boolean inputError = false;
             Boolean comboBoxError = false;
+
             DateTime previousEndTime = DateTime.MinValue;
             DateTime previousStartTime = DateTime.MinValue;
+
             int capInt;
             bool timeWindowError = false;
+
             List<Tuple<DateTime, DateTime>> dateTimes = new List<Tuple<DateTime, DateTime>>();
+
             int.TryParse(capacityText.Text, out capInt);
             foreach (Tuple<ComboBox, ComboBox> currentBoxes in timeBoxes)
             {
@@ -81,6 +84,7 @@ namespace WindowsFormsApplication1
                 //if end time is 12:00 AM that is equivalent to 11:59:59 pm, not a repeat or smaller number.
                 DateTime startTime = (currentBoxes.Item1.SelectedValue as ComboBoxDateTime).inner;
                 DateTime endTime = (currentBoxes.Item2.SelectedValue as ComboBoxDateTime).inner;
+
                 if (endTime <= startTime && !endTime.ToShortTimeString().Equals("12:00 AM") && !comboBoxError)
                 {
                     errorText = String.Concat(errorText, "At least one of the time slots is impossible.");
@@ -91,7 +95,7 @@ namespace WindowsFormsApplication1
                 {
                     endTime = endTime.AddDays(1);
                 }
-                else if (((startTime >= previousStartTime) && (startTime <= previousEndTime)||
+                if (((startTime >= previousStartTime) && (startTime <= previousEndTime)||
                     ((endTime >= previousStartTime) && (endTime <= previousEndTime))) && !timeWindowError)
                 {
                     errorText = String.Concat(errorText, "\nTwo of the selected time windows overlap.");
@@ -170,7 +174,6 @@ namespace WindowsFormsApplication1
             // Write the string to a file.
             try
             {
-
                 if (!File.Exists(path))
                 {
                     using (StreamWriter file = new StreamWriter(path, append: true))

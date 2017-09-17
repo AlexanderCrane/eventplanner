@@ -48,7 +48,7 @@
             this.addAvailabilityButton.TabIndex = 1;
             this.addAvailabilityButton.Text = "Add Availability";
             this.addAvailabilityButton.UseVisualStyleBackColor = true;
-            this.addAvailabilityButton.Click += new System.EventHandler(this.button2_Click);
+            this.addAvailabilityButton.Click += new System.EventHandler(this.addAvailabilityButton_Click);
             // 
             // addEventsButton
             // 
@@ -59,7 +59,7 @@
             this.addEventsButton.TabIndex = 0;
             this.addEventsButton.Text = "Add Events";
             this.addEventsButton.UseVisualStyleBackColor = true;
-            this.addEventsButton.Click += new System.EventHandler(this.button1_Click);
+            this.addEventsButton.Click += new System.EventHandler(this.addEventsButton_Click);
             // 
             // mainCalendar
             // 
@@ -87,7 +87,6 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // twentyFourCheckbox
             // 
@@ -109,7 +108,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Clear All Events";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.clearEventsButton_Click);
             // 
             // checkEventsButton
             // 
@@ -140,7 +139,7 @@
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Doodle 2: Electric Boogaloo";
-            this.Load += new System.EventHandler(this.StartWindow_Load);
+            this.Load += new System.EventHandler(this.mainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

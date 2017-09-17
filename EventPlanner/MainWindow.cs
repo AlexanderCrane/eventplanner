@@ -35,7 +35,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="sender">The sending winforms object.</param>
         /// <param name="e">Winforms event arguments.</param>
-        private void button1_Click(object sender, EventArgs e)
+        private void addEventsButton_Click(object sender, EventArgs e)
         {         
             DateTime selectedDate = mainCalendar.SelectionStart;
             if (selectedDate < DateTime.Today)
@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="sender">The sending winforms object.</param>
         /// <param name="e">Winforms event arguments.</param>
-        private void button2_Click(object sender, EventArgs e)
+        private void addAvailabilityButton_Click(object sender, EventArgs e)
         {
 
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
@@ -86,7 +86,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="sender">The sending winforms object.</param>
         /// <param name="e">Winforms event arguments.</param>
-        private void StartWindow_Load(object sender, EventArgs e)
+        private void mainWindow_Load(object sender, EventArgs e)
         {
             currentDateLabel.Text = DateTime.Today.ToShortDateString();
             label1.Text = "Logged in as " + userName;
@@ -104,7 +104,7 @@ namespace WindowsFormsApplication1
             Console.Out.WriteLine(use24Hour);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void clearEventsButton_Click(object sender, EventArgs e)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
             //System.IO.File.WriteAllText(path, "");
@@ -113,11 +113,6 @@ namespace WindowsFormsApplication1
             {
                 System.IO.File.Delete(path);
             }
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 

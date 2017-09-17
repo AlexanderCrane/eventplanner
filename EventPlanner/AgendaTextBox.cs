@@ -5,7 +5,9 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
 
-//by Hans Passant - https://stackoverflow.com/users/17034/hans-passant
+/// <summary>
+/// An overloaded TextBox which is associated with a DateTime and a list of events.
+/// </summary>
 class AgendaTextBox : TextBox
 {
     public List<Event> associatedEvents;

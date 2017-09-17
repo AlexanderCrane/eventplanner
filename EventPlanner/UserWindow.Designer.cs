@@ -36,7 +36,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.currentDateLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // doneButton
@@ -74,23 +73,11 @@
             this.currentDateLabel.TabIndex = 5;
             this.currentDateLabel.Text = "label1";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(42, 35);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 50);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Return to Main Menu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // UserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 597);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.currentDateLabel);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -111,6 +98,5 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label currentDateLabel;
-        private System.Windows.Forms.Button button1;
     }
 }
