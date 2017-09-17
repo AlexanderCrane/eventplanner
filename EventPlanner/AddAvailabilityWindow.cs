@@ -63,7 +63,12 @@ namespace WindowsFormsApplication1
                     List<String> timeStrings = new List<string>();
                     if (tuple.Item1 == userName)
                     {
-                        yourAttendance = tuple;
+                        List<DateTime> yourAttDTs = new List<DateTime>();
+                        foreach(DateTime dt in tuple.Item2)
+                        {
+                            yourAttDTs.Add(dt);
+                        }
+                        yourAttendance = new Tuple<string, List<DateTime>>(userName, yourAttDTs);
                     }
                     foreach (DateTime dt in tuple.Item2)
                     {
@@ -108,6 +113,7 @@ namespace WindowsFormsApplication1
             unAvailableTimes.Clear();
             possibleTimes.Clear();
             attendeesPerTime.Clear();
+            checkboxList.Clear();
 
             //gives me list of date time tuples
             for (int i = 0; i < selectedEvent.dateTimes.Count; i++)

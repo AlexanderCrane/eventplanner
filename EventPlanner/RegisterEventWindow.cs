@@ -98,9 +98,9 @@ namespace WindowsFormsApplication1
                 if (((startTime >= previousStartTime) && (startTime <= previousEndTime)||
                     ((endTime >= previousStartTime) && (endTime <= previousEndTime))) && !timeWindowError)
                 {
-                    errorText = String.Concat(errorText, "\nTwo of the selected time windows overlap.");
-                    inputError = true;
-                    timeWindowError = true;
+                        errorText = String.Concat(errorText, "\nTwo of the selected time windows overlap.");
+                        inputError = true;
+                        timeWindowError = true;
                 }
                 previousStartTime = startTime;
                 previousEndTime = endTime;
