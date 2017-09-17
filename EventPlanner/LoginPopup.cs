@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
 {
     /// <summary>
     /// The first form displayed upon startup. Prompts the user for a name.
+    /// May add a password feature if time permits.
     /// </summary>
     public partial class LoginPopup : Form
     {
@@ -36,9 +37,10 @@ namespace WindowsFormsApplication1
                 String userName = usernameBox.Text;
                 this.Hide();
 
+                //Call to User to save user related data
                 User login = new User(userName, 0);
-                //login.Login(login);// :)
 
+                //Call to Main Window which gives the option to create event, check availability, and attend event
                 MainWindow main = new MainWindow(usernameBox.Text);
                 main.Closed += (s, args) => this.Close();
                 main.ShowDialog();
