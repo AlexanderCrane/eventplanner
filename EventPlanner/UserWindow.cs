@@ -57,6 +57,8 @@ namespace WindowsFormsApplication1
                 AgendaTextBox text = TextBoxArray[i];
                 text.Text = "";
                 text.associatedEvents.Clear();
+                String eventText = "";
+                int eventsAdded =0;
 
                 DateTime selectedDate = monthCalendar1.SelectionStart;
                 DateTime associatedDT = text.associatedDateTime;
@@ -80,7 +82,23 @@ namespace WindowsFormsApplication1
                 }
                 foreach (Event ev in text.associatedEvents)
                 {
-                    text.Text += ev.ToString() + " ";
+                    if (text.Text.Length + ev.ToString().Length > 94)
+                    {
+                        if (eventsAdded == 0)
+                        {
+                            text.Text += "Event text too long to display. Click for details.";
+                            break;
+                        }
+                        else
+                        {
+                            text.Text += "...";
+                        }
+                    }
+                    else
+                    {
+                        text.Text += ev.ToString() + " ";
+                    }
+                    eventsAdded++;
                 }
             }
         }
@@ -148,6 +166,7 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < 48; i++)
             {
+                int eventsAdded = 0;
                 AgendaTextBox text = new AgendaTextBox();
                 text.associatedDateTime = currentTime;
 
@@ -169,7 +188,27 @@ namespace WindowsFormsApplication1
                 text.GotFocus += hideTextBoxCursor;
                 foreach (Event ev in text.associatedEvents)
                 {
-                    text.Text += ev.ToString() + " ";
+                    if (text.Text.Length + ev.ToString().Length > 94)
+                    {
+                        if (eventsAdded == 0)
+                        {
+                            text.Text += "Event text too long to display. Click for details.";
+                        }
+                        else
+                        {
+                            text.Text += "others...";
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        text.Text += ev.ToString();
+                        if (eventsAdded < text.associatedEvents.Count-1)
+                        {
+                            text.Text += ", ";
+                        }
+                    }
+                    eventsAdded++;
                 }
                 Label timeLabel = new Label();
                 timeLabel.Anchor = (AnchorStyles.Right);
