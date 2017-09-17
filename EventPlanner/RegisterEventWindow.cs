@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// Constructor for the RegisterEventWindow form.
+        /// Round a DateTime to the nearest 30 minutes.
         /// </summary>
         /// <param name="dateTime">The Current Date selected by the user.</param>
         public static DateTime Round(DateTime dateTime)
@@ -148,7 +148,7 @@ namespace WindowsFormsApplication1
                     endTime = endTime.AddDays(1);
                 }
                 if (((startTime >= previousStartTime) && (startTime <= previousEndTime)||
-                    ((endTime >= previousStartTime) && (endTime <= previousEndTime))) && !timeWindowError)
+                    ((endTime >= previousStartTime) && (endTime <= previousEndTime))) && (startTime != previousEndTime) && !timeWindowError)
                 {
                         errorText = String.Concat(errorText, "\nTwo of the selected time windows overlap.");
                         inputError = true;

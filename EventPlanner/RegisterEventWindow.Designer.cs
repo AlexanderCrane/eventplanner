@@ -93,7 +93,7 @@
             this.flowLayoutPanel1.Controls.Add(this.endTimeBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 113);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(255, 100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(274, 100);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // removeTimeSlotButton
