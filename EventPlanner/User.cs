@@ -11,11 +11,7 @@ using System.Windows.Forms;
 namespace WindowsFormsApplication1
 {
     /// <summary>
-    /// Saving user related information in a JSON File
-    /// Window: None
-    /// Global Variables: 
-    ///     1. string userName - to store the userName
-    ///     2. int    userId - for faster searching each user has an id for linking to other events, starting at 0 to var limit.
+    /// A class representing user related information to be saved to a JSON File
     /// </summary>
     /// 
 

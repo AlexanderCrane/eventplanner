@@ -330,7 +330,13 @@ namespace WindowsFormsApplication1
         private class ComboBoxDateTime
         {
             private String sts;
+            /// <summary>
+            /// The short time string of the contained DateTime.
+            /// </summary>
             public string shortTimeString { get { return sts; } set { sts = value; } }
+            /// <summary>
+            /// The short time string of the contained date time, with (Next Day) appended if it's 12:00AM.
+            /// </summary>
             public string shortTimeStringForEndBoxes
             {
                 get { if (!sts.Equals("12:00 AM")){
@@ -343,6 +349,9 @@ namespace WindowsFormsApplication1
                 }
                 set { shortTimeStringForEndBoxes = value; }
             }
+            /// <summary>
+            /// The DateTime contained by the wrapper class.
+            /// </summary>
             public DateTime inner;
             /// <summary>
             /// Constructor for the ComboBoxDateTime wrapper object.

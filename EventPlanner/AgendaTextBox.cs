@@ -5,11 +5,12 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
 
-/// <summary>
-/// An overloaded TextBox which is associated with a DateTime and a list of events.
-/// </summary>
+
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// An overloaded TextBox which is associated with a DateTime and a list of events.
+    /// </summary>
     class AgendaTextBox : TextBox
     {
         public List<Event> associatedEvents;

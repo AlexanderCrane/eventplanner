@@ -2,10 +2,10 @@
 <HelpTOC>
 
   <HelpTOCNode Title="Event Planner" Url="html/9d1b157a-4971-4f6d-806b-922aca8b2fb2.htm" />
-  <HelpTOCNode Id="b238003a-f16c-4b84-a345-0751f4fb155d" Title="WindowsFormsApplication1" Url="html/c6a509bc-bad0-5902-eba8-e20cbd46fd1e.htm">
-    <HelpTOCNode Id="27626474-7bcb-4c2e-8d3e-b1e288e81d11" Title="AddAvailabilityWindow Class" Url="html/717eccb7-309f-5b51-3341-59a1bd6ae8cd.htm">
+  <HelpTOCNode Id="04b809ba-bbcd-4ada-8ad3-ba2853807b3c" Title="WindowsFormsApplication1" Url="html/c6a509bc-bad0-5902-eba8-e20cbd46fd1e.htm">
+    <HelpTOCNode Id="779436b0-f9f6-4480-9d61-d306ee59d39d" Title="AddAvailabilityWindow Class" Url="html/717eccb7-309f-5b51-3341-59a1bd6ae8cd.htm">
       <HelpTOCNode Title="AddAvailabilityWindow Constructor " Url="html/a7c04e45-b730-1091-8dee-a97f4eeebd4e.htm" />
-      <HelpTOCNode Id="a30456b6-301f-4593-8565-5e9f48d00cc4" Title="AddAvailabilityWindow Methods" Url="html/ca90ac9f-41e7-6aee-a0c2-6c5198c5f82e.htm">
+      <HelpTOCNode Id="bd4a2aac-d54a-42d7-b6d5-7956c36575d6" Title="AddAvailabilityWindow Methods" Url="html/ca90ac9f-41e7-6aee-a0c2-6c5198c5f82e.htm">
         <HelpTOCNode Title="AddCheckbox Method " Url="html/945146e9-a54e-cd3d-e147-e48cf2266cd3.htm" />
         <HelpTOCNode Title="CheckUnavailableTimes Method " Url="html/8bb2d1ae-bd25-9e26-9f09-821feff0bd9b.htm" />
         <HelpTOCNode Title="eventComboBox_SelectedIndexChanged Method " Url="html/4828d2b7-b604-942c-3d39-1ada09c765af.htm" />
@@ -16,9 +16,9 @@
         <HelpTOCNode Title="WriteToJSON Method " Url="html/488b998c-dcd4-cc75-9e85-e20e9df2325e.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="c07d479b-00c1-4af7-8afe-8b56f04a394f" Title="CheckEventsForm Class" Url="html/749b3193-4b0c-c2ff-ca04-82ec6442b377.htm">
+    <HelpTOCNode Id="37ef9713-df3f-4738-9292-77a76f236cb3" Title="CheckEventsForm Class" Url="html/749b3193-4b0c-c2ff-ca04-82ec6442b377.htm">
       <HelpTOCNode Title="CheckEventsForm Constructor " Url="html/db1d68e4-9b4e-de94-9b86-515582445700.htm" />
-      <HelpTOCNode Id="52a768da-c954-4335-9555-71df01ad81d7" Title="CheckEventsForm Methods" Url="html/3acaaaee-9d55-ba80-2f2d-0ab15d040037.htm">
+      <HelpTOCNode Id="7718a370-b5a1-4ea3-af56-b2b7631b48a6" Title="CheckEventsForm Methods" Url="html/3acaaaee-9d55-ba80-2f2d-0ab15d040037.htm">
         <HelpTOCNode Title="BackButton_Click Method " Url="html/df071671-4f2a-e0a2-2f83-655d5c69fde4.htm" />
         <HelpTOCNode Title="CheckEventsForm_Load Method " Url="html/ea80eea4-b853-1529-9026-2816d94c19d5.htm" />
         <HelpTOCNode Title="InitializeComponent Method " Url="html/08bb5dff-0b0f-46e0-1a88-ddbdfa1c389d.htm" />
@@ -26,9 +26,9 @@
         <HelpTOCNode Title="yourEventsBox_SelectedValueChanged Method " Url="html/c2ca6ff9-69ac-e9ab-bb3f-9b9dfe8d5226.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="2065490e-6763-4075-b080-8b5ed138a6e9" Title="Event Class" Url="html/ce5eafca-e63e-84b6-81a0-5fd2291dd8aa.htm">
+    <HelpTOCNode Id="b378878a-86c5-4e96-a439-91a4fd76aeaf" Title="Event Class" Url="html/ce5eafca-e63e-84b6-81a0-5fd2291dd8aa.htm">
       <HelpTOCNode Title="Event Constructor " Url="html/177172f4-bd3c-a42c-23f4-ba46df892e08.htm" />
-      <HelpTOCNode Id="e7eb8a21-378e-467f-b415-ecdbeadcb8e4" Title="Event Methods" Url="html/24c43c83-eed8-8c4a-055f-f0bba4741edd.htm">
+      <HelpTOCNode Id="79181f84-af96-4b07-af26-498cd7c65f15" Title="Event Methods" Url="html/24c43c83-eed8-8c4a-055f-f0bba4741edd.htm">
         <HelpTOCNode Title="addAttendee Method " Url="html/0d5d6ac4-7cd2-5cee-383b-83c2a8bc4766.htm" />
         <HelpTOCNode Title="getAttendeeCount Method " Url="html/0b3665d6-bc13-27f7-3b73-c104b56b8761.htm" />
         <HelpTOCNode Title="getAttendees Method " Url="html/78eabe6a-9e9c-7455-49f5-cf74c07e9de3.htm" />
@@ -45,7 +45,7 @@
         <HelpTOCNode Title="setName Method " Url="html/dda7fcfe-032e-d293-66bc-f947f2c67856.htm" />
         <HelpTOCNode Title="ToString Method " Url="html/46a4da84-dc1e-b970-1222-9c06cd53fc57.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="c8bd4e23-aa14-4d68-95c3-5f1a1d750454" Title="Event Fields" Url="html/d939bb74-0324-c943-47e5-5ea0efc8ea91.htm">
+      <HelpTOCNode Id="bbaba83c-b32e-4592-87e6-e6ea18804086" Title="Event Fields" Url="html/d939bb74-0324-c943-47e5-5ea0efc8ea91.htm">
         <HelpTOCNode Title="attendees Field" Url="html/9001ff04-14d9-f6c0-5c8b-d19753bfd56a.htm" />
         <HelpTOCNode Title="brief Field" Url="html/8804066d-cca4-be84-4aed-2793e6f5f952.htm" />
         <HelpTOCNode Title="capacity Field" Url="html/759c1358-53a9-34c5-fa4f-d761ed6f57fc.htm" />
@@ -56,17 +56,17 @@
         <HelpTOCNode Title="numberOfAttendees Field" Url="html/53af3fe7-f826-c198-3761-5c041be13330.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="515f71e4-71a7-4c08-b269-a65affbf9fd4" Title="LoginPopup Class" Url="html/67640aa0-cd70-6615-3471-aeac9e2f3b89.htm">
+    <HelpTOCNode Id="03aa291c-ab46-4178-8455-73c3bc106dab" Title="LoginPopup Class" Url="html/67640aa0-cd70-6615-3471-aeac9e2f3b89.htm">
       <HelpTOCNode Title="LoginPopup Constructor " Url="html/7b583946-6313-345b-b1d3-3d5d943ecd1b.htm" />
-      <HelpTOCNode Id="ef12e26d-b345-45b4-862d-b6fc0928f84b" Title="LoginPopup Methods" Url="html/96a7fc8a-22dd-a061-42a7-1cf546818baa.htm">
+      <HelpTOCNode Id="3319d61b-04fc-485a-ad7e-29b2e3a727f2" Title="LoginPopup Methods" Url="html/96a7fc8a-22dd-a061-42a7-1cf546818baa.htm">
         <HelpTOCNode Title="createAccountButton_Click Method " Url="html/558d69d6-c070-c44f-0a51-99d9ebf40c38.htm" />
         <HelpTOCNode Title="InitializeComponent Method " Url="html/7264b9e8-d17d-f443-64fd-84746349a3ec.htm" />
         <HelpTOCNode Title="loginButton_Click Method " Url="html/aeef1f80-be41-511a-1fa7-59c3dd746d9f.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="a9111902-a474-4a6b-a29e-94fb4269bb09" Title="MainWindow Class" Url="html/8d4379d9-baa0-d492-073b-eefaf635e189.htm">
+    <HelpTOCNode Id="6a3106f8-aa8f-4278-9df6-21a98fea32da" Title="MainWindow Class" Url="html/8d4379d9-baa0-d492-073b-eefaf635e189.htm">
       <HelpTOCNode Title="MainWindow Constructor " Url="html/ae4a068c-e86e-c72f-1082-426781476aae.htm" />
-      <HelpTOCNode Id="20d9de83-3ca8-41a9-8c45-91a970e8bcdb" Title="MainWindow Methods" Url="html/00d8accd-eba4-9598-3f33-56a52dc0315c.htm">
+      <HelpTOCNode Id="70bc16fe-7093-40f8-8da5-2f71876998b8" Title="MainWindow Methods" Url="html/00d8accd-eba4-9598-3f33-56a52dc0315c.htm">
         <HelpTOCNode Title="addAvailabilityButton_Click Method " Url="html/395adb97-952d-e9f4-08af-71215fb62aef.htm" />
         <HelpTOCNode Title="addEventsButton_Click Method " Url="html/f70b7438-5e5c-9a5e-4aeb-86c33de00524.htm" />
         <HelpTOCNode Title="checkEventsButton_Click Method " Url="html/bf7ef37f-b556-013d-8ee2-9c0597a2d5a8.htm" />
@@ -78,9 +78,9 @@
         <HelpTOCNode Title="twentyFourCheckbox_CheckedChanged Method " Url="html/29ea73e2-cf6d-66be-6a01-373c05d0277d.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="c416552b-7e2b-4a84-9653-8085f531dc4a" Title="RegisterEventWindow Class" Url="html/45c02adb-d405-2355-7fac-d6b04ec1089d.htm">
+    <HelpTOCNode Id="6dd2f445-56a5-4547-84cf-f4063dfae5f5" Title="RegisterEventWindow Class" Url="html/45c02adb-d405-2355-7fac-d6b04ec1089d.htm">
       <HelpTOCNode Title="RegisterEventWindow Constructor " Url="html/50096b0b-3e84-d651-23ab-936e3ce91622.htm" />
-      <HelpTOCNode Id="1c812bdc-03ee-4af0-a290-0b213c1c090f" Title="RegisterEventWindow Methods" Url="html/02c21717-17f5-576f-0673-bb88ee278255.htm">
+      <HelpTOCNode Id="cc2a4b30-235e-4c66-b0d7-4c9c1fd86662" Title="RegisterEventWindow Methods" Url="html/02c21717-17f5-576f-0673-bb88ee278255.htm">
         <HelpTOCNode Title="addSlotButton_Click Method " Url="html/b721a5ca-e296-4535-dda1-472ebb17b8a2.htm" />
         <HelpTOCNode Title="buildEvent Method " Url="html/439b8a93-4a19-d04b-700b-fb7b52c56fe9.htm" />
         <HelpTOCNode Title="cancelButton_Click Method " Url="html/110d2a0a-ce49-1b26-5dcc-6491b540f14c.htm" />
@@ -91,27 +91,27 @@
         <HelpTOCNode Title="saveButton_Click Method " Url="html/a38ff6ff-f5bc-025d-56c1-39689f9bba6d.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="96f27494-5c65-4d3c-987b-945791fe1550" Title="RegisterEventWindow.ComboBoxDateTime Class" Url="html/714f5ed4-881f-5269-ff4e-34880f554327.htm">
+    <HelpTOCNode Id="f602a080-e989-488f-987f-3d99fe760a4d" Title="RegisterEventWindow.ComboBoxDateTime Class" Url="html/714f5ed4-881f-5269-ff4e-34880f554327.htm">
       <HelpTOCNode Title="RegisterEventWindow.ComboBoxDateTime Constructor " Url="html/5a0a40a1-7db4-daeb-0fa1-16d364cb49cb.htm" />
-      <HelpTOCNode Id="81635a98-8c00-49ba-8617-dc929691d21d" Title="ComboBoxDateTime Properties" Url="html/832f7dab-bfa9-1eec-669a-fc3259b7be4c.htm">
+      <HelpTOCNode Id="dc495d66-0b02-4043-9657-c9766727fd83" Title="ComboBoxDateTime Properties" Url="html/832f7dab-bfa9-1eec-669a-fc3259b7be4c.htm">
         <HelpTOCNode Title="shortTimeString Property " Url="html/b1f682b7-e81a-0eef-72ee-9af51fe3e363.htm" />
         <HelpTOCNode Title="shortTimeStringForEndBoxes Property " Url="html/3d16ec77-2324-605b-7a4b-fd36d0457ca5.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="5239ca4e-a528-40e4-a74a-f09b88610056" Title="ComboBoxDateTime Methods" Url="html/89665f35-6cca-3e77-1f27-eea547a9637f.htm">
+      <HelpTOCNode Id="53208f64-fc2b-46f1-9979-1c015a2912a8" Title="ComboBoxDateTime Methods" Url="html/89665f35-6cca-3e77-1f27-eea547a9637f.htm">
         <HelpTOCNode Title="ToString Method " Url="html/0c21804d-7df5-38fe-ebaa-9073da9e4952.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="210a5443-52a8-488d-9aa0-4fbabb5e0790" Title="ComboBoxDateTime Fields" Url="html/9d547717-3d61-9442-dfbd-8deb953123ca.htm">
+      <HelpTOCNode Id="527b6306-6983-4def-8da8-677f7e076078" Title="ComboBoxDateTime Fields" Url="html/9d547717-3d61-9442-dfbd-8deb953123ca.htm">
         <HelpTOCNode Title="inner Field" Url="html/011dea8f-f158-2c5b-cc81-ba6a9a128722.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="77454b5b-0fa0-4785-8b9f-0e4e156710e9" Title="User Class" Url="html/5a8ada60-1aac-b418-d8f9-0551a2e0c42f.htm">
+    <HelpTOCNode Id="a74faa07-5bcb-44fb-a1d5-ecde5d7c25a1" Title="User Class" Url="html/5a8ada60-1aac-b418-d8f9-0551a2e0c42f.htm">
       <HelpTOCNode Title="User Constructor " Url="html/3b5b4004-a524-3396-de8d-c1c01e3e28e7.htm" />
-      <HelpTOCNode Id="732c2bd7-21ba-4e00-a9b0-6bfe40a6e7eb" Title="User Methods" Url="html/ce20788c-4804-1ea9-bcb4-2c5ea14a6f1c.htm">
+      <HelpTOCNode Id="116f614b-86fa-4da0-998b-80881c0c6422" Title="User Methods" Url="html/ce20788c-4804-1ea9-bcb4-2c5ea14a6f1c.htm">
         <HelpTOCNode Title="closeLogin Method " Url="html/c500b106-7191-e4ad-f40c-0d12a1cead71.htm" />
         <HelpTOCNode Title="createAccount Method " Url="html/e1c7c252-92dc-404e-f8a7-373a613439b2.htm" />
         <HelpTOCNode Title="Login Method " Url="html/54a3d09d-9e3a-e7a5-c956-2492ca4e80ff.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="3cdc5f82-08d5-406c-abbe-6ab1a4bde09a" Title="User Fields" Url="html/860331e5-d70c-86a9-3cdf-4b2dea0ac05c.htm">
+      <HelpTOCNode Id="7c43d64a-d202-46b1-8e8a-6b6fe6eb15ed" Title="User Fields" Url="html/860331e5-d70c-86a9-3cdf-4b2dea0ac05c.htm">
         <HelpTOCNode Title="userAttendingEvents Field" Url="html/d2647284-17ad-0f09-8e7c-70f27d3dd8d5.htm" />
         <HelpTOCNode Title="userCreatedEvents Field" Url="html/be1a59ab-43f2-8cf4-bd94-12268a7184ec.htm" />
         <HelpTOCNode Title="userID Field" Url="html/14ea00d2-2506-a6d2-7b66-1f4d3eb964a2.htm" />
@@ -119,9 +119,9 @@
         <HelpTOCNode Title="userPassword Field" Url="html/a945289c-a6a8-fa1f-86e7-4ea0a3840e55.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="cc71e5e9-ab78-495e-a5ea-88c8926ed014" Title="UserWindow Class" Url="html/5e1e75a2-433c-bfc4-f491-b061ed85db3f.htm">
+    <HelpTOCNode Id="824777ee-e8a2-4266-95b2-d6d5fb5cf482" Title="UserWindow Class" Url="html/5e1e75a2-433c-bfc4-f491-b061ed85db3f.htm">
       <HelpTOCNode Title="UserWindow Constructor " Url="html/735ae998-2dbf-65e0-af03-7fabca77d3cc.htm" />
-      <HelpTOCNode Id="835255fb-b5a9-40d4-ab72-f2f729ea585e" Title="UserWindow Methods" Url="html/3c65b72f-bea1-23fd-7d4a-1e86c7ba6547.htm">
+      <HelpTOCNode Id="cd326399-6ce5-4638-90a9-4d139a7a4f97" Title="UserWindow Methods" Url="html/3c65b72f-bea1-23fd-7d4a-1e86c7ba6547.htm">
         <HelpTOCNode Title="closeButton_Click Method " Url="html/57e04719-c8a0-5892-7e80-7e3e7cd904c3.htm" />
         <HelpTOCNode Title="doneButton_Click Method " Url="html/96487e4c-7eed-b1b8-3702-bc28089b357c.htm" />
         <HelpTOCNode Title="getEventsForTheDay Method " Url="html/31d76532-0616-5211-d275-df3fb82f444f.htm" />

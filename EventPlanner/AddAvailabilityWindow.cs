@@ -91,7 +91,8 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// adds checkboxes for times
+        /// SelectedIndexChanged behavior for the event combo box.
+        /// Changes displayed event info.
         /// </summary>
         private void eventComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -219,7 +220,7 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// Adds checkboxes for times, but checkboxes do nothing so far
+        /// Adds checkboxes for users to select their available times.
         /// </summary>
         /// <param name="dTime">The datetime to add a checkbox for.</param>
         private AvailabilityCheckBox AddCheckbox(DateTime dTime)
