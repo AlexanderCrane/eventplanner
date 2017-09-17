@@ -250,7 +250,7 @@ namespace WindowsFormsApplication1
         /// Click behavior for the close button. Closes the form.
         /// </summary>
         /// <param name="sender">The sending winforms object.</param>
-        /// <param name="args">Winforms event arguments.</param>
+        /// <param name="e">Winforms event arguments.</param>
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();

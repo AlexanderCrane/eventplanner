@@ -8,12 +8,15 @@ using System.Collections.Generic;
 /// <summary>
 /// An overloaded TextBox which is associated with a DateTime and a list of events.
 /// </summary>
-class AgendaTextBox : TextBox
+namespace WindowsFormsApplication1
 {
-    public List<Event> associatedEvents;
-    public DateTime associatedDateTime;
-    public AgendaTextBox()
+    class AgendaTextBox : TextBox
     {
-        this.associatedEvents = new List<Event>();
+        public List<Event> associatedEvents;
+        public DateTime associatedDateTime;
+        public AgendaTextBox()
+        {
+            this.associatedEvents = new List<Event>();
+        }
     }
 }

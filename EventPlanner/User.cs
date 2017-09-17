@@ -28,14 +28,34 @@ namespace WindowsFormsApplication1
         /// ** Post: Global variables userName and userId are initialized with the values passed in
         /// </summary>
         public string userName = "";
+        /// <summary>
+        /// A unique user ID
+        /// </summary>
         public int userID = 0;
+        /// <summary>
+        /// The user's password.
+        /// </summary>
         public string userPassword = "";
+        /// <summary>
+        /// The list of events created by a user.
+        /// </summary>
         public List<string> userCreatedEvents = new List<string>();
+        /// <summary>
+        /// The list of events a user is attending.
+        /// </summary>
         public List<string> userAttendingEvents = new List<string>();
         private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\userSaveFile.json";
         private JsonSerializer serializer = new JsonSerializer();
 
         //as user is checked here, we will also do all file checking/creation here.
+        /// <summary>
+        /// The constructor for the User object.
+        /// </summary>
+        /// <param name="name">the user's chosen name.</param>
+        /// <param name="ID">a unique user ID</param>
+        /// <param name="password">The user's chosen password</param>
+        /// <param name="attending">A list of names of events the user is attending.</param>
+        /// <param name="created">A list of names of events the user has created.</param>
         public User(string name, int ID, string password, List<string> attending, List<string> created)
         {
             userName = name;
@@ -45,6 +65,10 @@ namespace WindowsFormsApplication1
             userAttendingEvents = attending;
         }
 
+        /// <summary>
+        /// A method to handle the user login process.
+        /// </summary>
+        /// <param name="checker"></param>
         public void Login(User checker)
         {
             try
@@ -96,7 +120,10 @@ namespace WindowsFormsApplication1
         }
 
 
-        //user is trying to create new account.
+        /// <summary>
+        /// Method to handle the creation of new user accounts.
+        /// </summary>
+        /// <param name="checker"></param>
         public void createAccount(User checker)
         {
             try
@@ -157,6 +184,9 @@ namespace WindowsFormsApplication1
 
         }
 
+        /// <summary>
+        /// Close the login popup.
+        /// </summary>
         private void closeLogin()
         {
             //Call to Main Window which gives the option to create event, check availability, and attend event
