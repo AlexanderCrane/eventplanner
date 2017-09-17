@@ -98,6 +98,7 @@ namespace WindowsFormsApplication1
                     if (exists == false)
                     {
                         MessageBox.Show("username or password does not match, try again or create account.");
+                        //TODO clear text box
                     }
                     //saving info
                     using (StreamWriter file = new StreamWriter(path, append: false))
@@ -152,16 +153,17 @@ namespace WindowsFormsApplication1
                         {
                             exists = true;
                             MessageBox.Show("Username " + checker.userName + " already exists, please try again or login.");
+                            //TODO clear textboxes
                         }
                     }
 
                     //list exists, user does not.
                     if (exists == false)
                     {
-                        // double check password
                         checker.userID = usr.Count();
                         usr.Add(checker);
                         //saving info
+                        //TODO add pop up to double check user's password, block out letters in both.
                         using (StreamWriter file = new StreamWriter(path, append: false))
                         {
                             serializer.Serialize(file, usr);

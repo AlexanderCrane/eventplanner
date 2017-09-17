@@ -244,6 +244,7 @@ namespace WindowsFormsApplication1
                 {
                     using (StreamWriter file = new StreamWriter(path, append: true))
                     {
+                        //TODO add event to usersavefile too.
                         List<Event> evts = new List<Event>();
                         evts.Add(evt);
                         serializer.Serialize(file, evts);
