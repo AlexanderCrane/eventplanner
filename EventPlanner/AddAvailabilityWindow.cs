@@ -245,7 +245,34 @@ namespace WindowsFormsApplication1
             }
 
             checkboxList.Add(cB);
+            cB.CheckedChanged += preventHostDelisting;
             return (cB);
+        }
+
+        /// <summary>
+        /// CheckedChanged behavior for the checkboxes.
+        /// Prevent the host from delisting himself from all time slots
+        /// </summary>
+        /// <param name="sender">The sending winforms object.</param>
+        /// <param name="e">Winforms event arguments.</param>
+        private void preventHostDelisting(object sender, EventArgs e)
+        {
+            AvailabilityCheckBox send = (AvailabilityCheckBox)sender;
+            if (userName == hostBox.Text && send.Checked == false)
+            {
+                int checkedCount = 0;
+                foreach (AvailabilityCheckBox cb in checkboxList)
+                {
+                    if (cb.Checked){
+                        checkedCount++;
+                    }
+                }
+                if (checkedCount == 0)
+                {
+                    send.Checked = true;
+                    MessageBox.Show("You are the host of this event and cannot completely remove your attendance.");
+                }
+            }
         }
 
         /// <summary>
