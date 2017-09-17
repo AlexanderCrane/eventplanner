@@ -278,6 +278,11 @@ namespace WindowsFormsApplication1
                 set { shortTimeStringForEndBoxes = value; }
             }
             public DateTime inner;
+            /// <summary>
+            /// Constructor for the ComboBoxDateTime wrapper object.
+            /// </summary>
+            /// <param name="dt">The dateTime to be contained by the object</param>
+            /// <param name="use24Hour">Whether to use 24 hour time.</param>
             public ComboBoxDateTime(DateTime dt, bool use24Hour)
             {
                 this.inner = dt;
@@ -292,6 +297,10 @@ namespace WindowsFormsApplication1
                 }
 
             }
+            /// <summary>
+            /// ToString override for ComboBoxDateTime. 
+            /// </summary>
+            /// <returns>The short time string of the object's DateTime in the specified format.</returns>
             public override string ToString()
             {
                 return this.sts;
