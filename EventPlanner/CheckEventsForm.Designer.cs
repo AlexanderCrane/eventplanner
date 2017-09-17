@@ -70,15 +70,13 @@
             // 
             // BackButton
             // 
-            this.BackButton.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BackButton.Location = new System.Drawing.Point(414, 28);
+            this.BackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackButton.Location = new System.Drawing.Point(418, 21);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(146, 40);
-            this.BackButton.TabIndex = 14;
+            this.BackButton.Size = new System.Drawing.Size(142, 55);
+            this.BackButton.TabIndex = 15;
             this.BackButton.Text = "Back";
-            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // CheckEventsForm
@@ -90,6 +88,7 @@
             this.Controls.Add(this.AttendeesLabel);
             this.Controls.Add(this.attendeesBox);
             this.Controls.Add(this.yourEventsBox);
+            this.MaximumSize = new System.Drawing.Size(597, 388);
             this.MinimumSize = new System.Drawing.Size(597, 388);
             this.Name = "CheckEventsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
