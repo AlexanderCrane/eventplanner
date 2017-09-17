@@ -1,3 +1,4 @@
+This list is also available in HTML documentation.
 Microsoft Visual Studio 2017 with Visual C# and Winforms UI [C# System.Windows.Forms]
 WinFormsCalendarView by Jose Menendez Póo: https://www.codeproject.com/Articles/38699/A-Professional-Calendar-Agenda-View-That-You-Will
 CueTextBox by Hans Passant: https://stackoverflow.com/users/17034/hans-passant
