@@ -304,7 +304,6 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="sender">The sending winforms object.</param>
         /// <param name="e">Winforms event arguments.</param>
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
