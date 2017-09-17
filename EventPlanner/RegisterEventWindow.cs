@@ -26,6 +26,8 @@ namespace WindowsFormsApplication1
         List<ComboBoxDateTime> halfHourDateTimes = new List<ComboBoxDateTime>();
         List<ComboBoxDateTime> halfHourDateTimesForEnd = new List<ComboBoxDateTime>();
 
+        private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
+
         private string userName;
 
         /// <summary>
@@ -169,6 +171,19 @@ namespace WindowsFormsApplication1
                 errorText = String.Concat(errorText, "\nEvent name is too long.");
                 inputError = true;
             }
+            if (File.Exists(path))
+            {
+                List<Event> evts = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
+                foreach (Event evt in evts)
+                {
+                    if (evt.nameOfEvent == nameTextBox.Text)
+                    {
+                        inputError = true;
+                        errorText = String.Concat(errorText, "\nEvent name already exists.");
+                    }
+                }
+            }
+            
             if (capInt == 0)
             {
                 errorText = String.Concat(errorText, "\nCapacity must be a nonzero number.");
@@ -220,7 +235,6 @@ namespace WindowsFormsApplication1
             startingAttendees.Add(new Tuple<String, List<DateTime>>(userName, attendeeDTs));
             evt.attendees = startingAttendees;
 
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
             JsonSerializer serializer = new JsonSerializer();
 
             // Write the string to a file.
