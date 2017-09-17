@@ -20,6 +20,10 @@ namespace WindowsFormsApplication1
     {
         /// <summary>
         /// The main entry point for the application.
+        /// ** Pre: All application files exists
+        /// ** Post: 1. Visual Styles enabled
+        ///          2. Set Text Rendering
+        ///          3. Calls the first form/dialog box - LoginPopup
         /// </summary>
         /// 
         //calendar icon credit - https://icons8.com/icon/22/Calendar

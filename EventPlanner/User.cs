@@ -8,19 +8,32 @@ using Newtonsoft.Json;
 using System.Windows.Forms;
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// Saving user related information in a JSON File
+    /// Window: None
+    /// Global Variables: 
+    ///     1. string userName - to store the userName
+    ///     2. int    userId - for faster searching each user has an id for linking to other events, starting at 0 to var limit.
+    /// </summary>
+    /// 
     public class User
     {
 
         string userName = "";
         int userID = 0;
-        //as user is checked here, we will also do all file checking/creation here.
+
+        /// <summary>
+        /// Constructor for User
+        /// Assigns the accepted name and ID to userName and userId.
+        /// ** Pre: A valid name and ID is passed in
+        /// ** Post: Global variables userName and userId are initialized with the values passed in
+        /// </summary>
         public User(string name, int ID)
         {
             userName = name;
             userID = ID;
-
-
         }
+
         public void Login(User checker)
         {
             //
