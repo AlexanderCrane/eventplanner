@@ -206,9 +206,15 @@ namespace WindowsFormsApplication1
         private void Text_Click(object sender, EventArgs e)
         {
             AgendaTextBox send = sender as AgendaTextBox;
-
-            AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName, evtList, use24Hour);
-            addAvail.ShowDialog();
+            if (send.associatedEvents != null && send.associatedEvents.Count != 0)
+            {
+                AddAvailabilityWindow addAvail = new AddAvailabilityWindow(send.associatedEvents, userName, evtList, use24Hour);
+                addAvail.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("This time slot has no events.");
+            }
         }
 
         //Source of JSON Work: https://www.newtonsoft.com/json/help/html/DeserializeWithJsonSerializerFromFile.htm
@@ -244,7 +250,7 @@ namespace WindowsFormsApplication1
         /// Click behavior for the close button. Closes the form.
         /// </summary>
         /// <param name="sender">The sending winforms object.</param>
-        /// <param name="e">Winforms event arguments.</param>
+        /// <param name="args">Winforms event arguments.</param>
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();

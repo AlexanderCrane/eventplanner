@@ -24,6 +24,7 @@ namespace WindowsFormsApplication1
         List<Tuple<ComboBox, ComboBox>> timeBoxes = new List<Tuple<ComboBox, ComboBox>>();
         
         List<ComboBoxDateTime> halfHourDateTimes = new List<ComboBoxDateTime>();
+        List<ComboBoxDateTime> halfHourDateTimesForEnd = new List<ComboBoxDateTime>();
 
         private string userName;
 
@@ -39,41 +40,47 @@ namespace WindowsFormsApplication1
             userName = username;
             dateLabel.Text = "Adding event for: " + selectedDate.ToShortDateString();
 
-            int local_hrs; 
+            //int local_hrs; 
 
-            ComboBoxDateTime currentTime;
+            ComboBoxDateTime currentTime = new ComboBoxDateTime(selectedDate, use24Hour);
 
 
             /*
              ** To show only valid time slots. For today, don't show time slots for time that has passed.
              */
             //If the selected date is after today, show all 48 time slots. That is, let the loop run 48 times.
-            if ( selectedDate.Date > DateTime.Now)
-            {
-                currentTime = new ComboBoxDateTime(selectedDate.Date, use24Hour);
-                local_hrs = -1;
-            }
+            //if ( selectedDate.Date > DateTime.Now)
+            //{
+            //    currentTime = new ComboBoxDateTime(selectedDate.Date, use24Hour);
+            //    local_hrs = -1;
+            //}
 
-            //If the selected date is today, round off to the nearest next half hour using the Round method. Pass that to ComboBoxDateTime
-            //Loop should run such that only slots till midnight are displayed. Should not run 48 times.
-            else
-            {
-                DateTime test = Round(DateTime.Now); //Get current time rounded to the next hour
-                currentTime = new ComboBoxDateTime(test, use24Hour);
-                local_hrs = DateTime.Now.Hour*2; 
-            }
+            ////If the selected date is today, round off to the nearest next half hour using the Round method. Pass that to ComboBoxDateTime
+            ////Loop should run such that only slots till midnight are displayed. Should not run 48 times.
+            //else
+            //{
+            //    DateTime test = Round(DateTime.Now); //Get current time rounded to the next hour
+            //    currentTime = new ComboBoxDateTime(test, use24Hour);
+            //    local_hrs = DateTime.Now.Hour*2; 
+            //}
 
-            for (int i = 0; i < 48 - (local_hrs + 1); i++)
+            for (int i = 0; i < 48; i++)
             {
-                halfHourDateTimes.Add(currentTime);
+                if (currentTime.inner >= DateTime.Now)
+                {
+                    halfHourDateTimes.Add(currentTime);
+                    halfHourDateTimesForEnd.Add(currentTime);
+                }
                 currentTime = new ComboBoxDateTime(currentTime.inner.AddMinutes(30), use24Hour);
             }
+            DateTime midnight = selectedDate.AddDays(1);
+            halfHourDateTimesForEnd.Add(new ComboBoxDateTime(midnight, use24Hour));
             //use the list of times as the list of options for our time boxes
             startTimeBox.DataSource = halfHourDateTimes;
             startTimeBox.DisplayMember = "shortTimeString";
 
             endTimeBox.BindingContext = new BindingContext();
-            endTimeBox.DataSource = halfHourDateTimes;
+            endTimeBox.DataSource = halfHourDateTimesForEnd;
             endTimeBox.DisplayMember = "shortTimeStringForEndBoxes";
 
             //put the time boxes in a tuple to associate them and put it in a list to keep track of it
@@ -237,7 +244,7 @@ namespace WindowsFormsApplication1
                         serializer.Serialize(file, evts);
                     }
                 }
-                MessageBox.Show("Event created!");
+                MessageBox.Show("Event created! You will be added as an attendee to this event.");
 
             }
             catch (Exception ex)
@@ -264,7 +271,7 @@ namespace WindowsFormsApplication1
             ComboBox newEndBox = new ComboBox();
             newEndBox.Text = "End Time";
             newEndBox.BindingContext = new BindingContext();
-            newEndBox.DataSource = halfHourDateTimes;
+            newEndBox.DataSource = halfHourDateTimesForEnd;
             newEndBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             timeBoxes.Add(new Tuple<ComboBox, ComboBox>(newStartBox, newEndBox));
