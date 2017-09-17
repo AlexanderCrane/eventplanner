@@ -25,10 +25,14 @@ namespace WindowsFormsApplication1
         private void loginButton_Click(object sender, EventArgs e)
         {
             //block the user from progressing from the login popup if they haven't entered a name
-            if (usernameBox.TextLength != 0 && usernameBox.Modified)
+            if (usernameBox.TextLength != 0)
             {
                 String userName = usernameBox.Text;
                 this.Hide();
+
+                User login = new User(userName, 0);
+                //login.Login(login);// :)
+
                 MainWindow main = new MainWindow(usernameBox.Text);
                 main.Closed += (s, args) => this.Close();
                 main.ShowDialog();
