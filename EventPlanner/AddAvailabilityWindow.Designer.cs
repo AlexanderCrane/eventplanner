@@ -42,6 +42,7 @@
             this.AttendeesLabel = new System.Windows.Forms.Label();
             this.capacityLabel = new System.Windows.Forms.Label();
             this.capacityBox = new System.Windows.Forms.TextBox();
+            this.capacityWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // saveAvailabilityButton
@@ -176,11 +177,23 @@
             this.capacityBox.Size = new System.Drawing.Size(59, 20);
             this.capacityBox.TabIndex = 12;
             // 
+            // capacityWarning
+            // 
+            this.capacityWarning.AutoSize = true;
+            this.capacityWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capacityWarning.ForeColor = System.Drawing.Color.DarkGray;
+            this.capacityWarning.Location = new System.Drawing.Point(12, 9);
+            this.capacityWarning.Name = "capacityWarning";
+            this.capacityWarning.Size = new System.Drawing.Size(184, 13);
+            this.capacityWarning.TabIndex = 14;
+            this.capacityWarning.Text = "Join Events That Meet Your Schedule";
+            // 
             // AddAvailabilityWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 518);
+            this.Controls.Add(this.capacityWarning);
             this.Controls.Add(this.capacityLabel);
             this.Controls.Add(this.capacityBox);
             this.Controls.Add(this.AttendeesLabel);
@@ -219,5 +232,6 @@
         private System.Windows.Forms.Label AttendeesLabel;
         private System.Windows.Forms.Label capacityLabel;
         private System.Windows.Forms.TextBox capacityBox;
+        private System.Windows.Forms.Label capacityWarning;
     }
 }
