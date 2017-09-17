@@ -185,7 +185,16 @@ namespace WindowsFormsApplication1
         {
             AvailabilityCheckBox cB = new AvailabilityCheckBox();
             cB.associatedDateTime = dTime;
-            cB.Text = dTime.ToShortTimeString();
+            if (!use24Hour)
+            {
+                cB.Text = dTime.ToShortTimeString();
+
+            }
+            else
+            {
+                String dateFormat = "HH:mm";
+                cB.Text = dTime.ToString(dateFormat);
+            }
 
             checkboxList.Add(cB);
             return (cB);
