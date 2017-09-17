@@ -92,6 +92,7 @@
             this.Controls.Add(this.yourEventsBox);
             this.MinimumSize = new System.Drawing.Size(597, 388);
             this.Name = "CheckEventsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckEventsForm";
             this.Load += new System.EventHandler(this.CheckEventsForm_Load);
             this.ResumeLayout(false);

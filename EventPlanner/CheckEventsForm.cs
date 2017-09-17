@@ -73,8 +73,6 @@ namespace WindowsFormsApplication1
             if (File.Exists(path))
             {
                 evtList = JsonConvert.DeserializeObject<List<Event>>(File.ReadAllText(path));
-
-
             }
         }
 
@@ -118,6 +116,8 @@ namespace WindowsFormsApplication1
                                 timeStrings.Add(dt.ToString(dateFormat));
                             }
                         }
+
+
                         attendeesBox.Text += tuple.Item1;
                         attendeesBox.Text += ":";
                         attendeesBox.Text += String.Join(",", timeStrings);

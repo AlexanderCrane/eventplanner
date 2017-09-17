@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPopup));
             this.loginButton = new System.Windows.Forms.Button();
+            this.createAccountButton = new System.Windows.Forms.Button();
             this.userPasswordBox = new CueTextBox();
             this.usernameBox = new CueTextBox();
-            this.createAccountButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginButton
@@ -40,26 +40,10 @@
             this.loginButton.Location = new System.Drawing.Point(75, 69);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
-            this.loginButton.TabIndex = 1;
+            this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            // 
-            // userPasswordBox
-            // 
-            this.userPasswordBox.Cue = "Enter your password...";
-            this.userPasswordBox.Location = new System.Drawing.Point(35, 43);
-            this.userPasswordBox.Name = "userPasswordBox";
-            this.userPasswordBox.Size = new System.Drawing.Size(156, 20);
-            this.userPasswordBox.TabIndex = 2;
-            // 
-            // usernameBox
-            // 
-            this.usernameBox.Cue = "Enter your username...";
-            this.usernameBox.Location = new System.Drawing.Point(35, 12);
-            this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(156, 20);
-            this.usernameBox.TabIndex = 0;
             // 
             // createAccountButton
             // 
@@ -70,6 +54,23 @@
             this.createAccountButton.Text = "Create Account";
             this.createAccountButton.UseVisualStyleBackColor = true;
             this.createAccountButton.Click += new System.EventHandler(this.createAccountButton_Click);
+            // 
+            // userPasswordBox
+            // 
+            this.userPasswordBox.Cue = "Enter your password...";
+            this.userPasswordBox.Location = new System.Drawing.Point(35, 43);
+            this.userPasswordBox.Name = "userPasswordBox";
+            this.userPasswordBox.Size = new System.Drawing.Size(156, 20);
+            this.userPasswordBox.TabIndex = 1;
+            // 
+            // usernameBox
+            // 
+            this.usernameBox.AcceptsTab = true;
+            this.usernameBox.Cue = "Enter your username...";
+            this.usernameBox.Location = new System.Drawing.Point(35, 12);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(156, 20);
+            this.usernameBox.TabIndex = 0;
             // 
             // LoginPopup
             // 

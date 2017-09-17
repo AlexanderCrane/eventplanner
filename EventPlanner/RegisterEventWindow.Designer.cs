@@ -207,6 +207,7 @@
             this.MaximumSize = new System.Drawing.Size(308, 346);
             this.MinimumSize = new System.Drawing.Size(308, 346);
             this.Name = "RegisterEventWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Event";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
