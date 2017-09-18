@@ -35,6 +35,7 @@
             this.AttendeesLabel = new System.Windows.Forms.Label();
             this.attendeesBox = new System.Windows.Forms.TextBox();
             this.BackButton = new System.Windows.Forms.Button();
+            this.dateLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // yourEventsBox
@@ -79,11 +80,21 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(25, 63);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(97, 13);
+            this.dateLabel.TabIndex = 16;
+            this.dateLabel.Text = "Event has no date.";
+            // 
             // CheckEventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 349);
+            this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AttendeesLabel);
             this.Controls.Add(this.attendeesBox);
@@ -105,5 +116,6 @@
         private System.Windows.Forms.Label AttendeesLabel;
         private System.Windows.Forms.TextBox attendeesBox;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Label dateLabel;
     }
 }

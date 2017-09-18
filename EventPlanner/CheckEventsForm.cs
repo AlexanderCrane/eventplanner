@@ -98,6 +98,10 @@ namespace WindowsFormsApplication1
         private void yourEventsBox_SelectedValueChanged(object sender, EventArgs e)
         {
             Event ev = (Event)yourEventsBox.SelectedItem;
+            if (ev.dateTimes != null && ev.dateTimes.Count != 0)
+            {
+                dateLabel.Text = "Date: " + ev.dateTimes[0].Item2.ToShortDateString();
+            }
             TimeSpan duration;
             DateTime start, end;
             Boolean continuous = false;
