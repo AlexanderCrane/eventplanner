@@ -57,10 +57,17 @@ namespace WindowsFormsApplication1
         private void updateAttendees(Event ev)
         {
             attendeesBox.Clear();
+            TimeSpan duration;
+            DateTime start, end;
+            Boolean continuous = false;
             if (ev.attendees != null) {
                 foreach (Tuple<String, List<DateTime>> tuple in ev.attendees)
                 {
-                    List<String> timeStrings = new List<string>();
+                    DateTime[] times = tuple.Item2.ToArray();
+                    int count = 0;
+                    start = tuple.Item2[0];
+                    end = start;
+                    List <String> timeStrings = new List<string>();
                     if (tuple.Item1 == userName)
                     {
                         List<DateTime> yourAttDTs = new List<DateTime>();
@@ -72,16 +79,68 @@ namespace WindowsFormsApplication1
                     }
                     foreach (DateTime dt in tuple.Item2)
                     {
-                        if (!use24Hour)
-                        {
-                            timeStrings.Add(dt.ToShortTimeString());
+
+                            //checking next time exists
+                            if (count + 1 < times.Length)
+                            {
+                                duration = times[count + 1] - dt;
+                                //checking if continuous
+                                if (duration.ToString() == "00:30:00")
+                                {
+                                    end = times[count + 1];
+                                    continuous = true;
+                                    count++;
+                                }
+                                //not coninuous anymore
+                                else
+                                {
+                                    //adding to string in 24 hour or 12 hour format
+                                    if (!use24Hour)
+                                    {
+                                        if (continuous)
+                                            timeStrings.Add(start.ToShortTimeString() + " to " + end.AddMinutes(30).ToShortTimeString());
+                                        else
+                                            timeStrings.Add(start.ToShortTimeString());
+                                    }
+
+                                    else
+                                    {
+                                        String dateFormat = "HH:mm";
+                                        if (continuous)
+                                            timeStrings.Add(start.ToString(dateFormat) + " to " + end.AddMinutes(30).ToString(dateFormat));
+                                        else
+                                            timeStrings.Add(start.ToString(dateFormat));
+                                    }
+
+                                    //trackekrs for print outs
+                                    start = times[count + 1];
+                                    count++;
+                                    continuous = false;
+                                }
+                            }
+                            //end of string of times
+                            else
+                            {
+                                //adding to string in 24 hour or 12 hour format
+                                if (!use24Hour)
+                                {
+                                    if (continuous)
+                                        timeStrings.Add(start.ToShortTimeString() + " to " + end.AddMinutes(30).ToShortTimeString());
+                                    else
+                                        timeStrings.Add(start.ToShortTimeString());
+                                }
+
+                                else
+                                {
+                                    String dateFormat = "HH:mm";
+                                    if (continuous)
+                                        timeStrings.Add(start.ToString(dateFormat) + " to " + end.AddMinutes(30).ToString(dateFormat));
+                                    else
+                                        timeStrings.Add(start.ToString(dateFormat));
+                                }
+                                continuous = false;
+                            }
                         }
-                        else
-                        {
-                            String dateFormat = "HH:mm";
-                            timeStrings.Add(dt.ToString(dateFormat));
-                        }
-                    }
                     attendeesBox.Text += tuple.Item1;
                     attendeesBox.Text += ":";
                     attendeesBox.Text += String.Join(", ", timeStrings);
