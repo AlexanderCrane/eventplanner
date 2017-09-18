@@ -65,7 +65,7 @@ namespace WindowsFormsApplication1
         /// A method to handle the user login process.
         /// </summary>
         /// <param name="checker"></param>
-        public void Login(User checker)
+        public void Login(User checker, LoginPopup login)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace WindowsFormsApplication1
                             //TODO: OTHER LOG IN STUFF
                             //Loading profile?
                             MessageBox.Show("Welcome back, " + checker.userName + "!");
-                            closeLogin();
+                            closeLogin(login);
                         }
                     }
 
@@ -121,7 +121,7 @@ namespace WindowsFormsApplication1
         /// Method to handle the creation of new user accounts.
         /// </summary>
         /// <param name="checker"></param>
-        public void createAccount(User checker)
+        public void createAccount(User checker, LoginPopup login)
         {
             try
             {
@@ -138,7 +138,7 @@ namespace WindowsFormsApplication1
                         serializer.Serialize(file, usr);
                     }
                     MessageBox.Show("You are the first User!");
-                    closeLogin();
+                    closeLogin(login);
                 }
 
                 //search for user, if exists asks for new username.
@@ -168,7 +168,7 @@ namespace WindowsFormsApplication1
                         {
                             serializer.Serialize(file, usr);
                         }
-                        closeLogin();
+                        closeLogin(login);
                         MessageBox.Show("successfully created account!");
                     }
                 }
@@ -185,12 +185,12 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// Close the login popup.
         /// </summary>
-        private void closeLogin()
+        private void closeLogin(LoginPopup login)
         {
             //Call to Main Window which gives the option to create event, check availability, and attend event
-            LoginPopup.ActiveForm.Hide();
+            login.Hide();
             MainWindow main = new MainWindow(userName);
-            main.Closed += (s, args) => LoginPopup.ActiveForm.Close();
+            main.Closed += (s, args) => login.Close();
             main.ShowDialog();
         }
 

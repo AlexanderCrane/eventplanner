@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
 
                 //Call to User to save user related data
                 User login = new User(userName, 0, password, empty, empty);
-                login.Login(login);// :)
+                login.Login(login, this);// :)
             }
             else
             {
@@ -71,7 +71,7 @@ namespace WindowsFormsApplication1
 
                 //Call to User to save user related data
                 User login = new User(userName, 0, password, empty, empty);
-                login.createAccount(login);
+                login.createAccount(login, this);
             }
             else
             {
