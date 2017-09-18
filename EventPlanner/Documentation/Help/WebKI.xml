@@ -15,6 +15,7 @@
   <HelpKINode Title="AddAvailabilityWindow.InitializeComponent method" Url="html/621a33ec-c097-ef2c-fc7c-1d16c4927ba8.htm" />
   <HelpKINode Title="AddAvailabilityWindow.preventHostDelisting method" Url="html/c79a732b-9708-2e4c-8984-d1bfbff1c4df.htm" />
   <HelpKINode Title="AddAvailabilityWindow.saveAvailabilityButton_Click method" Url="html/7fed0da4-c173-e5bf-390d-ea318a8514ff.htm" />
+  <HelpKINode Title="AddAvailabilityWindow.selectAllButton_Click method" Url="html/2cd09134-1587-ff61-a86e-de061720b670.htm" />
   <HelpKINode Title="AddAvailabilityWindow.updateAttendees method" Url="html/1f38ec34-88c7-6e10-22e6-9590a95602f6.htm" />
   <HelpKINode Title="AddAvailabilityWindow.WriteToJSON method" Url="html/488b998c-dcd4-cc75-9e85-e20e9df2325e.htm" />
   <HelpKINode Title="AddCheckbox method" Url="html/945146e9-a54e-cd3d-e147-e48cf2266cd3.htm" />
@@ -44,13 +45,13 @@
   <HelpKINode Title="CheckUnavailableTimes method" Url="html/8bb2d1ae-bd25-9e26-9f09-821feff0bd9b.htm" />
   <HelpKINode Title="clearEventsButton_Click method" Url="html/1d507572-1498-631f-c301-c18d24689afa.htm" />
   <HelpKINode Title="closeButton_Click method" Url="html/57e04719-c8a0-5892-7e80-7e3e7cd904c3.htm" />
-  <HelpKINode Title="closeLogin method" Url="html/c500b106-7191-e4ad-f40c-0d12a1cead71.htm" />
+  <HelpKINode Title="closeLogin method" Url="html/30838ac2-6840-9ab5-5ff5-d8f48cfb68df.htm" />
   <HelpKINode Title="ComboBoxDateTime class">
     <HelpKINode Title="fields" Url="html/9d547717-3d61-9442-dfbd-8deb953123ca.htm" />
     <HelpKINode Title="methods" Url="html/89665f35-6cca-3e77-1f27-eea547a9637f.htm" />
     <HelpKINode Title="properties" Url="html/832f7dab-bfa9-1eec-669a-fc3259b7be4c.htm" />
   </HelpKINode>
-  <HelpKINode Title="createAccount method" Url="html/e1c7c252-92dc-404e-f8a7-373a613439b2.htm" />
+  <HelpKINode Title="createAccount method" Url="html/ff9b4004-bda5-c083-f14b-fb4fdec147a9.htm" />
   <HelpKINode Title="createAccountButton_Click method" Url="html/558d69d6-c070-c44f-0a51-99d9ebf40c38.htm" />
   <HelpKINode Title="currentDateLabel_TextChanged_1 method" Url="html/d25289a2-0ae7-67a8-2d56-687bd1b289e7.htm" />
   <HelpKINode Title="dateTimes field" Url="html/a2c1caaa-528a-6b6b-043d-d05f7f471bda.htm" />
@@ -108,7 +109,7 @@
   </HelpKINode>
   <HelpKINode Title="inner field" Url="html/011dea8f-f158-2c5b-cc81-ba6a9a128722.htm" />
   <HelpKINode Title="location field" Url="html/76ad6fb7-1143-de6e-c3b4-2cd3793798a5.htm" />
-  <HelpKINode Title="Login method" Url="html/54a3d09d-9e3a-e7a5-c956-2492ca4e80ff.htm" />
+  <HelpKINode Title="Login method" Url="html/b1fdc463-b1e3-994f-8afe-8520d588fbc9.htm" />
   <HelpKINode Title="loginButton_Click method" Url="html/aeef1f80-be41-511a-1fa7-59c3dd746d9f.htm" />
   <HelpKINode Title="LoginPopup class">
     <HelpKINode Title="LoginPopup Class" Url="html/67640aa0-cd70-6615-3471-aeac9e2f3b89.htm" />
@@ -136,6 +137,7 @@
   <HelpKINode Title="MainWindow.mainCalendar_DateChanged method" Url="html/d7720ab1-eb5c-c0ec-1b04-89fd6fd571c5.htm" />
   <HelpKINode Title="MainWindow.MainWindow constructor" Url="html/ae4a068c-e86e-c72f-1082-426781476aae.htm" />
   <HelpKINode Title="MainWindow.mainWindow_Load method" Url="html/5ebc1fe9-4b67-8732-df6b-881e3b893f35.htm" />
+  <HelpKINode Title="MainWindow.quitButton_Click method" Url="html/fb67566d-3372-71f9-c185-6c3d4cc61013.htm" />
   <HelpKINode Title="MainWindow.twentyFourCheckbox_CheckedChanged method" Url="html/29ea73e2-cf6d-66be-6a01-373c05d0277d.htm" />
   <HelpKINode Title="mainWindow_Load method" Url="html/5ebc1fe9-4b67-8732-df6b-881e3b893f35.htm" />
   <HelpKINode Title="monthCalendar1_DateSelected method" Url="html/514ac77e-9d93-b124-1ea6-77e40b5d7568.htm" />
@@ -146,6 +148,7 @@
     <HelpKINode Title="CheckEventsForm.pullEventsFromJSON Method " Url="html/03ac480e-2dc7-1977-60f1-d699f7c97dcb.htm" />
     <HelpKINode Title="UserWindow.pullEventsFromJSON Method " Url="html/ffcf7afe-cc2a-2815-1cfb-2c3f9f4d16b3.htm" />
   </HelpKINode>
+  <HelpKINode Title="quitButton_Click method" Url="html/fb67566d-3372-71f9-c185-6c3d4cc61013.htm" />
   <HelpKINode Title="RegisterEventWindow class">
     <HelpKINode Title="RegisterEventWindow Class" Url="html/45c02adb-d405-2355-7fac-d6b04ec1089d.htm" />
     <HelpKINode Title="about RegisterEventWindow class" Url="html/45c02adb-d405-2355-7fac-d6b04ec1089d.htm" />
@@ -175,6 +178,7 @@
   <HelpKINode Title="Round method" Url="html/93c6161e-fca5-f25a-534d-22614d00a3dd.htm" />
   <HelpKINode Title="saveAvailabilityButton_Click method" Url="html/7fed0da4-c173-e5bf-390d-ea318a8514ff.htm" />
   <HelpKINode Title="saveButton_Click method" Url="html/a38ff6ff-f5bc-025d-56c1-39689f9bba6d.htm" />
+  <HelpKINode Title="selectAllButton_Click method" Url="html/2cd09134-1587-ff61-a86e-de061720b670.htm" />
   <HelpKINode Title="setAttendees method" Url="html/19577995-befb-9d6c-cbee-bb3d25e31fee.htm" />
   <HelpKINode Title="setBrief method" Url="html/ed678872-897a-a54c-144f-0474711f1377.htm" />
   <HelpKINode Title="setCapacity method" Url="html/a2d8a136-9494-c655-ff8e-7128191c00e7.htm" />
@@ -197,9 +201,9 @@
     <HelpKINode Title="fields" Url="html/860331e5-d70c-86a9-3cdf-4b2dea0ac05c.htm" />
     <HelpKINode Title="methods" Url="html/ce20788c-4804-1ea9-bcb4-2c5ea14a6f1c.htm" />
   </HelpKINode>
-  <HelpKINode Title="User.closeLogin method" Url="html/c500b106-7191-e4ad-f40c-0d12a1cead71.htm" />
-  <HelpKINode Title="User.createAccount method" Url="html/e1c7c252-92dc-404e-f8a7-373a613439b2.htm" />
-  <HelpKINode Title="User.Login method" Url="html/54a3d09d-9e3a-e7a5-c956-2492ca4e80ff.htm" />
+  <HelpKINode Title="User.closeLogin method" Url="html/30838ac2-6840-9ab5-5ff5-d8f48cfb68df.htm" />
+  <HelpKINode Title="User.createAccount method" Url="html/ff9b4004-bda5-c083-f14b-fb4fdec147a9.htm" />
+  <HelpKINode Title="User.Login method" Url="html/b1fdc463-b1e3-994f-8afe-8520d588fbc9.htm" />
   <HelpKINode Title="User.User constructor" Url="html/3b5b4004-a524-3396-de8d-c1c01e3e28e7.htm" />
   <HelpKINode Title="User.userAttendingEvents field" Url="html/d2647284-17ad-0f09-8e7c-70f27d3dd8d5.htm" />
   <HelpKINode Title="User.userCreatedEvents field" Url="html/be1a59ab-43f2-8cf4-bd94-12268a7184ec.htm" />
