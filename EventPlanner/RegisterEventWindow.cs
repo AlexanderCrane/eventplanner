@@ -160,6 +160,8 @@ namespace WindowsFormsApplication1
                 previousEndTime = endTime;
 
                 dateTimes.Add(new Tuple<DateTime, DateTime>(startTime, endTime));
+                dateTimes.Sort((x, y) => DateTime.Compare(x.Item1, y.Item1));
+
             }
             if (nameTextBox.Text.Length == 0)
             {
