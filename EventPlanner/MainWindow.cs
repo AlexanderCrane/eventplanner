@@ -147,5 +147,10 @@ namespace WindowsFormsApplication1
                 currentDateLabel.Text = "Selected date: " + currentDateLabel.Text;
             }
         }
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

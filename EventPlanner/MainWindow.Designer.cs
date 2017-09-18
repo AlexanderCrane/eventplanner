@@ -37,6 +37,7 @@
             this.twentyFourCheckbox = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.checkEventsButton = new System.Windows.Forms.Button();
+            this.quitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addAvailabilityButton
@@ -91,7 +92,7 @@
             // twentyFourCheckbox
             // 
             this.twentyFourCheckbox.AutoSize = true;
-            this.twentyFourCheckbox.Location = new System.Drawing.Point(281, 255);
+            this.twentyFourCheckbox.Location = new System.Drawing.Point(206, 253);
             this.twentyFourCheckbox.Name = "twentyFourCheckbox";
             this.twentyFourCheckbox.Size = new System.Drawing.Size(123, 17);
             this.twentyFourCheckbox.TabIndex = 7;
@@ -101,7 +102,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 246);
+            this.button1.Location = new System.Drawing.Point(18, 249);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 26);
@@ -120,11 +121,22 @@
             this.checkEventsButton.UseVisualStyleBackColor = true;
             this.checkEventsButton.Click += new System.EventHandler(this.checkEventsButton_Click);
             // 
+            // quitButton
+            // 
+            this.quitButton.Location = new System.Drawing.Point(335, 249);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(75, 23);
+            this.quitButton.TabIndex = 10;
+            this.quitButton.Text = "Quit";
+            this.quitButton.UseVisualStyleBackColor = true;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 283);
+            this.Controls.Add(this.quitButton);
             this.Controls.Add(this.checkEventsButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.twentyFourCheckbox);
@@ -154,6 +166,7 @@
         private System.Windows.Forms.CheckBox twentyFourCheckbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button checkEventsButton;
+        private System.Windows.Forms.Button quitButton;
     }
 }
 

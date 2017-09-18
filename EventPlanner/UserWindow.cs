@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         private string userName;
         private string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\eventSaveFile.json";
 
-        private List<Event> evtList;// = new List<Event>();
+        private List<Event> evtList = new List<Event>();
         private List<Event> dayEvents = new List<Event>();
         AgendaTextBox[] TextBoxArray = new AgendaTextBox[48];
 
@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < 48; i++)
             {
-                AgendaTextBox text = TextBoxArray[i];
+               AgendaTextBox text = TextBoxArray[i];
                 text.Text = "";
                 text.associatedEvents.Clear();
                 String eventText = "";
@@ -126,14 +126,17 @@ namespace WindowsFormsApplication1
                 dayEvents.Clear();
             }
             //dayEvents
-            foreach (Event evt in evtList)
+            if (evtList != null)
             {
-                for (int i = 0; i < evt.dateTimes.Count; i++)
+                foreach (Event evt in evtList)
                 {
-                    if (currentTime.Day == evt.dateTimes[i].Item1.Day)
+                    for (int i = 0; i < evt.dateTimes.Count; i++)
                     {
-                       dayEvents.Add(evt);
-                        break;
+                        if (currentTime.Day == evt.dateTimes[i].Item1.Day)
+                        {
+                            dayEvents.Add(evt);
+                            break;
+                        }
                     }
                 }
             }
@@ -150,11 +153,6 @@ namespace WindowsFormsApplication1
         private void UserWindow_Load(object sender, EventArgs e)
         {
             DateTime currentTime = startingDate;
-
-            monthCalendar1.SelectionStart = startingDate;
-            monthCalendar1.SelectionEnd = startingDate;
-            currentDateLabel.Text = startingDate.ToShortDateString();
-
             if (File.Exists(path))
             {
                 pullEventsFromJSON();
@@ -234,6 +232,9 @@ namespace WindowsFormsApplication1
                 flowLayoutPanel1.Controls.Add(text);
                 currentTime = currentTime.AddMinutes(30);
             }
+            monthCalendar1.SelectionStart = startingDate;
+            monthCalendar1.SelectionEnd = startingDate;
+            currentDateLabel.Text = startingDate.ToShortDateString();
         }
 
         /// <summary>
