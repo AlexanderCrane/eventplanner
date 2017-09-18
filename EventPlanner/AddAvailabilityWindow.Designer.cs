@@ -43,11 +43,12 @@
             this.capacityLabel = new System.Windows.Forms.Label();
             this.capacityBox = new System.Windows.Forms.TextBox();
             this.capacityWarning = new System.Windows.Forms.Label();
+            this.selectAllButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // saveAvailabilityButton
             // 
-            this.saveAvailabilityButton.Location = new System.Drawing.Point(78, 484);
+            this.saveAvailabilityButton.Location = new System.Drawing.Point(153, 484);
             this.saveAvailabilityButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveAvailabilityButton.Name = "saveAvailabilityButton";
             this.saveAvailabilityButton.Size = new System.Drawing.Size(118, 23);
@@ -188,11 +189,22 @@
             this.capacityWarning.TabIndex = 14;
             this.capacityWarning.Text = "Join Events That Meet Your Schedule";
             // 
+            // selectAllButton
+            // 
+            this.selectAllButton.Location = new System.Drawing.Point(23, 484);
+            this.selectAllButton.Name = "selectAllButton";
+            this.selectAllButton.Size = new System.Drawing.Size(75, 23);
+            this.selectAllButton.TabIndex = 15;
+            this.selectAllButton.Text = "Select All";
+            this.selectAllButton.UseVisualStyleBackColor = true;
+            this.selectAllButton.Click += new System.EventHandler(this.selectAllButton_Click);
+            // 
             // AddAvailabilityWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 518);
+            this.Controls.Add(this.selectAllButton);
             this.Controls.Add(this.capacityWarning);
             this.Controls.Add(this.capacityLabel);
             this.Controls.Add(this.capacityBox);
@@ -233,5 +245,6 @@
         private System.Windows.Forms.Label capacityLabel;
         private System.Windows.Forms.TextBox capacityBox;
         private System.Windows.Forms.Label capacityWarning;
+        private System.Windows.Forms.Button selectAllButton;
     }
 }

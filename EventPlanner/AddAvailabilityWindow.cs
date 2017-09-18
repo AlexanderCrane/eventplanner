@@ -314,5 +314,16 @@ namespace WindowsFormsApplication1
                 serializer.Serialize(file, allEvents);
             }
         }
+
+        private void selectAllButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < checkboxList.Count; i++)
+            {
+                if (!checkboxList[i].Checked)
+                {
+                    checkboxList[i].Checked = true;
+                }
+            }
+        }
     }
 }
